@@ -1,5 +1,5 @@
 import path from 'path'
-// import babel from '@rollup/plugin-babel'
+import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 
@@ -59,6 +59,11 @@ if (pkg.module) {
 //   console.log(output);
 // }
 
+var babelConfig = {};
+babelConfig = {
+  babelHelpers: 'bundled'
+}
+
 module.exports = {
   input: inputPath,
   output: output,
@@ -70,5 +75,6 @@ module.exports = {
       }
     ),
     commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
+    babel(babelConfig),
   ]
 };

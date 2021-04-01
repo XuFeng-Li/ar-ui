@@ -1,7 +1,7 @@
 function logPerson(person) {
   console.log("***********************");
-  console.log("persion name is : ",person.name);
-  console.log("persion age is : ",person.age);
+  console.log("persion name is : ", person.name);
+  console.log("persion age is : ", person.age);
 }
 
 export { logPerson };
