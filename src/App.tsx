@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+// import {logPerson} from "@ar/util";
 
 function App() {
+
+  // console.log("********************* ");
+  // logPerson({
+  //   name:"Tom",
+  //   age:22
+  // });
   return (
     <div className="App">
       <header className="App-header">
