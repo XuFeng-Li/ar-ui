@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-// @ts-ignore
-import {logPerson,Person} from "@ar/util";
+import {logPerson} from "@ar/util";
 
 function App() {
 
@@ -14,7 +13,7 @@ function App() {
           fontSize:"30px"
         }}
         onClick={()=>{
-          const persion:Person = {
+          const persion = {
             name:"Tom",
             age:22
           };

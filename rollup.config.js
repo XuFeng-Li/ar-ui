@@ -3,6 +3,7 @@ import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from "@rollup/plugin-typescript";
+import {terser} from "rollup-plugin-terser";
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 console.log("*****************************  rollup.config.js");
@@ -36,22 +37,19 @@ if (pkg.module) {
     }
   ];
 }
-// if (pkg.min && pkg.minName) {
-//   output = [
-//     ...output,
-//     {
-//       file: pkg.min,
-//       format:'umd',
-//       sourcemap:false,
-//       name:pkg.minName,
-//       plugins:[
-//         terser()
-//       ]
-//     }
-//   ];
-//   console.log("********************  min");
-//   console.log(output);
-// }
+if (pkg.typings) {
+  output = [
+    ...output,
+    {
+      file: pkg.typings,
+      // format:'umd',
+      sourcemap:false,
+      plugins:[
+
+      ]
+    }
+  ];
+}
 
 let babelConfig = {};
 babelConfig = {
@@ -61,15 +59,18 @@ babelConfig = {
 module.exports = {
   input: inputPath,
   output: output,
+  clean:true,
   external: externals,
   plugins: [
+    typescript({
+    }),
     resolve(
       {
         extensions,
       }
     ),
     commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
-    typescript(),
     babel(babelConfig),
+    terser()
   ]
 };

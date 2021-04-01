@@ -10,14 +10,15 @@
   "license": "ISC",
   "input": "src/index.tsx",
   "main": "dist/index.js",
-  "module": "dist/es/index.es.js",
-  "min": "dist/index.min.js",
+  "module": "dist/index.es.js",
+  "typings": "dist/index.d.ts",
+  "minName": "util",
   "directories": {
     "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"

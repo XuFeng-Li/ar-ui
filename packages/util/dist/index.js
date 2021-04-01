@@ -1,11 +1,1 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function logPerson(person) {
-    console.log("***********************");
-    console.log("persion name is : ", person.name);
-    console.log("persion age is : ", person.age);
-}
-
-exports.logPerson = logPerson;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.logPerson=function(e){console.log("***********************"),console.log("persion name is : ",e.name),console.log("persion age is : ",e.age)};
