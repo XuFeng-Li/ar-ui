@@ -2,22 +2,20 @@ import path from 'path'
 import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import typescript from "@rollup/plugin-typescript";
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 console.log("*****************************  rollup.config.js");
 const packagePath = process.cwd();
 const pkgPath = path.resolve(packagePath, './package.json');
 const pkg = require(pkgPath);
-console.log(packagePath);
 const inputPath = path.join(packagePath, pkg.input || "./src/index.js");
-console.log("*****************************");
-console.log(inputPath);
 
 const externals = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
 ];
-var output = [];
+let output = [];
 if (pkg.main) {
   output = [
     ...output,
@@ -27,8 +25,6 @@ if (pkg.main) {
       sourcemap: false,
     }
   ];
-  console.log("********************  main");
-  console.log(output);
 }
 if (pkg.module) {
   output = [
@@ -39,8 +35,6 @@ if (pkg.module) {
       sourcemap: false,
     }
   ];
-  console.log("********************  module");
-  console.log(output);
 }
 // if (pkg.min && pkg.minName) {
 //   output = [
@@ -59,7 +53,7 @@ if (pkg.module) {
 //   console.log(output);
 // }
 
-var babelConfig = {};
+let babelConfig = {};
 babelConfig = {
   babelHelpers: 'bundled'
 }
@@ -75,6 +69,7 @@ module.exports = {
       }
     ),
     commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
+    typescript(),
     babel(babelConfig),
   ]
 };
