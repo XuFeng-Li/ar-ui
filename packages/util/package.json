@@ -8,7 +8,10 @@
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
   "license": "ISC",
-  "main": "src/index.tsx",
+  "input": "src/main.js",
+  "main": "dist/index.js",
+  "module": "dist/es/index.es.js",
+  "min": "dist/index.min.js",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -24,7 +27,9 @@
     "url": "git+https://github.com/XuFeng-Li/ar-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "module": "dist/es/index.es.js",
+    "rollup": "rollup -c ../../rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/XuFeng-Li/ar-ui/issues"

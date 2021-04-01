@@ -1,31 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {logPerson} from "@ar/util";
+// @ts-ignore
+import {logPerson,Person} from "@ar/util";
 
 function App() {
 
-  console.log("********************* ");
-  logPerson({
-    name:"Tom",
-    age:22
-  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        style={{
+          background:'#ABCD09',
+          color:"#FFFFFF",
+          fontSize:"30px"
+        }}
+        onClick={()=>{
+          const persion:Person = {
+            name:"Tom",
+            age:22
+          };
+          logPerson(persion);
+        }}
+      >
+        button action
+      </button>
     </div>
   );
 }
