@@ -4,6 +4,8 @@ echo "******************************************"
 echo ""
 echo ""
 
+ENV_PRO=$1
+
 Path=`pwd`;
 PackagesPath=${Path}/packages;
 PackagesList=$(ls $PackagesPath);
@@ -13,7 +15,7 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo "building " ${PackageName}
 PackagePath=${PackagesPath}/${PackageName}
 cd ${PackagePath}
-yarn rollup
+yarn rollup --env ${ENV_PRO}
 cd ..
 done
 echo ""
