@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import './App.css';
-import {logPerson} from "@ar/util";
+import {fixedZero} from "@ar/util";
 
 function App() {
 
@@ -13,11 +13,8 @@ function App() {
           fontSize:"30px"
         }}
         onClick={()=>{
-          const persion = {
-            name:"Tom",
-            age:22
-          };
-          logPerson(persion);
+          const str = fixedZero(2);
+          console.log(str);
         }}
       >
         button action

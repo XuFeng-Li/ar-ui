@@ -4,7 +4,9 @@ export interface Person {
   name: string | undefined;
   age:number | undefined;
 }
-
+export function fixedZero(val:number) {
+  return val < 10 ? `0${val}` : val;
+}
 export function logPerson(person:Person) {
   console.log("***********************");
   console.log("persion name is : ",person.name);
