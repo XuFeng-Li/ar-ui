@@ -1,6 +1,6 @@
 // import React from 'react';
 import './App.css';
-import {fixedZero} from "@ar/util";
+import {fixedZero,UtilRoundType} from "@ar/util";
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
           fontSize:"30px"
         }}
         onClick={()=>{
-          const str = fixedZero(2);
+          const str = fixedZero(3.4,10,UtilRoundType.Up);
           console.log(str);
         }}
       >
