@@ -24,6 +24,7 @@ if (pkg.main) {
       file: pkg.main,
       format: 'cjs', // 输出文件格式为CommonJS
       sourcemap: false,
+      exports: 'auto'
     }
   ];
 }
@@ -37,15 +38,14 @@ if (pkg.module) {
     }
   ];
 }
-if (pkg.typings) {
+if (pkg.types) {
   output = [
     ...output,
     {
-      file: pkg.typings,
+      file: pkg.types,
       // format:'umd',
       sourcemap:false,
       plugins:[
-
       ]
     }
   ];
@@ -59,7 +59,6 @@ babelConfig = {
 module.exports = {
   input: inputPath,
   output: output,
-  clean:true,
   external: externals,
   plugins: [
     typescript({
@@ -71,6 +70,6 @@ module.exports = {
     ),
     commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
     babel(babelConfig),
-    terser()
+    // terser()
   ]
 };

@@ -1,7 +1,8 @@
+import {parse, stringify} from 'qs';
 
 export interface Person {
-  name:string,
-  age:number
+  name: string | undefined;
+  age:number | undefined;
 }
 
 export function logPerson(person:Person) {
