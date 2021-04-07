@@ -1,11 +1,17 @@
 // import React from 'react';
 import './App.css';
-import {fixedZero,UtilRoundType} from "@ar/util";
+import {fixedZero,UtilRoundType,formatWan} from "@ar/util";
 
 function App() {
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        display:'flex',
+        flexDirection:'column'
+      }}
+    >
       <button
         style={{
           background:'#ABCD09',
@@ -19,6 +25,7 @@ function App() {
       >
         button action
       </button>
+      {formatWan(999,UtilRoundType.Round)}
     </div>
   );
 }
