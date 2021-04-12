@@ -4078,6 +4078,12 @@ var jsxRuntime = createCommonjsModule(function (module) {
   }
 });
 
+/**
+ * UtilRoundType 取整类型
+ * Up 向上取整
+ * Down 向下取整
+ * Round 四舍五入
+ * */
 exports.UtilRoundType = void 0;
 (function (UtilRoundType) {
     UtilRoundType[UtilRoundType["Up"] = 1] = "Up";
@@ -4235,8 +4241,139 @@ function formatWan(val, roundType) {
                     marginLeft: 2,
                 } }, { children: "\u4E07" }), void 0)] }, void 0));
 }
+// 给官方演示站点用，用于关闭真实开发环境不需要使用的特性
+function isAntdPro() {
+    return window.location.hostname === "preview.pro.ant.design";
+}
+// 类型判断
+var isType = function (type) { return function (obj) { return obj != null && Object.prototype.toString.call(obj) === "[object " + type + "]"; }; };
+var isFn = isType('Function');
+var isArr = Array.isArray || isType('Array');
+var isPlainObj = isType('Object');
+var isStr = isType('String');
+var isBool = isType('Boolean');
+var isNum = isType('Number');
+var isObj = function (val) { return typeof val === 'object'; };
+var isRegExp = isType('RegExp');
+var isEmpty = function (val) {
+    return !val && !isNum(val);
+};
+var isEmptyArr = function (list) {
+    if (!isArr(list))
+        return false;
+    return list.every(function (ele) { return isEmpty(ele); });
+};
+var filterRender = function (val, children) {
+    return isEmpty(val) ? '--' : children || val;
+};
+var filterEmptyAttr = function (obj) {
+    if (!isObj(obj))
+        return obj;
+    Object.keys(obj).forEach(function (ele) {
+        if (isEmpty(obj[ele]))
+            delete obj[ele];
+    });
+    return obj;
+};
+/**
+ * 例如
+ * https://XXX/测试文件_6bd8d67918157897f68728b369caaa14.jpeg  ===> 测试文件.jpeg
+ * https://XXX/6bd8d67918157897f68728b369caaa14.jpeg  ===> 6bd8d67918157897f68728b369caaa14.jpeg
+ */
+function simplifyFileName(url, code) {
+    if (!isStr(url)) {
+        return url;
+    }
+    var index = url.indexOf('_');
+    var nameStartIndex = url.lastIndexOf('/');
+    if (index < 0) {
+        return url.substring(nameStartIndex + 1); // 直接返回文件名
+    }
+    var extensionName = url.substring(url.lastIndexOf('.')); // 扩展名
+    var nameEndIndex = url.lastIndexOf('_');
+    var retStr = url.substring(nameStartIndex + 1, nameEndIndex);
+    if (code !== 4) {
+        return retStr + extensionName.substring(0, extensionName.indexOf('?'));
+    }
+    return retStr + extensionName;
+}
+// 后台返回的是 [url], 转化成 {url: '', name: '', status: 'done', uid: ''} 的形式
+function simplifyUrlMapToFileList(arr, code) {
+    if (!arr || !arr.length) {
+        return arr;
+    }
+    if (typeof arr === 'string') {
+        arr = [arr];
+    }
+    return arr.map(function (urlStr, i) {
+        if (!isStr(urlStr)) {
+            return urlStr;
+        }
+        return {
+            "uid": -i + 10,
+            "status": 'done',
+            "name": simplifyFileName(urlStr, code),
+            'url': urlStr
+        };
+    });
+}
+// 后台返回的是 [url], 转化成 {url: '', name: '', status: 'done', uid: ''} 的形式
+function urlMapToFileList(arr) {
+    if (!arr || !arr.length)
+        return arr;
+    if (typeof arr === 'string') {
+        arr = [arr];
+    }
+    return arr.map(function (urlStr, i) {
+        if (!isStr(urlStr))
+            return urlStr;
+        var index = urlStr.lastIndexOf('/');
+        return {
+            "uid": -i + 10,
+            "status": "done",
+            "name": urlStr.substring(index + 1),
+            "url": urlStr
+        };
+    });
+}
+// 返回url对应的文件名
+function urlMapToFile(urlStr) {
+    if (!isStr(urlStr))
+        return urlStr;
+    var index = urlStr.lastIndexOf('/');
+    return urlStr.substring(index + 1);
+}
+function fileListTourlMap(arr) {
+    if (!arr || !arr.length) {
+        return arr;
+    }
+    var data = arr.map(function (ele) { return ele.url || null; });
+    return data.filter(function (ele) { return ele; });
+}
+function transformServerDataForDefaultTreeData(data) {
+    var Tdata = {};
+    var childMeun = [];
+    var childFunList = [];
+    Tdata.title = data.name;
+    Tdata.value = data.token;
+    Tdata.key = data.token;
+    Tdata.children = [];
+    if (data.childMenuDefList && data.childMenuDefList.length) {
+        childMeun = data.childMenuDefList.map(function (chidData) {
+            return transformServerDataForDefaultTreeData(chidData);
+        });
+    }
+    if (data.funList && data.funList.length) {
+        childFunList = data.funList.map(function (chidData) { return transformServerDataForDefaultTreeData(chidData); });
+    }
+    Tdata.children = Tdata.children.concat(childMeun).concat(childFunList);
+    return Tdata;
+}
 
 exports.arRoundNum = arRoundNum;
+exports.fileListTourlMap = fileListTourlMap;
+exports.filterEmptyAttr = filterEmptyAttr;
+exports.filterRender = filterRender;
 exports.fixedZero = fixedZero;
 exports.formatWan = formatWan;
 exports.getPageQuery = getPageQuery;
@@ -4245,4 +4382,20 @@ exports.getQueryPath = getQueryPath;
 exports.getRelation = getRelation;
 exports.getRenderArr = getRenderArr;
 exports.getRoutes = getRoutes;
+exports.isAntdPro = isAntdPro;
+exports.isArr = isArr;
+exports.isBool = isBool;
+exports.isEmpty = isEmpty;
+exports.isEmptyArr = isEmptyArr;
+exports.isFn = isFn;
+exports.isNum = isNum;
+exports.isObj = isObj;
+exports.isPlainObj = isPlainObj;
+exports.isRegExp = isRegExp;
+exports.isStr = isStr;
 exports.isUrl = isUrl;
+exports.simplifyFileName = simplifyFileName;
+exports.simplifyUrlMapToFileList = simplifyUrlMapToFileList;
+exports.transformServerDataForDefaultTreeData = transformServerDataForDefaultTreeData;
+exports.urlMapToFile = urlMapToFile;
+exports.urlMapToFileList = urlMapToFileList;
