@@ -26,6 +26,12 @@ var __assign = function() {
     return __assign.apply(this, arguments);
 };
 
+function __spreadArray(to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+}
+
 function createCommonjsModule(fn) {
   var module = { exports: {} };
 	return fn(module, module.exports), module.exports;
@@ -4365,5 +4371,544 @@ function transformServerDataForDefaultTreeData(data) {
     Tdata.children = Tdata.children.concat(childMeun).concat(childFunList);
     return Tdata;
 }
+function trim(str) {
+    if (str === void 0) { str = ''; }
+    if (!isStr(str))
+        return str;
+    return str.replace(/^\s+|\s+$/g, '');
+}
+function beforeTrim(str) {
+    if (str === void 0) { str = ''; }
+    return str.replace(/^\s+/g, '');
+}
+function trimFormValue(formDate, excludeArr) {
+    if (excludeArr === void 0) { excludeArr = []; }
+    var copyFormDate = __assign({}, formDate);
+    Object.keys(copyFormDate).forEach(function (ele) {
+        if (excludeArr.includes(copyFormDate[ele]))
+            return;
+        if (typeof copyFormDate[ele] === 'string') {
+            copyFormDate[ele] = trim(copyFormDate[ele]);
+        }
+    });
+    return copyFormDate;
+}
+function mapToObject(list, key) {
+    if (!list || !list.length)
+        return list;
+    var data = Object.create({});
+    list.forEach(function (ele) {
+        var validKey = ele[key];
+        if (validKey && typeof validKey === 'string') {
+            data[validKey] = ele;
+        }
+    });
+    return data;
+}
+function beforeFieldsToRedux(fields, actions) {
+    if (actions === void 0) { actions = undefined; }
+    if (!fields)
+        return fields;
+    var backData = Object.create({});
+    var isOrigin = true;
+    var fAction = isArr(actions);
+    Object.keys(fields).forEach(function (ele, i) {
+        var data = fields[ele];
+        if (!fAction) {
+            if (data.name && isOrigin) {
+                backData[ele] = data.value;
+            }
+            else {
+                isOrigin = false;
+                backData[data.name || ele] = beforeFieldsToRedux(backData[ele]);
+            }
+        }
+        else {
+            var toAddAttr = true;
+            if (data.name) {
+                for (var _i = 0, actions_1 = actions; _i < actions_1.length; _i++) {
+                    var ac = actions_1[_i];
+                    if (!data[ac]) {
+                        toAddAttr = false;
+                        break;
+                    }
+                }
+            }
+            if (toAddAttr) {
+                if (data.name && isOrigin) {
+                    backData[data.name || ele] = data.value;
+                }
+                else if (data.name && !isOrigin) {
+                    backData[ele] = data.value;
+                }
+                else {
+                    isOrigin = false;
+                    backData[data.name || ele] = beforeFieldsToRedux(data);
+                }
+            }
+        }
+    });
+    return backData;
+}
+// 添加了dirty和touched判断
+function fieldsToRedux(fields) {
+    return beforeFieldsToRedux(fields, ['touched', 'dirty']);
+}
+function assignObj(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+function arrayFilterSame(list) {
+    if (!list || !list.length)
+        return;
+    var hasMap = Object.create({});
+    var backList = [];
+    list.forEach(function (ele) {
+        if (!hasMap[ele]) {
+            backList.push(ele);
+        }
+        hasMap[ele] = ele;
+    });
+    return backList;
+}
+function arrayDelOne(list, one, changeOrigin) {
+    if (!list || !list.length)
+        return list;
+    var index = list.indexOf(one);
+    if (index === -1)
+        return list;
+    if (changeOrigin) {
+        list.splice(index, 1);
+        return list;
+    }
+    var copyList = __spreadArray([], list);
+    copyList.splice(index, 1);
+    return copyList;
+}
+function arrayHasSame(list) {
+    if (!list || !list.length)
+        return false;
+    var hasMap = Object.create({});
+    var hasSame = false;
+    for (var i = 0; i < list.length; i++) {
+        var value = list[i];
+        if (hasMap[value]) {
+            hasSame = true;
+            break;
+        }
+        hasMap[value] = value;
+    }
+    return hasSame;
+}
+// 获取深层object指定的值
+function findDataByKey(data, key) {
+    if (!key)
+        return data;
+    var keys = key.split('.');
+    var backData = data;
+    for (var i = 0; i < keys.length; i++) {
+        if (!backData[keys[i]])
+            break;
+        backData = data[keys[i]];
+    }
+    return backData;
+}
+// 分转化为元
+function MinuteToyuan(value) {
+    if (value === null)
+        return value;
+    return value / 100;
+}
+function YuanAndMinuteReverse(data, keys, backYuan) {
+    if (!keys)
+        return data;
+    for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var value = null;
+        if (backYuan) {
+            value = MinuteToyuan(data[key]);
+        }
+        else {
+            value = yuan2fen(data[key]);
+        }
+        if (key in data) {
+            data[key] = value;
+        }
+    }
+}
+function minuteToyuanStr(minute, noText) {
+    var text = noText ? '' : ' 元';
+    if (!minute)
+        return "0.00" + text;
+    var yuanStr = "" + minute / 100;
+    var yuans = yuanStr.split('.');
+    var yuanPart = yuans[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return yuanPart + "." + (yuans[1] ? (yuans[1] + "00").substring(0, 2) : '00') + text;
+}
+// 分转元
+var fen2yuan = function (fen, len) {
+    if (len === void 0) { len = 2; }
+    var flag = /[￥¥]/.test("" + fen);
+    var money = (parseInt(fen, 10) / 100).toFixed(len) || '0';
+    return flag ? "\u00A5" + money : money;
+};
+// 元转分
+var yuan2fen = function (yuan) {
+    var flag = /[￥¥]/.test("" + yuan);
+    var money = (+yuan * 100).toFixed(0) || '0';
+    return flag ? "\u00A5" + money : money;
+};
+// 分转万
+var fen2wan = function (fen, len) {
+    if (len === void 0) { len = 1; }
+    var flag = /[￥¥]/.test("" + fen);
+    var money = (Math.floor((parseInt(fen, 10) / 1000000) * 10) / 10).toFixed(len) || '0';
+    return flag ? "\u00A5" + money : money;
+};
+function getYuanStr(yuan, noText) {
+    var text = noText ? '' : ' 元';
+    if (!yuan)
+        return "0.00" + text;
+    var yuanStr = "" + yuan;
+    var yuans = yuanStr.split('.');
+    var yuanPart = yuans[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return yuanPart + "." + (yuans[1] ? (yuans[1] + "00").substring(0, 2) : '00') + text;
+}
+function valuesToFileds(values) {
+    if (!values || !isObj(values))
+        return values;
+    var backData = Object.create({});
+    Object.keys(values).forEach(function (ele) {
+        backData[ele] = { value: values[ele] };
+    });
+    return backData;
+}
+// 选取 object的部分属性
+var pickSomeAttr = function (obj, attrs) {
+    if (attrs === void 0) { attrs = []; }
+    if (!obj)
+        return obj;
+    var backObj = Object.create({});
+    var deepCopyObj = assignObj(obj);
+    attrs.forEach(function (ele, i) {
+        backObj[ele] = deepCopyObj[ele];
+    });
+    return backObj;
+};
+// eg: mapObj==> {id: 'value', list='children', name: 'title'} 映射一些属性值 **
+var mapSomeAttr = function (obj, mapObj, extendObjFn) {
+    if (mapObj === void 0) { mapObj = Object.create({}); }
+    if (!obj)
+        return obj;
+    var backObj = null;
+    var keys = Object.keys(mapObj);
+    var mapObjToNew = function (data, leval) {
+        if (leval === void 0) { leval = undefined; }
+        var backData = Object.create({});
+        if (isFn(extendObjFn)) {
+            backData = extendObjFn(leval, data) || {};
+        }
+        for (var i = 0; i < keys.length; i++) {
+            if (!(keys[i] in data))
+                continue;
+            var key = keys[i];
+            var mapKey = mapObj[key];
+            var value = data[key];
+            if (isArr(value) && key !== 'all_connect') {
+                backData[mapKey] = value.map(function (ele) { return mapObjToNew(ele, (leval || 0) + 1); });
+            }
+            else {
+                backData[mapKey] = value;
+            }
+        }
+        return backData;
+    };
+    if (isArr(obj)) {
+        backObj = obj.map(function (ele) { return mapObjToNew(ele, 1); });
+    }
+    else {
+        backObj = mapObjToNew(obj);
+    }
+    return backObj;
+};
+// eg: mapObj==> {id: 'value', list='children', name: 'title'} 映射一些属性值 **
+var mapSomeAttrWithParents = function (obj, mapObj, pMap, key) {
+    if (mapObj === void 0) { mapObj = Object.create({}); }
+    if (pMap === void 0) { pMap = []; }
+    if (!obj)
+        return obj;
+    var backObj = null;
+    var keyMap = Object.create({});
+    var keys = Object.keys(mapObj);
+    var mapObjToNew = function (data, leval, pdata) {
+        if (leval === void 0) { leval = undefined; }
+        if (pdata === void 0) { pdata = undefined; }
+        var backData = Object.create({});
+        var pickObj = pickSomeAttr(data, pMap);
+        if (pdata) {
+            backData.all_connect = __spreadArray(__spreadArray([], pdata), [pickObj]);
+        }
+        else {
+            backData.all_connect = [pickObj];
+        }
+        keyMap[data[key]] = backData.all_connect;
+        for (var i = 0; i < keys.length; i++) {
+            if (!(keys[i] in data))
+                continue;
+            var keyValue = keys[i];
+            var mapKey = mapObj[keyValue];
+            var value = data[keyValue];
+            if (isArr(value)) {
+                backData[mapKey] = value.map(function (ele) { return mapObjToNew(ele, (leval || 0) + 1, backData.all_connect); });
+            }
+            else {
+                backData[mapKey] = "" + value;
+            }
+        }
+        return backData;
+    };
+    if (isArr(obj)) {
+        backObj = obj.map(function (ele) { return mapObjToNew(ele, 1); });
+    }
+    else {
+        backObj = mapObjToNew(obj);
+    }
+    return { backData: backObj, keyMap: keyMap };
+};
+var pickListSomeAttr = function (list, attrs) {
+    if (attrs === void 0) { attrs = []; }
+    if (isArr(list)) {
+        return list.map(function (ele) { return pickSomeAttr(ele, attrs); });
+    }
+};
+var pickAttr = function (obj, attrs) {
+    if (attrs === void 0) { attrs = []; }
+    var backData = null;
+    if (isArr(obj)) {
+        backData = pickListSomeAttr(obj, attrs);
+    }
+    else {
+        backData = pickSomeAttr(obj, attrs);
+    }
+    return backData;
+};
+var getSearchFormProperties = function (columns, extendFields, filter) {
+    if (extendFields === void 0) { extendFields = {}; }
+    var columnsFields = columns.filter(function (ele) {
+        if (filter) {
+            return filter(ele.fieldProps, ele);
+        }
+        return ele.fieldProps;
+    });
+    var jsonSchemaProperties = Object.create({});
+    columnsFields.forEach(function (ele) {
+        var data = pickSomeAttr(ele, ['title', 'dataIndex', 'fieldProps']);
+        var filed = __assign({ dataIndex: data.dataIndex, name: data.dataIndex, title: data.title }, data.fieldProps);
+        jsonSchemaProperties[filed.dataIndex] = filed;
+    });
+    return __assign(__assign({}, jsonSchemaProperties), extendFields);
+};
+var validateFormListFields = function (formMaps) {
+    if (!isPlainObj(formMaps)) {
+        return null;
+    }
+    var error = false;
+    var values = [];
+    Object.keys(formMaps).forEach(function (ele) {
+        formMaps[ele].validateFields(function (hasErr, value) {
+            if (hasErr) {
+                error = true;
+                values.push(__assign(__assign({}, value), { error: error }));
+            }
+            else {
+                values.push(__assign({}, value));
+            }
+        });
+    });
+    return {
+        error: error,
+        values: values,
+    };
+};
+var extendXprops = function (columns, name, extendData) {
+    var objMap = mapToObject(columns, 'dataIndex');
+    if (objMap[name]) {
+        var data = objMap[name].fieldProps['x-props'];
+        objMap[name].fieldProps['x-props'] = __assign(__assign({}, data), extendData);
+    }
+};
+var doneMaxDo = function (num, callback) {
+    var time = 0;
+    var values = [];
+    return function (value) {
+        time += 1;
+        values.push(value);
+        if (time === num && callback) {
+            callback(values);
+        }
+    };
+};
+var stringifySome = function (data, keys) {
+    if (!isObj(data))
+        return;
+    if (isArr(keys)) {
+        keys.forEach(function (ele) {
+            if (isObj(data[ele])) {
+                data[ele] = JSON.stringify(data[ele]);
+            }
+        });
+    }
+    else {
+        Object.keys(data).forEach(function (ele) {
+            var value = data[ele];
+            if (isObj(value)) {
+                data[ele] = JSON.stringify(value);
+            }
+        });
+    }
+    // eslint-disable-next-line consistent-return
+    return data;
+};
+var dateSplit = function (data, noTime) {
+    if (!data)
+        return data;
+    var _a = data.split(' '), da = _a[0], time = _a[1];
+    return noTime ? (jsxRuntime.jsx("span", { children: da }, void 0)) : (jsxRuntime.jsxs("span", { children: [da, jsxRuntime.jsx("br", {}, void 0), time] }, void 0));
+};
+var strSplit = function (str, number, ellipsis) {
+    if (typeof str !== 'string')
+        return str;
+    var length = str.length;
+    if (length > number) {
+        var formatedStr = str.slice(0, number) + "...";
+        return formatedStr;
+    }
+    return str;
+};
+var isImage = function (value) {
+    var exp = /\w(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/i;
+    return exp.test(value);
+};
+var listPlusByKey = function (key) {
+    var backList = [];
+    return function (list) {
+        if (list === void 0) { list = []; }
+        var backListMap = backList.length ? mapToObject(backList, key) : {};
+        for (var i = 0; i < list.length; i++) {
+            var data = list[i];
+            if (!backListMap[data[key]]) {
+                backList.push(data);
+            }
+        }
+        return backList;
+    };
+};
+/**
+ * 对象的值进行包装: { name: 'xx'} to { name: { value: 'xx'}}
+ * 主要用于把普通对象初始化成 formFields 对象
+ * @param {*} obj
+ * @param {*} key
+ */
+var wrapperByKey = function (obj, keyName) {
+    if (keyName === void 0) { keyName = 'value'; }
+    var result = Object.create({});
+    var keys = Object.keys(obj);
+    keys.forEach(function (key) {
+        var _a;
+        result[key] = (_a = {},
+            _a[keyName] = obj[key],
+            _a);
+    });
+    return result;
+};
+var isUNaN = function (value) { return "" + trim(value) === '' || isNaN(value); };
+function convertBase64ToBlob(base64) {
+    var base64Arr = base64.split(',');
+    var content = base64Arr[0], contentTwo = base64Arr[1];
+    var type = '';
+    var base64String = '';
+    if (contentTwo) {
+        // 如果是图片base64，去掉头信息
+        base64String = contentTwo;
+        type = base64Arr[0].substring(base64Arr[0].indexOf(':') + 1, base64Arr[0].indexOf(';'));
+    }
+    else {
+        base64String = content;
+        type = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+    }
+    // 将base64解码
+    var bytes = atob(base64String);
+    // var bytes = base64;
+    var uInt8Array = new Uint8Array(bytes.length);
+    // 将base64转换为ascii码
+    for (var i = 0; i < bytes.length; i++) {
+        uInt8Array[i] = bytes.charCodeAt(i);
+    }
+    // 生成Blob对象（文件对象）
+    return new Blob([uInt8Array], { type: type });
+}
+var downLoadFile = function (base64, fileName) {
+    var blob = convertBase64ToBlob(base64);
+    var objectUrl = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    // 按照原组件，此处应该应该添加style，但是添加style总是报错
+    // a.style = 'display: none';
+    a.href = objectUrl;
+    a.download = fileName || '导入excel';
+    a.click();
+    document.body.removeChild(a);
+};
+var downLoadFileByBlob = function (blob, fileName) {
+    var objectUrl = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    // 按照原组件，此处应该应该添加style，但是添加style总是报错
+    // a.style = 'display: none';
+    a.href = objectUrl;
+    a.download = fileName || '导入excel';
+    a.click();
+    document.body.removeChild(a);
+};
+/**
+ * 对象的值使用函进行包装: { name: 'xx'} to { name: Form.createFormField({ value: 'xx'})}
+ * 主要用于对 formFields 封装
+ * @param {*} obj
+ * @param {*} func
+ */
+var wrapperByFunc = function (obj, func) {
+    var result = Object.create({});
+    var keys = Object.keys(obj);
+    keys.forEach(function (key) {
+        result[key] = func(obj[key]);
+    });
+    return result;
+};
+/**
+ * formFields 转化为普通对象: { name: { value: 'xx'}} to { name: 'xx'}
+ * 主要用于把普通对象初始化成 formFields 对象
+ * @param fields
+ */
+var fieldsToData = function (fields) {
+    var result = Object.create({});
+    var keys = Object.keys(fields);
+    keys.forEach(function (key) {
+        result[key] = fields[key].value;
+    });
+    return result;
+};
+// 分转万
+var fenToWan = function (fen, decimal, afterfix) {
+    if (decimal === void 0) { decimal = 2; }
+    if (afterfix === void 0) { afterfix = ''; }
+    if (!fen)
+        return fen;
+    var result = (fen / 1000000).toFixed(decimal);
+    return "" + result + afterfix;
+};
+// 获取文件的后缀名
+var getFileTypeByName = function (name) {
+    var index = name.lastIndexOf('.');
+    return name.slice(index);
+};
 
-export { UtilRoundType, arRoundNum, fileListTourlMap, filterEmptyAttr, filterRender, fixedZero, formatWan, getPageQuery, getPlainNode, getQueryPath, getRelation, getRenderArr, getRoutes, isAntdPro, isArr, isBool, isEmpty, isEmptyArr, isFn, isNum, isObj, isPlainObj, isRegExp, isStr, isUrl, simplifyFileName, simplifyUrlMapToFileList, transformServerDataForDefaultTreeData, urlMapToFile, urlMapToFileList };
+export { MinuteToyuan, UtilRoundType, YuanAndMinuteReverse, arRoundNum, arrayDelOne, arrayFilterSame, arrayHasSame, assignObj, beforeFieldsToRedux, beforeTrim, dateSplit, doneMaxDo, downLoadFile, downLoadFileByBlob, extendXprops, fen2wan, fen2yuan, fenToWan, fieldsToData, fieldsToRedux, fileListTourlMap, filterEmptyAttr, filterRender, findDataByKey, fixedZero, formatWan, getFileTypeByName, getPageQuery, getPlainNode, getQueryPath, getRelation, getRenderArr, getRoutes, getSearchFormProperties, getYuanStr, isAntdPro, isArr, isBool, isEmpty, isEmptyArr, isFn, isImage, isNum, isObj, isPlainObj, isRegExp, isStr, isUNaN, isUrl, listPlusByKey, mapSomeAttr, mapSomeAttrWithParents, mapToObject, minuteToyuanStr, pickAttr, pickSomeAttr, simplifyFileName, simplifyUrlMapToFileList, strSplit, stringifySome, transformServerDataForDefaultTreeData, trim, trimFormValue, urlMapToFile, urlMapToFileList, validateFormListFields, valuesToFileds, wrapperByFunc, wrapperByKey, yuan2fen };
