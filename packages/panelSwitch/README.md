@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const panelswitch = require('@ar/panelSwitch');
+const index = require('@ar/panelSwitch');
 
 // TODO: DEMONSTRATE API
 ```

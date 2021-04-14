@@ -4,15 +4,20 @@
   "description": "> TODO: description",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
-  "license": "ISC",
-  "main": "lib/panelSwitch.js",
+  "license": "ISC","input": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "types/index.d.ts",
+  "minName": "upload",
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public"
   },
@@ -21,9 +26,21 @@
     "url": "git+https://github.com/XuFeng-Li/ar-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "module": "dist/es/index.es.js",
+    "rollup": "rollup -c ../../rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/XuFeng-Li/ar-ui/issues"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@uform/antd": "^1.0.5",
+    "@uform/react": "^1.0.5",
+    "antd": "^4.15.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.2.4"
   }
 }
