@@ -2,9 +2,11 @@ import path from 'path'
 import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-// import typescript from "@rollup/plugin-typescript";
 import typescript from "rollup-plugin-typescript2";
 import {terser} from "rollup-plugin-terser";
+import postcss from 'rollup-plugin-postcss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 
 const tsImportPluginFactory = require("ts-import-plugin");
 const tsImportPlugin = tsImportPluginFactory({
@@ -88,7 +90,13 @@ module.exports = (prop) => {
       ),
       commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
       babel(babelConfig),
-      envProp === "prod" ? terser() : {}
+      envProp === "prod" ? terser() : {},
+      postcss({
+        modules: true,
+        exec: true,
+        plugins: [autoprefixer, cssnano],
+        extract: 'dist/css/bundle.css',
+      }),
     ]
   };
 };
