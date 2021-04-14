@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const customimg = require('@ar/customImg');
+const index = require('@ar/customImg');
 
 // TODO: DEMONSTRATE API
 ```
