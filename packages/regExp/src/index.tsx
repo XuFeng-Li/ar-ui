@@ -1,4 +1,8 @@
-import { trim, isFn, getFileTypeByName, isStr, isArr } from '@ar/util';
+// import { trim, isFn, getFileTypeByName, isStr, isArr } from '@ar/util';
+import {
+  isFn as arIsFn,
+  isArr as arIsArr
+} from "@ar/util";
 
 export const checkNum = (value:string | number) => {
   return /^[0-9]+.?[0-9]*$/.test(value.toString());
@@ -15,8 +19,15 @@ export const maxlenRule = (value:string, maxLen:number) =>
 
 export const telphoneValidation = /^[1][0-9]{10}$/;
 
+/**
+ * 空校验
+ * @param {string} value 待校验的字符串
+ * @param {string} mes 校验失败时的提示信息
+ * */
 export const requiredRule = (value:string, mes:string) => {
-  if (!trim(value)) {
+  const trimSpaceRegExp = RegExp('^\s+|\s+$','g');
+  const trimResult = value.replace(trimSpaceRegExp,'');
+  if (!trimResult || trimResult.length <= 0) {
     return `请填写${mes}`;
   }
   return '';
@@ -55,16 +66,16 @@ export const numberExcludeZeroRule = (value:string, rule:any[], callback:Functio
     return callback && callback();
   }
   const [int = 1, dot, mes] = rule;
-  let ruleStr = '';
-  let legal = true;
+  let ruleStr:RegExp;
+  RegExp('abc','i')
   if (!dot) {
-    ruleStr = `/^[1-9]{1}(\\d){0,${int - 1}}$/`;
+    ruleStr = RegExp(`/^[1-9]{1}(\\d){0,${int - 1}}$/`);
   } else {
-    ruleStr = `/^(([1-9]{1}(\\d){0,${int - 1}})(\\.(\\d){0,${dot}})?|[0](\\.(\\d){0,${dot}}))$/`;
+    ruleStr = RegExp(`/^(([1-9]{1}(\\d){0,${int - 1}})(\\.(\\d){0,${dot}})?|[0](\\.(\\d){0,${dot}}))$/`);
   }
-  legal = eval(ruleStr).test(value);
+  const legal = ruleStr.test(value);
 
-  if (isFn(callback)) {
+  if (arIsFn(callback)) {
     if (legal) {
       callback();
     } else {
@@ -94,13 +105,13 @@ export const rangeNumberRule = (value:number, range:number[], callback:Function)
     return callback('请填写数字');
   }
 
-  if(!isArr(range)) return callback()
-  if(!isArr(range[0])) return callback()
+  if(!arIsArr(range)) return callback()
+  if(!arIsArr(range[0])) return callback()
 
   let legal = true;
   let message = '';
   const [min, max, dot, mes] = range[0];
-  if(!isArr(range[1])) {
+  if(!arIsArr(range[1])) {
     legal = min < value && value < max
   } else {
     const [containMin, containMax] = range[1]
@@ -127,7 +138,7 @@ export const rangeNumberRule = (value:number, range:number[], callback:Function)
     return callback(errorMessage);
   }
 
-  if (isFn(callback)) {
+  if (arIsFn(callback)) {
     if (legal) {
       callback();
     } else {
@@ -145,16 +156,14 @@ export const numberIncludeRule = (value:string | number, rule:any[], callback:Fu
     return callback && callback();
   }
   const [int = 1, dot, mes] = rule;
-  let ruleStr = '';
-  let legal = true;
+  let ruleStr:RegExp;
   if (!dot) {
-    ruleStr = `/^[0-9]{1}(\\d){0,${int - 1}}$/`;
+    ruleStr = RegExp(`/^[0-9]{1}(\\d){0,${int - 1}}$/`);
   } else {
-    ruleStr = `/^(([1-9]{1}(\\d){0,${int - 1}})(\\.(\\d){0,${dot}})?|[0](\\.(\\d){0,${dot}})?)$/`;
+    ruleStr = RegExp(`/^(([1-9]{1}(\\d){0,${int - 1}})(\\.(\\d){0,${dot}})?|[0](\\.(\\d){0,${dot}})?)$/`);
   }
-  legal = eval(ruleStr).test(value);
-
-  if (isFn(callback)) {
+  const legal = ruleStr.test(value.toString() || "");
+  if (arIsFn(callback)) {
     if (legal) {
       callback();
     } else {
@@ -167,15 +176,21 @@ export const numberIncludeRule = (value:string | number, rule:any[], callback:Fu
 
 
 export const isImageByUrl = (url:string) => {
-  if(!url || !isStr(url)) return;
+  if (!url || typeof url !== 'string') {
+    return;
+  }
   const imageTypes = ['.jpg', '.jpeg', '.png', '.svg', '.gif']
-  const value = getFileTypeByName(url);
-  return imageTypes.includes(value.toLocaleLowerCase());
+  const index = url.lastIndexOf(".");
+  const suffixStr = url.slice(index);
+  return imageTypes.includes(suffixStr.toLocaleLowerCase());
 }
-
+//
 export const isVideoByUrl = (url:string) => {
-  if(!url || !isStr(url)) return;
+  if (!url || typeof url !== 'string') {
+    return;
+  }
   const videoTypes = ['.weba', '.3gp', '.wav', '.mp3', '.mp4', '.avi', '.aac']
-  const value = getFileTypeByName(url);
-  return videoTypes.includes(value.toLocaleLowerCase());
-} 
+  const index = url.lastIndexOf(".");
+  const suffixStr = url.slice(index);
+  return videoTypes.includes(suffixStr.toLocaleLowerCase());
+}

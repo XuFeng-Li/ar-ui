@@ -4222,9 +4222,9 @@ function getQueryPath(path, query) {
     return path;
 }
 /* eslint no-useless-escape:0 */
-var reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
+var defRegExp = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
 function isUrl(path) {
-    return reg.test(path);
+    return defRegExp.test(path);
 }
 function formatWan(val, roundType) {
     if (roundType === void 0) { roundType = UtilRoundType.Round; }
@@ -4345,10 +4345,10 @@ function urlMapToFile(urlStr) {
     var index = urlStr.lastIndexOf('/');
     return urlStr.substring(index + 1);
 }
-/*
-* 从列表中取值
-* @param arr [{url:string}]
-* */
+/**
+ * 从列表中取值
+ * @param {{url:string}[]} arr
+ * */
 function fileListTourlMap(arr) {
     if (!arr || !arr.length) {
         return arr;
@@ -4375,14 +4375,34 @@ function transformServerDataForDefaultTreeData(data) {
     Tdata.children = Tdata.children.concat(childMeun).concat(childFunList);
     return Tdata;
 }
-function trim(str) {
+/**
+ * 去掉字符串首尾的空格，如果是多行文本，只会去除首行行首与尾行行尾的空格
+ * @param {string} str  传入的字符串
+ * */
+function trimSpace(str) {
     if (str === void 0) { str = ''; }
     if (!isStr(str))
         return str;
     return str.replace(/^\s+|\s+$/g, '');
 }
-function beforeTrim(str) {
+/**
+ * 去掉字符串首的空格，如果是多行文本，只会去除首行行首的空格
+ * @param {string} str  传入的字符串
+ * */
+function beforeSpaceTrim(str) {
     if (str === void 0) { str = ''; }
+    if (!isStr(str))
+        return str;
+    return str.replace(/^\s+/g, '');
+}
+/**
+ * 去掉字符串末尾的空格，如果是多行文本，只会去除尾行行尾的空格
+ * @param {string} str 传入的字符串
+ * */
+function endSpaceTrim(str) {
+    if (str === void 0) { str = ''; }
+    if (!isStr(str))
+        return str;
     return str.replace(/^\s+/g, '');
 }
 function trimFormValue(formDate, excludeArr) {
@@ -4392,7 +4412,7 @@ function trimFormValue(formDate, excludeArr) {
         if (excludeArr.includes(copyFormDate[ele]))
             return;
         if (typeof copyFormDate[ele] === 'string') {
-            copyFormDate[ele] = trim(copyFormDate[ele]);
+            copyFormDate[ele] = trimSpace(copyFormDate[ele]);
         }
     });
     return copyFormDate;
@@ -4810,7 +4830,7 @@ var listPlusByKey = function (key) {
  * 对象的值进行包装: { name: 'xx'} to { name: { value: 'xx'}}
  * 主要用于把普通对象初始化成 formFields 对象
  * @param {*} obj
- * @param {*} key
+ * @param {string} keyName
  */
 var wrapperByKey = function (obj, keyName) {
     if (keyName === void 0) { keyName = 'value'; }
@@ -4824,7 +4844,7 @@ var wrapperByKey = function (obj, keyName) {
     });
     return result;
 };
-var isUNaN = function (value) { return "" + trim(value) === '' || isNaN(value); };
+var isUNaN = function (value) { return "" + trimSpace(value) === '' || isNaN(value); };
 function convertBase64ToBlob(base64) {
     var base64Arr = base64.split(',');
     var content = base64Arr[0], contentTwo = base64Arr[1];
@@ -4915,4 +4935,4 @@ var getFileTypeByName = function (name) {
     return name.slice(index);
 };
 
-export { MinuteToyuan, UtilRoundType, YuanAndMinuteReverse, arRoundNum, arrayDelOne, arrayFilterSame, arrayHasSame, assignObj, beforeFieldsToRedux, beforeTrim, dateSplit, doneMaxDo, downLoadFile, downLoadFileByBlob, extendXprops, fen2wan, fen2yuan, fenToWan, fieldsToData, fieldsToRedux, fileListTourlMap, filterEmptyAttr, filterRender, findDataByKey, fixedZero, formatWan, getFileTypeByName, getPageQuery, getPlainNode, getQueryPath, getRelation, getRenderArr, getRoutes, getSearchFormProperties, getYuanStr, isAntdPro, isArr, isBool, isEmpty, isEmptyArr, isFn, isImage, isNum, isObj, isPlainObj, isRegExp, isStr, isUNaN, isUrl, listPlusByKey, mapSomeAttr, mapSomeAttrWithParents, mapToObject, minuteToyuanStr, pickAttr, pickSomeAttr, simplifyFileName, simplifyUrlMapToFileList, strSplit, stringifySome, transformServerDataForDefaultTreeData, trim, trimFormValue, urlMapToFile, urlMapToFileList, validateFormListFields, valuesToFileds, wrapperByFunc, wrapperByKey, yuan2fen };
+export { MinuteToyuan, UtilRoundType, YuanAndMinuteReverse, arRoundNum, arrayDelOne, arrayFilterSame, arrayHasSame, assignObj, beforeFieldsToRedux, beforeSpaceTrim, dateSplit, doneMaxDo, downLoadFile, downLoadFileByBlob, endSpaceTrim, extendXprops, fen2wan, fen2yuan, fenToWan, fieldsToData, fieldsToRedux, fileListTourlMap, filterEmptyAttr, filterRender, findDataByKey, fixedZero, formatWan, getFileTypeByName, getPageQuery, getPlainNode, getQueryPath, getRelation, getRenderArr, getRoutes, getSearchFormProperties, getYuanStr, isAntdPro, isArr, isBool, isEmpty, isEmptyArr, isFn, isImage, isNum, isObj, isPlainObj, isRegExp, isStr, isUNaN, isUrl, listPlusByKey, mapSomeAttr, mapSomeAttrWithParents, mapToObject, minuteToyuanStr, pickAttr, pickSomeAttr, simplifyFileName, simplifyUrlMapToFileList, strSplit, stringifySome, transformServerDataForDefaultTreeData, trimFormValue, trimSpace, urlMapToFile, urlMapToFileList, validateFormListFields, valuesToFileds, wrapperByFunc, wrapperByKey, yuan2fen };

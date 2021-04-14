@@ -159,10 +159,10 @@ export function getQueryPath(path: string = '', query: any = {}) {
 }
 
 /* eslint no-useless-escape:0 */
-const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
+const defRegExp = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
 
 export function isUrl(path: string) {
-  return reg.test(path);
+  return defRegExp.test(path);
 }
 
 export function formatWan(val: number, roundType: UtilRoundType = UtilRoundType.Round) {
@@ -298,10 +298,11 @@ export function urlMapToFile(urlStr: string) {
   const index = urlStr.lastIndexOf('/');
   return urlStr.substring(index + 1);
 }
-/*
-* 从列表中取值
-* @param arr [{url:string}]
-* */
+
+/**
+ * 从列表中取值
+ * @param {{url:string}[]} arr
+ * */
 export function fileListTourlMap(arr: { url: string }[]) {
   if (!arr || !arr.length) {
     return arr;
@@ -313,21 +314,21 @@ export function fileListTourlMap(arr: { url: string }[]) {
 export type ARDefaultTreeData = {
   name: string,
   token: string,
-  childMenuDefList:ARDefaultTreeData[],
-  funList:ARDefaultTreeData[],
+  childMenuDefList: ARDefaultTreeData[],
+  funList: ARDefaultTreeData[],
 };
 
 export type AIServerData = {
-  title?:string,
-  value?:string,
-  key?:string,
-  children?:AIServerData[],
+  title?: string,
+  value?: string,
+  key?: string,
+  children?: AIServerData[],
 }
 
-export function transformServerDataForDefaultTreeData(data:ARDefaultTreeData) {
-  const Tdata:AIServerData = {};
-  let childMeun:AIServerData[] = [];
-  let childFunList:AIServerData[] = [];
+export function transformServerDataForDefaultTreeData(data: ARDefaultTreeData) {
+  const Tdata: AIServerData = {};
+  let childMeun: AIServerData[] = [];
+  let childFunList: AIServerData[] = [];
   Tdata.title = data.name;
   Tdata.value = data.token;
   Tdata.key = data.token;
@@ -344,27 +345,45 @@ export function transformServerDataForDefaultTreeData(data:ARDefaultTreeData) {
   return Tdata;
 }
 
-export function trim(str:string = '') {
+/**
+ * 去掉字符串首尾的空格，如果是多行文本，只会去除首行行首与尾行行尾的空格
+ * @param {string} str  传入的字符串
+ * */
+export function trimSpace(str: string = '') {
   if (!isStr(str)) return str;
   return str.replace(/^\s+|\s+$/g, '');
 }
 
-export function beforeTrim(str:string = '') {
+/**
+ * 去掉字符串首的空格，如果是多行文本，只会去除首行行首的空格
+ * @param {string} str  传入的字符串
+ * */
+export function beforeSpaceTrim(str: string = '') {
+  if (!isStr(str)) return str;
   return str.replace(/^\s+/g, '');
 }
 
-export function trimFormValue(formDate:any, excludeArr:string[] = []) {
-  const copyFormDate = { ...formDate };
+/**
+ * 去掉字符串末尾的空格，如果是多行文本，只会去除尾行行尾的空格
+ * @param {string} str 传入的字符串
+ * */
+export function endSpaceTrim(str: string = '') {
+  if (!isStr(str)) return str;
+  return str.replace(/^\s+/g, '');
+}
+
+export function trimFormValue(formDate: any, excludeArr: string[] = []) {
+  const copyFormDate = {...formDate};
   Object.keys(copyFormDate).forEach(ele => {
     if (excludeArr.includes(copyFormDate[ele])) return;
     if (typeof copyFormDate[ele] === 'string') {
-      copyFormDate[ele] = trim(copyFormDate[ele]);
+      copyFormDate[ele] = trimSpace(copyFormDate[ele]);
     }
   });
   return copyFormDate;
 }
 
-export function mapToObject(list:any[], key:string) {
+export function mapToObject(list: any[], key: string) {
   if (!list || !list.length) return list;
   const data = Object.create({});
   list.forEach(ele => {
@@ -376,7 +395,7 @@ export function mapToObject(list:any[], key:string) {
   return data;
 }
 
-export function beforeFieldsToRedux(fields:any, actions:any = undefined) {
+export function beforeFieldsToRedux(fields: any, actions: any = undefined) {
   if (!fields) return fields;
   const backData = Object.create({});
   let isOrigin = true;
@@ -416,19 +435,19 @@ export function beforeFieldsToRedux(fields:any, actions:any = undefined) {
 }
 
 // 添加了dirty和touched判断
-export function fieldsToRedux(fields:any) {
+export function fieldsToRedux(fields: any) {
   return beforeFieldsToRedux(fields, ['touched', 'dirty']);
 }
 
-export function assignObj(obj:any) {
+export function assignObj(obj: any) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-export function arrayFilterSame(list:any[]) {
+export function arrayFilterSame(list: any[]) {
   if (!list || !list.length) return;
   const hasMap = Object.create({});
-  const backList:any[] = [];
-  list.forEach((ele:any) => {
+  const backList: any[] = [];
+  list.forEach((ele: any) => {
     if (!hasMap[ele]) {
       backList.push(ele);
     }
@@ -437,7 +456,7 @@ export function arrayFilterSame(list:any[]) {
   return backList;
 }
 
-export function arrayDelOne(list:any[], one:any, changeOrigin:any) {
+export function arrayDelOne(list: any[], one: any, changeOrigin: any) {
   if (!list || !list.length) return list;
   const index = list.indexOf(one);
   if (index === -1) return list;
@@ -450,7 +469,7 @@ export function arrayDelOne(list:any[], one:any, changeOrigin:any) {
   return copyList;
 }
 
-export function arrayHasSame(list:any[]) {
+export function arrayHasSame(list: any[]) {
   if (!list || !list.length) return false;
   const hasMap = Object.create({});
   let hasSame = false;
@@ -466,7 +485,7 @@ export function arrayHasSame(list:any[]) {
 }
 
 // 获取深层object指定的值
-export function findDataByKey(data:any, key:string) {
+export function findDataByKey(data: any, key: string) {
   if (!key) return data;
   const keys = key.split('.');
   let backData = data;
@@ -478,12 +497,12 @@ export function findDataByKey(data:any, key:string) {
 }
 
 // 分转化为元
-export function MinuteToyuan(value:number) {
-  if(value === null) return value;
+export function MinuteToyuan(value: number) {
+  if (value === null) return value;
   return value / 100;
 }
 
-export function YuanAndMinuteReverse(data:any, keys:string[], backYuan:any) {
+export function YuanAndMinuteReverse(data: any, keys: string[], backYuan: any) {
   if (!keys) return data;
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
@@ -499,7 +518,7 @@ export function YuanAndMinuteReverse(data:any, keys:string[], backYuan:any) {
   }
 }
 
-export function minuteToyuanStr(minute:number, noText:boolean) {
+export function minuteToyuanStr(minute: number, noText: boolean) {
   const text = noText ? '' : ' 元';
   if (!minute) return `0.00${text}`;
   const yuanStr = `${minute / 100}`;
@@ -507,27 +526,28 @@ export function minuteToyuanStr(minute:number, noText:boolean) {
   const yuanPart = yuans[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return `${yuanPart}.${yuans[1] ? `${yuans[1]}00`.substring(0, 2) : '00'}${text}`;
 }
+
 // 分转元
-export const fen2yuan = (fen:string, len = 2) => {
-  const flag = /[￥¥]/.test(`${fen  }`);
+export const fen2yuan = (fen: string, len = 2) => {
+  const flag = /[￥¥]/.test(`${fen}`);
   const money = (parseInt(fen, 10) / 100).toFixed(len) || '0';
   return flag ? `¥${money}` : money;
 };
 // 元转分
-export const yuan2fen = (yuan:number) => {
-  const flag = /[￥¥]/.test(`${yuan  }`);
+export const yuan2fen = (yuan: number) => {
+  const flag = /[￥¥]/.test(`${yuan}`);
   const money = (+yuan * 100).toFixed(0) || '0';
   return flag ? `¥${money}` : money;
 };
 
 // 分转万
-export const fen2wan = (fen:string, len = 1) => {
-  const flag = /[￥¥]/.test(`${fen  }`);
+export const fen2wan = (fen: string, len = 1) => {
+  const flag = /[￥¥]/.test(`${fen}`);
   const money = (Math.floor((parseInt(fen, 10) / 1000000) * 10) / 10).toFixed(len) || '0';
   return flag ? `¥${money}` : money;
 };
 
-export function getYuanStr(yuan:string, noText:boolean) {
+export function getYuanStr(yuan: string, noText: boolean) {
   const text = noText ? '' : ' 元';
   if (!yuan) return `0.00${text}`;
   const yuanStr = `${yuan}`;
@@ -536,17 +556,17 @@ export function getYuanStr(yuan:string, noText:boolean) {
   return `${yuanPart}.${yuans[1] ? `${yuans[1]}00`.substring(0, 2) : '00'}${text}`;
 }
 
-export function valuesToFileds(values:any) {
-  if(!values || !isObj(values)) return values;
+export function valuesToFileds(values: any) {
+  if (!values || !isObj(values)) return values;
   const backData = Object.create({});
   Object.keys(values).forEach(ele => {
-    backData[ele] = { value: values[ele] };
+    backData[ele] = {value: values[ele]};
   });
   return backData;
 }
 
 // 选取 object的部分属性
-export const pickSomeAttr = (obj:any, attrs:any[] = []) => {
+export const pickSomeAttr = (obj: any, attrs: any[] = []) => {
   if (!obj) return obj;
   const backObj = Object.create({});
   const deepCopyObj = assignObj(obj);
@@ -557,11 +577,11 @@ export const pickSomeAttr = (obj:any, attrs:any[] = []) => {
 };
 
 // eg: mapObj==> {id: 'value', list='children', name: 'title'} 映射一些属性值 **
-export const mapSomeAttr = (obj:any, mapObj = Object.create({}), extendObjFn:Function) => {
+export const mapSomeAttr = (obj: any, mapObj = Object.create({}), extendObjFn: Function) => {
   if (!obj) return obj;
   let backObj = null;
   const keys = Object.keys(mapObj);
-  const mapObjToNew = (data:any, leval:number | undefined = undefined) => {
+  const mapObjToNew = (data: any, leval: number | undefined = undefined) => {
     let backData = Object.create({});
     if (isFn(extendObjFn)) {
       backData = extendObjFn(leval, data) || {};
@@ -588,13 +608,13 @@ export const mapSomeAttr = (obj:any, mapObj = Object.create({}), extendObjFn:Fun
 };
 
 // eg: mapObj==> {id: 'value', list='children', name: 'title'} 映射一些属性值 **
-export const mapSomeAttrWithParents = (obj:any, mapObj = Object.create({}), pMap = [], key:string) => {
+export const mapSomeAttrWithParents = (obj: any, mapObj = Object.create({}), pMap = [], key: string) => {
   if (!obj) return obj;
   let backObj = null;
   const keyMap = Object.create({});
   const keys = Object.keys(mapObj);
 
-  const mapObjToNew = (data:any, leval: number | undefined = undefined, pdata:any = undefined) => {
+  const mapObjToNew = (data: any, leval: number | undefined = undefined, pdata: any = undefined) => {
     const backData = Object.create({});
 
     const pickObj = pickSomeAttr(data, pMap);
@@ -625,16 +645,16 @@ export const mapSomeAttrWithParents = (obj:any, mapObj = Object.create({}), pMap
   } else {
     backObj = mapObjToNew(obj);
   }
-  return { backData: backObj, keyMap };
+  return {backData: backObj, keyMap};
 };
 
-const pickListSomeAttr = (list:any, attrs = []) => {
+const pickListSomeAttr = (list: any, attrs = []) => {
   if (isArr(list)) {
     return list.map(ele => pickSomeAttr(ele, attrs));
   }
 };
 
-export const pickAttr = (obj:any, attrs = []) => {
+export const pickAttr = (obj: any, attrs = []) => {
   let backData = null;
   if (isArr(obj)) {
     backData = pickListSomeAttr(obj, attrs);
@@ -644,7 +664,7 @@ export const pickAttr = (obj:any, attrs = []) => {
   return backData;
 };
 
-export const getSearchFormProperties = (columns:any[], extendFields = {}, filter:Function) => {
+export const getSearchFormProperties = (columns: any[], extendFields = {}, filter: Function) => {
   const columnsFields = columns.filter(ele => {
     if (filter) {
       return filter(ele.fieldProps, ele);
@@ -662,22 +682,22 @@ export const getSearchFormProperties = (columns:any[], extendFields = {}, filter
     };
     jsonSchemaProperties[filed.dataIndex] = filed;
   });
-  return { ...jsonSchemaProperties, ...extendFields };
+  return {...jsonSchemaProperties, ...extendFields};
 };
 
-export const validateFormListFields = (formMaps:any) => {
+export const validateFormListFields = (formMaps: any) => {
   if (!isPlainObj(formMaps)) {
     return null;
   }
   let error = false;
-  const values:any[] = [];
+  const values: any[] = [];
   Object.keys(formMaps).forEach(ele => {
-    formMaps[ele].validateFields((hasErr:boolean, value:any) => {
+    formMaps[ele].validateFields((hasErr: boolean, value: any) => {
       if (hasErr) {
         error = true;
-        values.push({ ...value, error });
+        values.push({...value, error});
       } else {
-        values.push({ ...value });
+        values.push({...value});
       }
     });
   });
@@ -687,18 +707,18 @@ export const validateFormListFields = (formMaps:any) => {
   };
 };
 
-export const extendXprops = (columns:any[], name:string, extendData:any) => {
+export const extendXprops = (columns: any[], name: string, extendData: any) => {
   const objMap = mapToObject(columns, 'dataIndex');
   if (objMap[name]) {
     const data = objMap[name].fieldProps['x-props'];
-    objMap[name].fieldProps['x-props'] = { ...data, ...extendData };
+    objMap[name].fieldProps['x-props'] = {...data, ...extendData};
   }
 };
 
-export const doneMaxDo = (num:number, callback:Function) => {
+export const doneMaxDo = (num: number, callback: Function) => {
   let time = 0;
-  const values:any[] = [];
-  return (value:any) => {
+  const values: any[] = [];
+  return (value: any) => {
     time += 1;
     values.push(value);
     if (time === num && callback) {
@@ -707,7 +727,7 @@ export const doneMaxDo = (num:number, callback:Function) => {
   };
 };
 
-export const stringifySome = (data:any, keys:string[]) => {
+export const stringifySome = (data: any, keys: string[]) => {
   if (!isObj(data)) return;
   if (isArr(keys)) {
     keys.forEach(ele => {
@@ -727,7 +747,7 @@ export const stringifySome = (data:any, keys:string[]) => {
   return data;
 };
 
-export const dateSplit = (data:any, noTime:boolean) => {
+export const dateSplit = (data: any, noTime: boolean) => {
   if (!data) return data;
   const [da, time] = data.split(' ');
   return noTime ? (
@@ -735,7 +755,7 @@ export const dateSplit = (data:any, noTime:boolean) => {
   ) : (
     <span>
       {da}
-      <br />
+      <br/>
       {time}
     </span>
   );
@@ -749,23 +769,23 @@ export /**
  * @param {boolean} [ellipsis=false] 如果大于 number, 是否展示...
  * @returns
  */
-const strSplit = (str:any, number:number, ellipsis = true) => {
+const strSplit = (str: any, number: number, ellipsis = true) => {
   if (typeof str !== 'string') return str;
   const {length} = str;
   if (length > number) {
-    const formatedStr = `${str.slice(0, number)  }...`;
+    const formatedStr = `${str.slice(0, number)}...`;
     return formatedStr;
   }
   return str;
 };
 
-export const isImage = (value:string) => {
+export const isImage = (value: string) => {
   const exp = /\w(\.gif|\.jpeg|\.png|\.jpg|\.bmp)/i;
   return exp.test(value);
 };
 
-export const listPlusByKey = (key:string) => {
-  const backList:any[] = [];
+export const listPlusByKey = (key: string) => {
+  const backList: any[] = [];
   return (list = []) => {
     const backListMap = backList.length ? mapToObject(backList, key) : {};
     for (let i = 0; i < list.length; i++) {
@@ -781,9 +801,9 @@ export const listPlusByKey = (key:string) => {
  * 对象的值进行包装: { name: 'xx'} to { name: { value: 'xx'}}
  * 主要用于把普通对象初始化成 formFields 对象
  * @param {*} obj
- * @param {*} key
+ * @param {string} keyName
  */
-export const wrapperByKey = (obj:any, keyName:string = 'value') => {
+export const wrapperByKey = (obj: any, keyName: string = 'value') => {
   const result = Object.create({});
   const keys = Object.keys(obj);
   keys.forEach(key => {
@@ -794,9 +814,9 @@ export const wrapperByKey = (obj:any, keyName:string = 'value') => {
   return result;
 };
 
-export const isUNaN = (value:any) => `${trim(value)}` === '' || isNaN(value);
+export const isUNaN = (value: any) => `${trimSpace(value)}` === '' || isNaN(value);
 
-function convertBase64ToBlob(base64:any) {
+function convertBase64ToBlob(base64: any) {
   const base64Arr = base64.split(',');
   const [content, contentTwo] = base64Arr;
   let type = '';
@@ -820,10 +840,10 @@ function convertBase64ToBlob(base64:any) {
   }
 
   // 生成Blob对象（文件对象）
-  return new Blob([uInt8Array], { type });
+  return new Blob([uInt8Array], {type});
 }
 
-export const downLoadFile = (base64:any, fileName:string) => {
+export const downLoadFile = (base64: any, fileName: string) => {
   const blob = convertBase64ToBlob(base64);
   const objectUrl = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -836,7 +856,7 @@ export const downLoadFile = (base64:any, fileName:string) => {
   document.body.removeChild(a);
 };
 
-export const downLoadFileByBlob = (blob:any, fileName:string) => {
+export const downLoadFileByBlob = (blob: any, fileName: string) => {
   const objectUrl = URL.createObjectURL(blob);
   const a = document.createElement('a');
   document.body.appendChild(a);
@@ -854,7 +874,7 @@ export const downLoadFileByBlob = (blob:any, fileName:string) => {
  * @param {*} obj
  * @param {*} func
  */
-export const wrapperByFunc = (obj:any, func:Function) => {
+export const wrapperByFunc = (obj: any, func: Function) => {
   const result = Object.create({});
   const keys = Object.keys(obj);
   keys.forEach(key => {
@@ -868,7 +888,7 @@ export const wrapperByFunc = (obj:any, func:Function) => {
  * 主要用于把普通对象初始化成 formFields 对象
  * @param fields
  */
-export const fieldsToData = (fields:any) => {
+export const fieldsToData = (fields: any) => {
   const result = Object.create({});
   const keys = Object.keys(fields);
   keys.forEach(key => {
@@ -878,14 +898,14 @@ export const fieldsToData = (fields:any) => {
 };
 
 // 分转万
-export const fenToWan = (fen:number, decimal = 2, afterfix = '') => {
+export const fenToWan = (fen: number, decimal = 2, afterfix = '') => {
   if (!fen) return fen;
   const result = (fen / 1000000).toFixed(decimal);
   return `${result}${afterfix}`;
 };
 
 // 获取文件的后缀名
-export const getFileTypeByName = (name:string | any[]) => {
+export const getFileTypeByName = (name: string | any[]) => {
   const index = name.lastIndexOf('.');
   return name.slice(index);
 }
