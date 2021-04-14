@@ -1,7 +1,7 @@
 {
-  "name": "@ar/upload",
+  "name": "@ar/regexp",
   "version": "0.0.1",
-  "description": "package for upload",
+  "description": "> TODO: description",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
   "license": "ISC",
@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "types/index.d.ts",
-  "minName": "upload",
+  "minName": "regExp",
   "files": [
     "dist",
     "types",
@@ -34,6 +34,9 @@
   "bugs": {
     "url": "https://github.com/XuFeng-Li/ar-ui/issues"
   },
+  "dependencies": {
+    "@ar/util": "../util"
+  },
   "peerDependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
@@ -41,9 +44,5 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.2.4"
-  },
-  "gitHead": "650dcf7595a9594e8a3eea3b2d0a6a96d89a8410",
-  "dependencies": {
-    "@ar/util": "../util"
   }
 }
