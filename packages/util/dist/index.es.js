@@ -4345,6 +4345,10 @@ function urlMapToFile(urlStr) {
     var index = urlStr.lastIndexOf('/');
     return urlStr.substring(index + 1);
 }
+/*
+* 从列表中取值
+* @param arr [{url:string}]
+* */
 function fileListTourlMap(arr) {
     if (!arr || !arr.length) {
         return arr;

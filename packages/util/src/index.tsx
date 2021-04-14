@@ -298,7 +298,10 @@ export function urlMapToFile(urlStr: string) {
   const index = urlStr.lastIndexOf('/');
   return urlStr.substring(index + 1);
 }
-
+/*
+* 从列表中取值
+* @param arr [{url:string}]
+* */
 export function fileListTourlMap(arr: { url: string }[]) {
   if (!arr || !arr.length) {
     return arr;
