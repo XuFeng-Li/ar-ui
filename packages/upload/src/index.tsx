@@ -7,7 +7,7 @@ import {
 
 import 'antd/dist/antd.css';
 import {Property} from "csstype";
-import { Upload, message} from "antd";
+import {Upload, message} from "antd";
 import {
   RcFile,
   ShowUploadListInterface,
@@ -20,11 +20,14 @@ import {
 type  ARMessageType = "warning" | "success" | "error";
 const showMessage = (type: ARMessageType, content: string, onClose?: Function) => {
   if (type === "warning") {
-    message.warning(content, 1.5, () => onClose && onClose()).then(()=>{});
+    message.warning(content, 1.5, () => onClose && onClose()).then(() => {
+    });
   } else if (type === "success") {
-    message.success(content, 1.5, () => onClose && onClose()).then(()=>{});
+    message.success(content, 1.5, () => onClose && onClose()).then(() => {
+    });
   } else if (type === "error") {
-    message.error(content, 1.5, () => onClose && onClose()).then(()=>{});
+    message.error(content, 1.5, () => onClose && onClose()).then(() => {
+    });
   }
 }
 
@@ -40,7 +43,7 @@ export interface UploadFormProps {
   /**
    * 上传状态发生改变的回调
    * */
-  handleChange?:(pathResult?: string[] | string) => void,
+  handleChange?: (pathResult?: string[] | string) => void,
   /** 这个函数是用来做什么的？ */
   valueChange?: (pathResult?: string[] | string) => void,
   /** 上传的文件数 */
@@ -68,23 +71,23 @@ export interface UploadFormProps {
   /** 文件大小，单位 M */
   fileSize?: number,
   children?: ReactElement,
-  getPolicy?:Function | null,
-  getSignedUrl?:Function | null,
-  fileType?:string,
-  type?:string,
-  actionPath?:string | null,
-  dealResponseData?:Function,
-  queryPolicyParams?:any,
+  getPolicy?: Function | null,
+  getSignedUrl?: Function | null,
+  fileType?: string,
+  type?: string,
+  actionPath?: string | null,
+  dealResponseData?: Function,
+  queryPolicyParams?: any,
   /** 校验name的正则 */
-  checkNameExp?:string,
+  checkNameExp?: string,
   /**
    * 期望的文件名开头
    * */
-  expName?:string,
-  getPolicyUrl?:Function | null,
+  expName?: string,
+  getPolicyUrl?: Function | null,
 }
 
-const UploadForm:React.FC<UploadFormProps> = ({...props}) => {
+const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
   const [filesList, setFilesList] = useState<UploadFile[]>(() => {
     const tempValue: string[] = props.value || [];
     let tempFileList: UploadFile[] = urlMapToFileList(tempValue) || [];
@@ -149,17 +152,17 @@ const UploadForm:React.FC<UploadFormProps> = ({...props}) => {
     }
     if (file && file.status && 'error' === file.status) {
       fileList.pop();
-      showMessage("error","文件上传失败");
+      showMessage("error", "文件上传失败");
     }
     if (!file.status) {
-      fileList = fileList.filter((ele)=> ele.url);
+      fileList = fileList.filter((ele) => ele.url);
     }
     setFilesList(fileList);
     handleChange(fileList);
   }
 
-  const getChangingData = (file:UploadFile,imgUrl:string | undefined,status:UploadFileStatus) => {
-    const currentFile = filesList.filter((ele)=> ele.uid === file.uid);
+  const getChangingData = (file: UploadFile, imgUrl: string | undefined, status: UploadFileStatus) => {
+    const currentFile = filesList.filter((ele) => ele.uid === file.uid);
     if (currentFile[0]) {
       currentFile[0].status = status;
       currentFile[0].url = imgUrl;
@@ -167,8 +170,8 @@ const UploadForm:React.FC<UploadFormProps> = ({...props}) => {
     let changingData = Object.create({});
     changingData["fileList"] = filesList;
     changingData["file"] = {
-      status:status,
-      response:{
+      status: status,
+      response: {
         success: true,
         result: {
           url: imgUrl,
@@ -179,11 +182,11 @@ const UploadForm:React.FC<UploadFormProps> = ({...props}) => {
   }
 
   const uploadSuccess = (file: UploadFile, imgUrl: string) => {
-    const uccessData = getChangingData(file,imgUrl,'done');
+    const uccessData = getChangingData(file, imgUrl, 'done');
     onChange(uccessData);
   }
   const uploadError = (file: UploadFile, _?: Error) => {
-    const errorData = getChangingData(file,undefined,'error');
+    const errorData = getChangingData(file, undefined, 'error');
     onChange(errorData);
   }
 
@@ -225,15 +228,15 @@ const UploadForm:React.FC<UploadFormProps> = ({...props}) => {
   }
 
   const renderButton = () => {
-    const { children, fileLength } = props;
-    const loading = filesList.filter((ele)=>"uploading" === ele.status).length;
+    const {children, fileLength} = props;
+    const loading = filesList.filter((ele) => "uploading" === ele.status).length;
     let renderDom = (
       <div>
         <div className="ant-upload-text">上传</div>
       </div>
     );
     if (children) {
-      renderDom = React.cloneElement(children,{loading: !!loading});
+      renderDom = React.cloneElement(children, {loading: !!loading});
     }
     return filesList.length >= (fileLength || 0) ? null : renderDom;
   }

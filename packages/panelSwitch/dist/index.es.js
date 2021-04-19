@@ -1387,6 +1387,9 @@ var jsxRuntime = createCommonjsModule(function (module) {
   }
 });
 
+/**
+ *  这是一个 Switch 按钮组件
+ */
 const PanelSwitch = (_a) => {
     var props = __rest(_a, []);
     return (jsxRuntime.jsx(Switch, Object.assign({}, props), void 0));

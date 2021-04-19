@@ -36,6 +36,9 @@
     lodash "^4.17.15"
     resize-observer-polyfill "^1.5.0"
 
+"@ar/panelSwitch@./packages/panelSwitch":
+  version "0.0.1"
+
 "@ar/util@./packages/util":
   version "0.0.1"
   dependencies:
