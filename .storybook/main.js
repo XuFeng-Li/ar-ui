@@ -1,3 +1,4 @@
+var webpack = require("webpack");
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -8,5 +9,14 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     // "@storybook/preset-create-react-app"
-  ]
+  ],
+  "webpackFinal": (config) => {
+    let newConfig = config;
+    newConfig.plugins.push(
+      new webpack.ProvidePlugin({
+        React:"react",
+      })
+    );
+    return newConfig;
+  }
 }

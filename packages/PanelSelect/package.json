@@ -1,9 +1,12 @@
 {
-  "name": "@ar/panelswitch",
+  "name": "@ar/panelselect",
   "version": "0.0.1",
-  "description": "> TODO: description",
+  "description": "this is select with panel",
+  "keywords": [
+    "select"
+  ],
   "author": "lucky1204 <1125105110@qq.com>",
-  "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
+  "homepage": "",
   "license": "ISC",
   "input": "src/index.tsx",
   "main": "dist/index.js",
@@ -15,35 +18,29 @@
     "types",
     "README.md"
   ],
-  "directories": {
-    "lib": "src",
-    "test": "__tests__"
-  },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XuFeng-Li/ar-ui.git"
+    "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "module": "dist/es/index.es.js",
     "rollup": "rollup -c ../../rollup.config.js"
   },
-  "bugs": {
-    "url": "https://github.com/XuFeng-Li/ar-ui/issues"
+  "peerDependencies": {
+    "typescript": "^4.2.4"
   },
   "dependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "@uform/antd": "^1.0.5",
     "@uform/react": "^1.0.5",
-    "antd": "^4.15.1"
-  },
-  "peerDependencies": {
-    "typescript": "^4.2.4"
+    "antd": "^4.15.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "@ar/util": "../util"
   }
 }
