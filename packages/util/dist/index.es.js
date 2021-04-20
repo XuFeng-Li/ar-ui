@@ -4302,40 +4302,37 @@ function simplifyFileName(url, code) {
 // 后台返回的是 [url], 转化成 {url: '', name: '', status: 'done', uid: ''} 的形式
 function simplifyUrlMapToFileList(arr, code) {
     if (!arr || !arr.length) {
-        return arr;
+        return [];
     }
     if (typeof arr === 'string') {
         arr = [arr];
     }
-    return arr.map(function (urlStr, i) {
-        if (!isStr(urlStr)) {
-            return urlStr;
-        }
-        return {
-            "uid": -i + 10,
-            "status": 'done',
-            "name": simplifyFileName(urlStr, code),
-            'url': urlStr
-        };
+    var strArr = arr.filter(function (ele) { return isStr(ele); });
+    return strArr.map(function (urlStr, i) {
+        var obj = Object.create({});
+        obj.uid = (-i + 10).toString();
+        obj.status = 'done';
+        obj.name = simplifyFileName(urlStr, code);
+        obj.url = urlStr;
+        return obj;
     });
 }
 // 后台返回的是 [url], 转化成 {url: '', name: '', status: 'done', uid: ''} 的形式
 function urlMapToFileList(arr) {
-    if (!arr || !arr.length)
-        return arr;
+    if (!arr || arr.length <= 0)
+        return [];
     if (typeof arr === 'string') {
         arr = [arr];
     }
-    return arr.map(function (urlStr, i) {
-        if (!isStr(urlStr))
-            return urlStr;
+    var strArr = arr.filter(function (ele) { return isStr(ele); });
+    return strArr.map(function (urlStr, i) {
         var index = urlStr.lastIndexOf('/');
-        return {
-            "uid": -i + 10,
-            "status": "done",
-            "name": urlStr.substring(index + 1),
-            "url": urlStr
-        };
+        var obj = Object.create({});
+        obj.uid = (-i + 10).toString();
+        obj.status = 'done';
+        obj.name = urlStr.substring(index + 1);
+        obj.url = urlStr;
+        return obj;
     });
 }
 // 返回url对应的文件名
@@ -4351,10 +4348,10 @@ function urlMapToFile(urlStr) {
  * */
 function fileListTourlMap(arr) {
     if (!arr || !arr.length) {
-        return arr;
+        return [];
     }
-    var data = arr.map(function (ele) { return ele.url || null; });
-    return data.filter(function (ele) { return ele; });
+    var validArr = arr.filter(function (ele) { return (ele.url && ele.url.length >= 1); });
+    return validArr.map(function (ele) { return ele.url || ''; });
 }
 function transformServerDataForDefaultTreeData(data) {
     var Tdata = {};

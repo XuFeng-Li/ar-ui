@@ -1392,7 +1392,7 @@ var jsxRuntime = createCommonjsModule(function (module) {
  */
 const PanelSwitch = (_a) => {
     var props = __rest(_a, []);
-    return (jsxRuntime.jsx(Switch, Object.assign({}, props), void 0));
+    return (jsxRuntime.jsx(Switch, Object.assign({}, props, { autoFocus: false, checkedChildren: "", unCheckedChildren: "" }), void 0));
 };
 
-export default PanelSwitch;
+export { PanelSwitch };

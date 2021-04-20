@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var f = require('react');
 var antd = require('antd');
 
@@ -1398,7 +1400,7 @@ var jsxRuntime = createCommonjsModule(function (module) {
  */
 const PanelSwitch = (_a) => {
     var props = __rest(_a, []);
-    return (jsxRuntime.jsx(antd.Switch, Object.assign({}, props), void 0));
+    return (jsxRuntime.jsx(antd.Switch, Object.assign({}, props, { autoFocus: false, checkedChildren: "", unCheckedChildren: "" }), void 0));
 };
 
-module.exports = PanelSwitch;
+exports.PanelSwitch = PanelSwitch;

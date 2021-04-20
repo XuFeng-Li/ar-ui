@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var f = require('react');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -1392,17 +1394,20 @@ var jsxRuntime = createCommonjsModule(function (module) {
   }
 });
 
-const CustomImg = (_a) => {
-    var props = __rest(_a, ["defaultImg"]);
-    const [flag, setFlag] = f.useState(false);
+const tempDefaultImg = "https://img.asman.com.cn/assets/1567388823451_58545.png";
+const ARCustomImg = (_a) => {
+    // const [flag,setFlag] = useState(false);
+    var { defaultImg = tempDefaultImg } = _a, props = __rest(_a, ["defaultImg"]);
     const onError = () => {
-        if (flag)
-            return;
-        setFlag(true);
+        // if (flag) return;
+        // setFlag(true);
     };
-    const { src, ossProcess } = props, others = __rest(props, ["src", "ossProcess"]);
-    const imgSrc = `${src}?${ossProcess}`;
-    return (jsxRuntime.jsx("img", Object.assign({ src: imgSrc, alt: "img not found", onError: onError }, others), void 0));
+    const { src, ossProcess, width, height } = props, others = __rest(props, ["src", "ossProcess", "width", "height"]);
+    let imgSrc = defaultImg;
+    if (src) {
+        imgSrc = `${src}?${ossProcess}`;
+    }
+    return (jsxRuntime.jsx("img", Object.assign({ src: imgSrc, alt: "img not found", onError: onError, defaultValue: defaultImg }, others, { width: width, height: height }), void 0));
 };
 
-module.exports = CustomImg;
+exports.ARCustomImg = ARCustomImg;

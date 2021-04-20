@@ -1,4 +1,13 @@
-"use strict";var e=require("react"),t=require("@ar/util"),r=require("antd");function n(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}var a=n(e);
+'use strict';
+
+var f = require('react');
+var util = require('@ar/util');
+var antd = require('antd');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var f__default = /*#__PURE__*/_interopDefaultLegacy(f);
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -12,12 +21,120 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */function o(e){var t={exports:{}};return e(t,t.exports),t.exports
+***************************************************************************** */
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function createCommonjsModule(fn) {
+  var module = { exports: {} };
+	return fn(module, module.exports), module.exports;
+}
+
 /*
 object-assign
 (c) Sindre Sorhus
 @license MIT
-*/}var i=Object.getOwnPropertySymbols,s=Object.prototype.hasOwnProperty,c=Object.prototype.propertyIsEnumerable;function l(e){if(null==e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}var u=function(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},r=0;r<10;r++)t["_"+String.fromCharCode(r)]=r;if("0123456789"!==Object.getOwnPropertyNames(t).map((function(e){return t[e]})).join(""))return!1;var n={};return"abcdefghijklmnopqrst".split("").forEach((function(e){n[e]=e})),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},n)).join("")}catch(e){return!1}}()?Object.assign:function(e,t){for(var r,n,a=l(e),o=1;o<arguments.length;o++){for(var u in r=Object(arguments[o]))s.call(r,u)&&(a[u]=r[u]);if(i){n=i(r);for(var f=0;f<n.length;f++)c.call(r,n[f])&&(a[n[f]]=r[n[f]])}}return a},f=o((function(e,t){var r=60103;if(t.Fragment=60107,"function"==typeof Symbol&&Symbol.for){var n=Symbol.for;r=n("react.element"),t.Fragment=n("react.fragment")}var o=a.default.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,i=Object.prototype.hasOwnProperty,s={key:!0,ref:!0,__self:!0,__source:!0};function c(e,t,n){var a,c={},l=null,u=null;for(a in void 0!==n&&(l=""+n),void 0!==t.key&&(l=""+t.key),void 0!==t.ref&&(u=t.ref),t)i.call(t,a)&&!s.hasOwnProperty(a)&&(c[a]=t[a]);if(e&&e.defaultProps)for(a in t=e.defaultProps)void 0===c[a]&&(c[a]=t[a]);return{$$typeof:r,type:e,key:l,ref:u,props:c,_owner:o.current}}t.jsx=c,t.jsxs=c})),p=o((function(e,t){"production"!==process.env.NODE_ENV&&function(){var e=a.default,r=u,n=60103,o=60106;t.Fragment=60107;var i=60108,s=60114,c=60109,l=60110,f=60112,p=60113,d=60120,y=60115,g=60116,v=60121,m=60122,h=60117,b=60129,O=60131;if("function"==typeof Symbol&&Symbol.for){var j=Symbol.for;n=j("react.element"),o=j("react.portal"),t.Fragment=j("react.fragment"),i=j("react.strict_mode"),s=j("react.profiler"),c=j("react.provider"),l=j("react.context"),f=j("react.forward_ref"),p=j("react.suspense"),d=j("react.suspense_list"),y=j("react.memo"),g=j("react.lazy"),v=j("react.block"),m=j("react.server.block"),h=j("react.fundamental"),j("react.scope"),j("react.opaque.id"),b=j("react.debug_trace_mode"),j("react.offscreen"),O=j("react.legacy_hidden")}var _="function"==typeof Symbol&&Symbol.iterator;var w=e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;function k(e){for(var t=arguments.length,r=new Array(t>1?t-1:0),n=1;n<t;n++)r[n-1]=arguments[n];x("error",e,r)}function x(e,t,r){var n=w.ReactDebugCurrentFrame.getStackAddendum();""!==n&&(t+="%s",r=r.concat([n]));var a=r.map((function(e){return""+e}));a.unshift("Warning: "+t),Function.prototype.apply.call(console[e],console,a)}function S(e){return e.displayName||"Context"}function E(e){if(null==e)return null;if("number"==typeof e.tag&&k("Received an unexpected object in getComponentName(). This is likely a bug in React. Please file an issue."),"function"==typeof e)return e.displayName||e.name||null;if("string"==typeof e)return e;switch(e){case t.Fragment:return"Fragment";case o:return"Portal";case s:return"Profiler";case i:return"StrictMode";case p:return"Suspense";case d:return"SuspenseList"}if("object"==typeof e)switch(e.$$typeof){case l:return S(e)+".Consumer";case c:return S(e._context)+".Provider";case f:return u=e,m=e.render,h="ForwardRef",b=m.displayName||m.name||"",u.displayName||(""!==b?h+"("+b+")":h);case y:return E(e.type);case v:return E(e._render);case g:var r=e,n=r._payload,a=r._init;try{return E(a(n))}catch(e){return null}}var u,m,h,b;return null}var R,N,P,C,T,$,L,F=0;function D(){}D.__reactDisabledLog=!0;var I,U=w.ReactCurrentDispatcher;function A(e,t,r){if(void 0===I)try{throw Error()}catch(e){var n=e.stack.trim().match(/\n( *(at )?)/);I=n&&n[1]||""}return"\n"+I+e}var q,z=!1,J="function"==typeof WeakMap?WeakMap:Map;function W(e,t){if(!e||z)return"";var n,a=q.get(e);if(void 0!==a)return a;z=!0;var o,i=Error.prepareStackTrace;Error.prepareStackTrace=void 0,o=U.current,U.current=null,function(){if(0===F){R=console.log,N=console.info,P=console.warn,C=console.error,T=console.group,$=console.groupCollapsed,L=console.groupEnd;var e={configurable:!0,enumerable:!0,value:D,writable:!0};Object.defineProperties(console,{info:e,log:e,warn:e,error:e,group:e,groupCollapsed:e,groupEnd:e})}F++}();try{if(t){var s=function(){throw Error()};if(Object.defineProperty(s.prototype,"props",{set:function(){throw Error()}}),"object"==typeof Reflect&&Reflect.construct){try{Reflect.construct(s,[])}catch(e){n=e}Reflect.construct(e,[],s)}else{try{s.call()}catch(e){n=e}e.call(s.prototype)}}else{try{throw Error()}catch(e){n=e}e()}}catch(t){if(t&&n&&"string"==typeof t.stack){for(var c=t.stack.split("\n"),l=n.stack.split("\n"),u=c.length-1,f=l.length-1;u>=1&&f>=0&&c[u]!==l[f];)f--;for(;u>=1&&f>=0;u--,f--)if(c[u]!==l[f]){if(1!==u||1!==f)do{if(u--,--f<0||c[u]!==l[f]){var p="\n"+c[u].replace(" at new "," at ");return"function"==typeof e&&q.set(e,p),p}}while(u>=1&&f>=0);break}}}finally{z=!1,U.current=o,function(){if(0==--F){var e={configurable:!0,enumerable:!0,writable:!0};Object.defineProperties(console,{log:r({},e,{value:R}),info:r({},e,{value:N}),warn:r({},e,{value:P}),error:r({},e,{value:C}),group:r({},e,{value:T}),groupCollapsed:r({},e,{value:$}),groupEnd:r({},e,{value:L})})}F<0&&k("disabledDepth fell below zero. This is a bug in React. Please file an issue.")}(),Error.prepareStackTrace=i}var d=e?e.displayName||e.name:"",y=d?A(d):"";return"function"==typeof e&&q.set(e,y),y}function M(e,t,r){return W(e,!1)}function Y(e,t,r){if(null==e)return"";if("function"==typeof e)return W(e,!(!(n=e.prototype)||!n.isReactComponent));var n;if("string"==typeof e)return A(e);switch(e){case p:return A("Suspense");case d:return A("SuspenseList")}if("object"==typeof e)switch(e.$$typeof){case f:return M(e.render);case y:return Y(e.type,t,r);case v:return M(e._render);case g:var a=e,o=a._payload,i=a._init;try{return Y(i(o),t,r)}catch(e){}}return""}q=new J;var B={},H=w.ReactDebugCurrentFrame;function V(e){if(e){var t=e._owner,r=Y(e.type,e._source,t?t.type:null);H.setExtraStackFrame(r)}else H.setExtraStackFrame(null)}var K,X,G,Q=w.ReactCurrentOwner,Z=Object.prototype.hasOwnProperty,ee={key:!0,ref:!0,__self:!0,__source:!0};G={};function te(e,t,r,a,o){var i,s={},c=null,l=null;for(i in void 0!==r&&(c=""+r),function(e){if(Z.call(e,"key")){var t=Object.getOwnPropertyDescriptor(e,"key").get;if(t&&t.isReactWarning)return!1}return void 0!==e.key}(t)&&(c=""+t.key),function(e){if(Z.call(e,"ref")){var t=Object.getOwnPropertyDescriptor(e,"ref").get;if(t&&t.isReactWarning)return!1}return void 0!==e.ref}(t)&&(l=t.ref,function(e,t){if("string"==typeof e.ref&&Q.current&&t&&Q.current.stateNode!==t){var r=E(Q.current.type);G[r]||(k('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref',E(Q.current.type),e.ref),G[r]=!0)}}(t,o)),t)Z.call(t,i)&&!ee.hasOwnProperty(i)&&(s[i]=t[i]);if(e&&e.defaultProps){var u=e.defaultProps;for(i in u)void 0===s[i]&&(s[i]=u[i])}if(c||l){var f="function"==typeof e?e.displayName||e.name||"Unknown":e;c&&function(e,t){var r=function(){K||(K=!0,k("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)",t))};r.isReactWarning=!0,Object.defineProperty(e,"key",{get:r,configurable:!0})}(s,f),l&&function(e,t){var r=function(){X||(X=!0,k("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)",t))};r.isReactWarning=!0,Object.defineProperty(e,"ref",{get:r,configurable:!0})}(s,f)}return function(e,t,r,a,o,i,s){var c={$$typeof:n,type:e,key:t,ref:r,props:s,_owner:i,_store:{}};return Object.defineProperty(c._store,"validated",{configurable:!1,enumerable:!1,writable:!0,value:!1}),Object.defineProperty(c,"_self",{configurable:!1,enumerable:!1,writable:!1,value:a}),Object.defineProperty(c,"_source",{configurable:!1,enumerable:!1,writable:!1,value:o}),Object.freeze&&(Object.freeze(c.props),Object.freeze(c)),c}(e,c,l,o,a,Q.current,s)}var re,ne=w.ReactCurrentOwner,ae=w.ReactDebugCurrentFrame;function oe(e){if(e){var t=e._owner,r=Y(e.type,e._source,t?t.type:null);ae.setExtraStackFrame(r)}else ae.setExtraStackFrame(null)}function ie(e){return"object"==typeof e&&null!==e&&e.$$typeof===n}function se(){if(ne.current){var e=E(ne.current.type);if(e)return"\n\nCheck the render method of `"+e+"`."}return""}re=!1;var ce={};function le(e,t){if(e._store&&!e._store.validated&&null==e.key){e._store.validated=!0;var r=function(e){var t=se();if(!t){var r="string"==typeof e?e:e.displayName||e.name;r&&(t="\n\nCheck the top-level render call using <"+r+">.")}return t}(t);if(!ce[r]){ce[r]=!0;var n="";e&&e._owner&&e._owner!==ne.current&&(n=" It was passed a child from "+E(e._owner.type)+"."),oe(e),k('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.',r,n),oe(null)}}}function ue(e,t){if("object"==typeof e)if(Array.isArray(e))for(var r=0;r<e.length;r++){var n=e[r];ie(n)&&le(n,t)}else if(ie(e))e._store&&(e._store.validated=!0);else if(e){var a=function(e){if(null===e||"object"!=typeof e)return null;var t=_&&e[_]||e["@@iterator"];return"function"==typeof t?t:null}(e);if("function"==typeof a&&a!==e.entries)for(var o,i=a.call(e);!(o=i.next()).done;)ie(o.value)&&le(o.value,t)}}function fe(e){var t,r=e.type;if(null!=r&&"string"!=typeof r){if("function"==typeof r)t=r.propTypes;else{if("object"!=typeof r||r.$$typeof!==f&&r.$$typeof!==y)return;t=r.propTypes}if(t){var n=E(r);!function(e,t,r,n,a){var o=Function.call.bind(Object.prototype.hasOwnProperty);for(var i in e)if(o(e,i)){var s=void 0;try{if("function"!=typeof e[i]){var c=Error((n||"React class")+": "+r+" type `"+i+"` is invalid; it must be a function, usually from the `prop-types` package, but received `"+typeof e[i]+"`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");throw c.name="Invariant Violation",c}s=e[i](t,i,n,r,null,"SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED")}catch(e){s=e}!s||s instanceof Error||(V(a),k("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).",n||"React class",r,i,typeof s),V(null)),s instanceof Error&&!(s.message in B)&&(B[s.message]=!0,V(a),k("Failed %s type: %s",r,s.message),V(null))}}(t,e.props,"prop",n,e)}else if(void 0!==r.PropTypes&&!re){re=!0,k("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?",E(r)||"Unknown")}"function"!=typeof r.getDefaultProps||r.getDefaultProps.isReactClassApproved||k("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.")}}function pe(e,r,a,o,u,j){var _=function(e){return"string"==typeof e||"function"==typeof e||e===t.Fragment||e===s||e===b||e===i||e===p||e===d||e===O||"object"==typeof e&&null!==e&&(e.$$typeof===g||e.$$typeof===y||e.$$typeof===c||e.$$typeof===l||e.$$typeof===f||e.$$typeof===h||e.$$typeof===v||e[0]===m)}(e);if(!_){var w="";(void 0===e||"object"==typeof e&&null!==e&&0===Object.keys(e).length)&&(w+=" You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");var x,S=function(e){return void 0!==e?"\n\nCheck your code at "+e.fileName.replace(/^.*[\\\/]/,"")+":"+e.lineNumber+".":""}(u);w+=S||se(),null===e?x="null":Array.isArray(e)?x="array":void 0!==e&&e.$$typeof===n?(x="<"+(E(e.type)||"Unknown")+" />",w=" Did you accidentally export a JSX literal instead of a component?"):x=typeof e,k("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s",x,w)}var R=te(e,r,a,u,j);if(null==R)return R;if(_){var N=r.children;if(void 0!==N)if(o)if(Array.isArray(N)){for(var P=0;P<N.length;P++)ue(N[P],e);Object.freeze&&Object.freeze(N)}else k("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");else ue(N,e)}return e===t.Fragment?function(e){for(var t=Object.keys(e.props),r=0;r<t.length;r++){var n=t[r];if("children"!==n&&"key"!==n){oe(e),k("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.",n),oe(null);break}}null!==e.ref&&(oe(e),k("Invalid attribute `ref` supplied to `React.Fragment`."),oe(null))}(R):fe(R),R}var de=function(e,t,r){return pe(e,t,r,!1)},ye=function(e,t,r){return pe(e,t,r,!0)};t.jsx=de,t.jsxs=ye}()})),d=o((function(e){"production"===process.env.NODE_ENV?e.exports=f:e.exports=p}));
+*/
+/* eslint-disable no-unused-vars */
+
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+  if (val === null || val === undefined) {
+    throw new TypeError('Object.assign cannot be called with null or undefined');
+  }
+
+  return Object(val);
+}
+
+function shouldUseNative() {
+  try {
+    if (!Object.assign) {
+      return false;
+    } // Detect buggy property enumeration order in older V8 versions.
+    // https://bugs.chromium.org/p/v8/issues/detail?id=4118
+
+
+    var test1 = new String('abc'); // eslint-disable-line no-new-wrappers
+
+    test1[5] = 'de';
+
+    if (Object.getOwnPropertyNames(test1)[0] === '5') {
+      return false;
+    } // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+
+
+    var test2 = {};
+
+    for (var i = 0; i < 10; i++) {
+      test2['_' + String.fromCharCode(i)] = i;
+    }
+
+    var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+      return test2[n];
+    });
+
+    if (order2.join('') !== '0123456789') {
+      return false;
+    } // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+
+
+    var test3 = {};
+    'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+      test3[letter] = letter;
+    });
+
+    if (Object.keys(Object.assign({}, test3)).join('') !== 'abcdefghijklmnopqrst') {
+      return false;
+    }
+
+    return true;
+  } catch (err) {
+    // We don't expect any of the above to throw, but better to be safe.
+    return false;
+  }
+}
+
+var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
+  var from;
+  var to = toObject(target);
+  var symbols;
+
+  for (var s = 1; s < arguments.length; s++) {
+    from = Object(arguments[s]);
+
+    for (var key in from) {
+      if (hasOwnProperty.call(from, key)) {
+        to[key] = from[key];
+      }
+    }
+
+    if (getOwnPropertySymbols) {
+      symbols = getOwnPropertySymbols(from);
+
+      for (var i = 0; i < symbols.length; i++) {
+        if (propIsEnumerable.call(from, symbols[i])) {
+          to[symbols[i]] = from[symbols[i]];
+        }
+      }
+    }
+  }
+
+  return to;
+};
+
 /** @license React v17.0.2
  * react-jsx-runtime.production.min.js
  *
@@ -25,4 +142,1528 @@ object-assign
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */const y=(e,t,n)=>{"warning"===e?r.message.warning(t,1.5,(()=>n&&n())).then((()=>{})):"success"===e?r.message.success(t,1.5,(()=>n&&n())).then((()=>{})):"error"===e&&r.message.error(t,1.5,(()=>n&&n())).then((()=>{}))};module.exports=n=>{var o=function(e,t){var r={};for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&t.indexOf(n)<0&&(r[n]=e[n]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var a=0;for(n=Object.getOwnPropertySymbols(e);a<n.length;a++)t.indexOf(n[a])<0&&Object.prototype.propertyIsEnumerable.call(e,n[a])&&(r[n[a]]=e[n[a]])}return r}(n,[]);const[i,s]=e.useState((()=>{const e=o.value||[];return t.urlMapToFileList(e)||[]}));((e,r)=>{const{value:n,fileTypeCode:a}=e;if(!n||n.length<=0)return[];const o=t.simplifyUrlMapToFileList(n,a)||[];if(!o||o.length<=0)return;const i=r.filter((e=>"uploading"===e.status));s([...o,...i])})(o,i);const c=e=>{const{handleChange:r,valueChange:n,fileLength:a}=o;let i=t.fileListTourlMap(e)||[];i=i&&i.length>0?1===a?i[0]:i:void 0,r&&r(i),n&&n(i)},l=()=>{const{fileLength:e}=o;return void 0===e||(i||[]).length>=e},u=e=>{const{isSupportCover:t,fileLength:r,successDo:n,fail:a}=o;let{file:i,fileList:u}=e;if(l()&&(u=u.filter((e=>e.uid!==i.uid))),t&&(u=u.slice(-(r||0))),i&&i.status&&"done"===i.status){const{response:e}=i,{success:t}=e;e&&t?n&&n(e.result):a&&a(e)}i&&i.status&&"error"===i.status&&(u.pop(),y("error","文件上传失败")),i.status||(u=u.filter((e=>e.url))),s(u),c(u)},f=(e,t,r)=>{const n=i.filter((t=>t.uid===e.uid));n[0]&&(n[0].status=r,n[0].url=t);let a=Object.create({});return a.fileList=i,a.file={status:r,response:{success:!0,result:{url:t}}},a},p=(e,t)=>{const r=f(e,t,"done");u(r)},g=(e,t)=>{const r=f(e,void 0,"error");u(r)},v=async e=>{const{fileSize:t=2,accept:r}=o;if(l())return!1;const n=r&&r.split(",")||[],a=!n.filter((e=>e)).length,i=(e=>{const t=e.lastIndexOf(".");return e.slice(t)})(e.name),s=a||((e,t)=>{const r=t.toLowerCase(),n=t.toUpperCase();return e.indexOf(r)>-1||e.indexOf(n)>-1})(n,i);s||await y("warning","上传的文件格式不正确");const c=e.size/1024/1024<t;return!c&&s&&await y("warning",`文件上传不能超过${t}MB`),c&&s},m=async e=>{if(l())return!1;const t=JSON.parse(JSON.stringify(o||{})),r=JSON.parse(JSON.stringify(e||{})),{fileTypeCode:n,queryPolicyParams:a={}}=t,{file:c}=r;await((e,t)=>()=>{const r=JSON.parse(JSON.stringify(o||{})),{checkNameExp:n,expName:a,getPolicyUrl:c,dealResponseData:l,getPolicy:u,getSignedUrl:f}=r;let d=e.name;n&&"RegExp"===Object.prototype.toString.call(n).slice(8,-1)&&!n.test(e.name)&&a&&(d=`${a}${e.name}`),u(Object.assign({fileName:d},t),c).then((t=>{if(!t)return void g(e);const r=new FormData,{OSSAccessKeyId:n,host:a,policy:c,signature:u,objectName:d}=l(t);r.append("OSSAccessKeyId",n),r.append("policy",c),r.append("signature",u),r.append("key",`${d}`),r.append("success_action_status","10000"),r.append("file",JSON.stringify(e),d);const y=new XMLHttpRequest;y.open("post",a,!0),y.upload.addEventListener("progress",(t=>{const r=Math.round(100*t.loaded/t.total),n=i.filter((t=>t.uid===e.uid));n[0]&&(n[0].percent=r),s(i)}),!1),y.addEventListener("load",(t=>{const r=t.target,{status:n}=r;if(void 0===n||"10000"!==JSON.stringify(n))return;const i=`${a}/${d}`,{fileTypeCode:s}=o;4!==s?f({url:i}).then((t=>{p(e,l(t))})):p(e,i)}),!1),y.addEventListener("error",(t=>{g(e)})),y.send(r)}))})(c,Object.assign({fileTypeCode:n},a))},[h,b]=o.actionTexts||[];return d.jsxs(e.Fragment,{children:[d.jsxs("span",Object.assign({style:{color:"red",display:o.outDisplay||"inline-block"}},{children:["上传文字",d.jsx(r.Upload,Object.assign({},(()=>{let e=Object.create({});return e.multiple=o.multiple,e.showUploadList=o.showUploadList,e.onRemove=()=>!o.disabled,e.accept=o.accept,e.data=o.data,e.beforeUpload=o.beforeUpload||v,e.headers=Object.assign({},o.getExtendHeaders?o.getExtendHeaders():{}),e.listType=o.listType,e.fileList=i,e.onChange=u,e.disabled=o.disabled,e})(),(()=>{let e=Object.create({}),t=JSON.parse(JSON.stringify(o||{}));const{actionPath:r}=t;return r?e.action=r:e.customRequest=m,e})(),{children:(()=>{const{children:e,fileLength:t}=o,r=i.filter((e=>"uploading"===e.status)).length;let n=d.jsx("div",{children:d.jsx("div",Object.assign({className:"ant-upload-text"},{children:"上传"}),void 0)},void 0);return e&&(n=a.default.cloneElement(e,{loading:!!r})),i.length>=(t||0)?null:n})()}),void 0)]}),void 0),!o.showUploadList&&o.customShow&&d.jsx("div",Object.assign({className:"ant-upload-list ant-upload-list-picture-card custom"},{children:(i||[]).filter((e=>"done"===e.status)).map(((e,t)=>d.jsxs("div",Object.assign({className:"ant-upload-list-item ant-upload-list-item-done"},{children:[d.jsx("div",Object.assign({className:"ant-upload-list-item-info"},{children:d.jsx("a",Object.assign({className:"ant-upload-list-item-thumbnail",href:e.url,rel:"noopener noreferrer",target:"_blank"},{children:d.jsx("img",{src:e.url,alt:e.name},void 0)}),void 0)}),void 0),d.jsx("span",Object.assign({className:"ant-upload-list-item-actions"},{children:d.jsx("a",{href:e.url,target:"_blank",rel:"noopener noreferrer",title:"预览文件"},void 0)}),void 0),d.jsxs("span",Object.assign({className:"ant-upload-list-item-extend-actions",style:{fontSize:"12px",color:"#fff",zIndex:10}},{children:[0===t?d.jsx("span",{children:h||"主图"},void 0):d.jsx("span",Object.assign({onClick:()=>(e=>{const t=i.filter((t=>t!==e))||[];c(t)})(e),className:"pointer"},{children:b||"设为主图"}),void 0),d.jsx("span",Object.assign({style:{marginLeft:"8px"},onClick:()=>(e=>{const t=i.filter((t=>t!==e))||[];c(t)})(e),className:"pointer"},{children:"删除"}),void 0)]}),void 0)]}),-t)))}),void 0)]},void 0)};
+ */
+var reactJsxRuntime_production_min = createCommonjsModule(function (module, exports) {
+
+  var g = 60103;
+  exports.Fragment = 60107;
+
+  if ("function" === typeof Symbol && Symbol.for) {
+    var h = Symbol.for;
+    g = h("react.element");
+    exports.Fragment = h("react.fragment");
+  }
+
+  var m = f__default['default'].__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,
+      n = Object.prototype.hasOwnProperty,
+      p = {
+    key: !0,
+    ref: !0,
+    __self: !0,
+    __source: !0
+  };
+
+  function q(c, a, k) {
+    var b,
+        d = {},
+        e = null,
+        l = null;
+    void 0 !== k && (e = "" + k);
+    void 0 !== a.key && (e = "" + a.key);
+    void 0 !== a.ref && (l = a.ref);
+
+    for (b in a) n.call(a, b) && !p.hasOwnProperty(b) && (d[b] = a[b]);
+
+    if (c && c.defaultProps) for (b in a = c.defaultProps, a) void 0 === d[b] && (d[b] = a[b]);
+    return {
+      $$typeof: g,
+      type: c,
+      key: e,
+      ref: l,
+      props: d,
+      _owner: m.current
+    };
+  }
+
+  exports.jsx = q;
+  exports.jsxs = q;
+});
+
+/** @license React v17.0.2
+ * react-jsx-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var reactJsxRuntime_development = createCommonjsModule(function (module, exports) {
+
+  if (process.env.NODE_ENV !== "production") {
+    (function () {
+
+      var React = f__default['default'];
+      var _assign = objectAssign; // ATTENTION
+      // When adding new symbols to this file,
+      // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+      // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+      // nor polyfill, then a plain number is used for performance.
+
+      var REACT_ELEMENT_TYPE = 0xeac7;
+      var REACT_PORTAL_TYPE = 0xeaca;
+      exports.Fragment = 0xeacb;
+      var REACT_STRICT_MODE_TYPE = 0xeacc;
+      var REACT_PROFILER_TYPE = 0xead2;
+      var REACT_PROVIDER_TYPE = 0xeacd;
+      var REACT_CONTEXT_TYPE = 0xeace;
+      var REACT_FORWARD_REF_TYPE = 0xead0;
+      var REACT_SUSPENSE_TYPE = 0xead1;
+      var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+      var REACT_MEMO_TYPE = 0xead3;
+      var REACT_LAZY_TYPE = 0xead4;
+      var REACT_BLOCK_TYPE = 0xead9;
+      var REACT_SERVER_BLOCK_TYPE = 0xeada;
+      var REACT_FUNDAMENTAL_TYPE = 0xead5;
+      var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+      var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+
+      if (typeof Symbol === 'function' && Symbol.for) {
+        var symbolFor = Symbol.for;
+        REACT_ELEMENT_TYPE = symbolFor('react.element');
+        REACT_PORTAL_TYPE = symbolFor('react.portal');
+        exports.Fragment = symbolFor('react.fragment');
+        REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+        REACT_PROFILER_TYPE = symbolFor('react.profiler');
+        REACT_PROVIDER_TYPE = symbolFor('react.provider');
+        REACT_CONTEXT_TYPE = symbolFor('react.context');
+        REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+        REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+        REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+        REACT_MEMO_TYPE = symbolFor('react.memo');
+        REACT_LAZY_TYPE = symbolFor('react.lazy');
+        REACT_BLOCK_TYPE = symbolFor('react.block');
+        REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+        REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+        symbolFor('react.scope');
+        symbolFor('react.opaque.id');
+        REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+        symbolFor('react.offscreen');
+        REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+      }
+
+      var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+      var FAUX_ITERATOR_SYMBOL = '@@iterator';
+
+      function getIteratorFn(maybeIterable) {
+        if (maybeIterable === null || typeof maybeIterable !== 'object') {
+          return null;
+        }
+
+        var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+
+        if (typeof maybeIterator === 'function') {
+          return maybeIterator;
+        }
+
+        return null;
+      }
+
+      var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+
+      function error(format) {
+        {
+          for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+            args[_key2 - 1] = arguments[_key2];
+          }
+
+          printWarning('error', format, args);
+        }
+      }
+
+      function printWarning(level, format, args) {
+        // When changing this logic, you might want to also
+        // update consoleWithStackDev.www.js as well.
+        {
+          var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+          var stack = ReactDebugCurrentFrame.getStackAddendum();
+
+          if (stack !== '') {
+            format += '%s';
+            args = args.concat([stack]);
+          }
+
+          var argsWithFormat = args.map(function (item) {
+            return '' + item;
+          }); // Careful: RN currently depends on this prefix
+
+          argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
+          // breaks IE9: https://github.com/facebook/react/issues/13610
+          // eslint-disable-next-line react-internal/no-production-logging
+
+          Function.prototype.apply.call(console[level], console, argsWithFormat);
+        }
+      } // Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
+
+
+      var enableScopeAPI = false; // Experimental Create Event Handle API.
+
+      function isValidElementType(type) {
+        if (typeof type === 'string' || typeof type === 'function') {
+          return true;
+        } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+
+
+        if (type === exports.Fragment || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI) {
+          return true;
+        }
+
+        if (typeof type === 'object' && type !== null) {
+          if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+
+      function getWrappedName(outerType, innerType, wrapperName) {
+        var functionName = innerType.displayName || innerType.name || '';
+        return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+      }
+
+      function getContextName(type) {
+        return type.displayName || 'Context';
+      }
+
+      function getComponentName(type) {
+        if (type == null) {
+          // Host root, text node or just invalid type.
+          return null;
+        }
+
+        {
+          if (typeof type.tag === 'number') {
+            error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+          }
+        }
+
+        if (typeof type === 'function') {
+          return type.displayName || type.name || null;
+        }
+
+        if (typeof type === 'string') {
+          return type;
+        }
+
+        switch (type) {
+          case exports.Fragment:
+            return 'Fragment';
+
+          case REACT_PORTAL_TYPE:
+            return 'Portal';
+
+          case REACT_PROFILER_TYPE:
+            return 'Profiler';
+
+          case REACT_STRICT_MODE_TYPE:
+            return 'StrictMode';
+
+          case REACT_SUSPENSE_TYPE:
+            return 'Suspense';
+
+          case REACT_SUSPENSE_LIST_TYPE:
+            return 'SuspenseList';
+        }
+
+        if (typeof type === 'object') {
+          switch (type.$$typeof) {
+            case REACT_CONTEXT_TYPE:
+              var context = type;
+              return getContextName(context) + '.Consumer';
+
+            case REACT_PROVIDER_TYPE:
+              var provider = type;
+              return getContextName(provider._context) + '.Provider';
+
+            case REACT_FORWARD_REF_TYPE:
+              return getWrappedName(type, type.render, 'ForwardRef');
+
+            case REACT_MEMO_TYPE:
+              return getComponentName(type.type);
+
+            case REACT_BLOCK_TYPE:
+              return getComponentName(type._render);
+
+            case REACT_LAZY_TYPE:
+              {
+                var lazyComponent = type;
+                var payload = lazyComponent._payload;
+                var init = lazyComponent._init;
+
+                try {
+                  return getComponentName(init(payload));
+                } catch (x) {
+                  return null;
+                }
+              }
+          }
+        }
+
+        return null;
+      } // Helpers to patch console.logs to avoid logging during side-effect free
+      // replaying on render function. This currently only patches the object
+      // lazily which won't cover if the log function was extracted eagerly.
+      // We could also eagerly patch the method.
+
+
+      var disabledDepth = 0;
+      var prevLog;
+      var prevInfo;
+      var prevWarn;
+      var prevError;
+      var prevGroup;
+      var prevGroupCollapsed;
+      var prevGroupEnd;
+
+      function disabledLog() {}
+
+      disabledLog.__reactDisabledLog = true;
+
+      function disableLogs() {
+        {
+          if (disabledDepth === 0) {
+            /* eslint-disable react-internal/no-production-logging */
+            prevLog = console.log;
+            prevInfo = console.info;
+            prevWarn = console.warn;
+            prevError = console.error;
+            prevGroup = console.group;
+            prevGroupCollapsed = console.groupCollapsed;
+            prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
+
+            var props = {
+              configurable: true,
+              enumerable: true,
+              value: disabledLog,
+              writable: true
+            }; // $FlowFixMe Flow thinks console is immutable.
+
+            Object.defineProperties(console, {
+              info: props,
+              log: props,
+              warn: props,
+              error: props,
+              group: props,
+              groupCollapsed: props,
+              groupEnd: props
+            });
+            /* eslint-enable react-internal/no-production-logging */
+          }
+
+          disabledDepth++;
+        }
+      }
+
+      function reenableLogs() {
+        {
+          disabledDepth--;
+
+          if (disabledDepth === 0) {
+            /* eslint-disable react-internal/no-production-logging */
+            var props = {
+              configurable: true,
+              enumerable: true,
+              writable: true
+            }; // $FlowFixMe Flow thinks console is immutable.
+
+            Object.defineProperties(console, {
+              log: _assign({}, props, {
+                value: prevLog
+              }),
+              info: _assign({}, props, {
+                value: prevInfo
+              }),
+              warn: _assign({}, props, {
+                value: prevWarn
+              }),
+              error: _assign({}, props, {
+                value: prevError
+              }),
+              group: _assign({}, props, {
+                value: prevGroup
+              }),
+              groupCollapsed: _assign({}, props, {
+                value: prevGroupCollapsed
+              }),
+              groupEnd: _assign({}, props, {
+                value: prevGroupEnd
+              })
+            });
+            /* eslint-enable react-internal/no-production-logging */
+          }
+
+          if (disabledDepth < 0) {
+            error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
+          }
+        }
+      }
+
+      var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+      var prefix;
+
+      function describeBuiltInComponentFrame(name, source, ownerFn) {
+        {
+          if (prefix === undefined) {
+            // Extract the VM specific prefix used by each line.
+            try {
+              throw Error();
+            } catch (x) {
+              var match = x.stack.trim().match(/\n( *(at )?)/);
+              prefix = match && match[1] || '';
+            }
+          } // We use the prefix to ensure our stacks line up with native stack frames.
+
+
+          return '\n' + prefix + name;
+        }
+      }
+
+      var reentry = false;
+      var componentFrameCache;
+      {
+        var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
+        componentFrameCache = new PossiblyWeakMap();
+      }
+
+      function describeNativeComponentFrame(fn, construct) {
+        // If something asked for a stack inside a fake render, it should get ignored.
+        if (!fn || reentry) {
+          return '';
+        }
+
+        {
+          var frame = componentFrameCache.get(fn);
+
+          if (frame !== undefined) {
+            return frame;
+          }
+        }
+        var control;
+        reentry = true;
+        var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
+
+        Error.prepareStackTrace = undefined;
+        var previousDispatcher;
+        {
+          previousDispatcher = ReactCurrentDispatcher.current; // Set the dispatcher in DEV because this might be call in the render function
+          // for warnings.
+
+          ReactCurrentDispatcher.current = null;
+          disableLogs();
+        }
+
+        try {
+          // This should throw.
+          if (construct) {
+            // Something should be setting the props in the constructor.
+            var Fake = function () {
+              throw Error();
+            }; // $FlowFixMe
+
+
+            Object.defineProperty(Fake.prototype, 'props', {
+              set: function () {
+                // We use a throwing setter instead of frozen or non-writable props
+                // because that won't throw in a non-strict mode function.
+                throw Error();
+              }
+            });
+
+            if (typeof Reflect === 'object' && Reflect.construct) {
+              // We construct a different control for this case to include any extra
+              // frames added by the construct call.
+              try {
+                Reflect.construct(Fake, []);
+              } catch (x) {
+                control = x;
+              }
+
+              Reflect.construct(fn, [], Fake);
+            } else {
+              try {
+                Fake.call();
+              } catch (x) {
+                control = x;
+              }
+
+              fn.call(Fake.prototype);
+            }
+          } else {
+            try {
+              throw Error();
+            } catch (x) {
+              control = x;
+            }
+
+            fn();
+          }
+        } catch (sample) {
+          // This is inlined manually because closure doesn't do it for us.
+          if (sample && control && typeof sample.stack === 'string') {
+            // This extracts the first frame from the sample that isn't also in the control.
+            // Skipping one frame that we assume is the frame that calls the two.
+            var sampleLines = sample.stack.split('\n');
+            var controlLines = control.stack.split('\n');
+            var s = sampleLines.length - 1;
+            var c = controlLines.length - 1;
+
+            while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
+              // We expect at least one stack frame to be shared.
+              // Typically this will be the root most one. However, stack frames may be
+              // cut off due to maximum stack limits. In this case, one maybe cut off
+              // earlier than the other. We assume that the sample is longer or the same
+              // and there for cut off earlier. So we should find the root most frame in
+              // the sample somewhere in the control.
+              c--;
+            }
+
+            for (; s >= 1 && c >= 0; s--, c--) {
+              // Next we find the first one that isn't the same which should be the
+              // frame that called our sample function and the control.
+              if (sampleLines[s] !== controlLines[c]) {
+                // In V8, the first line is describing the message but other VMs don't.
+                // If we're about to return the first line, and the control is also on the same
+                // line, that's a pretty good indicator that our sample threw at same line as
+                // the control. I.e. before we entered the sample frame. So we ignore this result.
+                // This can happen if you passed a class to function component, or non-function.
+                if (s !== 1 || c !== 1) {
+                  do {
+                    s--;
+                    c--; // We may still have similar intermediate frames from the construct call.
+                    // The next one that isn't the same should be our match though.
+
+                    if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                      // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
+                      var _frame = '\n' + sampleLines[s].replace(' at new ', ' at ');
+
+                      {
+                        if (typeof fn === 'function') {
+                          componentFrameCache.set(fn, _frame);
+                        }
+                      } // Return the line we found.
+
+                      return _frame;
+                    }
+                  } while (s >= 1 && c >= 0);
+                }
+
+                break;
+              }
+            }
+          }
+        } finally {
+          reentry = false;
+          {
+            ReactCurrentDispatcher.current = previousDispatcher;
+            reenableLogs();
+          }
+          Error.prepareStackTrace = previousPrepareStackTrace;
+        } // Fallback to just using the name if we couldn't make it throw.
+
+
+        var name = fn ? fn.displayName || fn.name : '';
+        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
+        {
+          if (typeof fn === 'function') {
+            componentFrameCache.set(fn, syntheticFrame);
+          }
+        }
+        return syntheticFrame;
+      }
+
+      function describeFunctionComponentFrame(fn, source, ownerFn) {
+        {
+          return describeNativeComponentFrame(fn, false);
+        }
+      }
+
+      function shouldConstruct(Component) {
+        var prototype = Component.prototype;
+        return !!(prototype && prototype.isReactComponent);
+      }
+
+      function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+        if (type == null) {
+          return '';
+        }
+
+        if (typeof type === 'function') {
+          {
+            return describeNativeComponentFrame(type, shouldConstruct(type));
+          }
+        }
+
+        if (typeof type === 'string') {
+          return describeBuiltInComponentFrame(type);
+        }
+
+        switch (type) {
+          case REACT_SUSPENSE_TYPE:
+            return describeBuiltInComponentFrame('Suspense');
+
+          case REACT_SUSPENSE_LIST_TYPE:
+            return describeBuiltInComponentFrame('SuspenseList');
+        }
+
+        if (typeof type === 'object') {
+          switch (type.$$typeof) {
+            case REACT_FORWARD_REF_TYPE:
+              return describeFunctionComponentFrame(type.render);
+
+            case REACT_MEMO_TYPE:
+              // Memo may contain any component type so we recursively resolve it.
+              return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+
+            case REACT_BLOCK_TYPE:
+              return describeFunctionComponentFrame(type._render);
+
+            case REACT_LAZY_TYPE:
+              {
+                var lazyComponent = type;
+                var payload = lazyComponent._payload;
+                var init = lazyComponent._init;
+
+                try {
+                  // Lazy may contain any component type so we recursively resolve it.
+                  return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                } catch (x) {}
+              }
+          }
+        }
+
+        return '';
+      }
+
+      var loggedTypeFailures = {};
+      var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+
+      function setCurrentlyValidatingElement(element) {
+        {
+          if (element) {
+            var owner = element._owner;
+            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+            ReactDebugCurrentFrame.setExtraStackFrame(stack);
+          } else {
+            ReactDebugCurrentFrame.setExtraStackFrame(null);
+          }
+        }
+      }
+
+      function checkPropTypes(typeSpecs, values, location, componentName, element) {
+        {
+          // $FlowFixMe This is okay but Flow doesn't know it.
+          var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+          for (var typeSpecName in typeSpecs) {
+            if (has(typeSpecs, typeSpecName)) {
+              var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
+              // fail the render phase where it didn't fail before. So we log it.
+              // After these have been cleaned up, we'll let them throw.
+
+              try {
+                // This is intentionally an invariant that gets caught. It's the same
+                // behavior as without this statement except with a better message.
+                if (typeof typeSpecs[typeSpecName] !== 'function') {
+                  var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+                  err.name = 'Invariant Violation';
+                  throw err;
+                }
+
+                error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
+              } catch (ex) {
+                error$1 = ex;
+              }
+
+              if (error$1 && !(error$1 instanceof Error)) {
+                setCurrentlyValidatingElement(element);
+                error('%s: type specification of %s' + ' `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error$1);
+                setCurrentlyValidatingElement(null);
+              }
+
+              if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+                // Only monitor this failure once because there tends to be a lot of the
+                // same error.
+                loggedTypeFailures[error$1.message] = true;
+                setCurrentlyValidatingElement(element);
+                error('Failed %s type: %s', location, error$1.message);
+                setCurrentlyValidatingElement(null);
+              }
+            }
+          }
+        }
+      }
+
+      var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+      var hasOwnProperty = Object.prototype.hasOwnProperty;
+      var RESERVED_PROPS = {
+        key: true,
+        ref: true,
+        __self: true,
+        __source: true
+      };
+      var specialPropKeyWarningShown;
+      var specialPropRefWarningShown;
+      var didWarnAboutStringRefs;
+      {
+        didWarnAboutStringRefs = {};
+      }
+
+      function hasValidRef(config) {
+        {
+          if (hasOwnProperty.call(config, 'ref')) {
+            var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
+
+            if (getter && getter.isReactWarning) {
+              return false;
+            }
+          }
+        }
+        return config.ref !== undefined;
+      }
+
+      function hasValidKey(config) {
+        {
+          if (hasOwnProperty.call(config, 'key')) {
+            var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
+
+            if (getter && getter.isReactWarning) {
+              return false;
+            }
+          }
+        }
+        return config.key !== undefined;
+      }
+
+      function warnIfStringRefCannotBeAutoConverted(config, self) {
+        {
+          if (typeof config.ref === 'string' && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+            var componentName = getComponentName(ReactCurrentOwner.current.type);
+
+            if (!didWarnAboutStringRefs[componentName]) {
+              error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', getComponentName(ReactCurrentOwner.current.type), config.ref);
+              didWarnAboutStringRefs[componentName] = true;
+            }
+          }
+        }
+      }
+
+      function defineKeyPropWarningGetter(props, displayName) {
+        {
+          var warnAboutAccessingKey = function () {
+            if (!specialPropKeyWarningShown) {
+              specialPropKeyWarningShown = true;
+              error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+            }
+          };
+
+          warnAboutAccessingKey.isReactWarning = true;
+          Object.defineProperty(props, 'key', {
+            get: warnAboutAccessingKey,
+            configurable: true
+          });
+        }
+      }
+
+      function defineRefPropWarningGetter(props, displayName) {
+        {
+          var warnAboutAccessingRef = function () {
+            if (!specialPropRefWarningShown) {
+              specialPropRefWarningShown = true;
+              error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+            }
+          };
+
+          warnAboutAccessingRef.isReactWarning = true;
+          Object.defineProperty(props, 'ref', {
+            get: warnAboutAccessingRef,
+            configurable: true
+          });
+        }
+      }
+      /**
+       * Factory method to create a new React element. This no longer adheres to
+       * the class pattern, so do not use new to call it. Also, instanceof check
+       * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+       * if something is a React Element.
+       *
+       * @param {*} type
+       * @param {*} props
+       * @param {*} key
+       * @param {string|object} ref
+       * @param {*} owner
+       * @param {*} self A *temporary* helper to detect places where `this` is
+       * different from the `owner` when React.createElement is called, so that we
+       * can warn. We want to get rid of owner and replace string `ref`s with arrow
+       * functions, and as long as `this` and owner are the same, there will be no
+       * change in behavior.
+       * @param {*} source An annotation object (added by a transpiler or otherwise)
+       * indicating filename, line number, and/or other information.
+       * @internal
+       */
+
+
+      var ReactElement = function (type, key, ref, self, source, owner, props) {
+        var element = {
+          // This tag allows us to uniquely identify this as a React Element
+          $$typeof: REACT_ELEMENT_TYPE,
+          // Built-in properties that belong on the element
+          type: type,
+          key: key,
+          ref: ref,
+          props: props,
+          // Record the component responsible for creating this element.
+          _owner: owner
+        };
+        {
+          // The validation flag is currently mutative. We put it on
+          // an external backing store so that we can freeze the whole object.
+          // This can be replaced with a WeakMap once they are implemented in
+          // commonly used development environments.
+          element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+          // the validation flag non-enumerable (where possible, which should
+          // include every environment we run tests in), so the test framework
+          // ignores it.
+
+          Object.defineProperty(element._store, 'validated', {
+            configurable: false,
+            enumerable: false,
+            writable: true,
+            value: false
+          }); // self and source are DEV only properties.
+
+          Object.defineProperty(element, '_self', {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: self
+          }); // Two elements created in two different places should be considered
+          // equal for testing purposes and therefore we hide it from enumeration.
+
+          Object.defineProperty(element, '_source', {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: source
+          });
+
+          if (Object.freeze) {
+            Object.freeze(element.props);
+            Object.freeze(element);
+          }
+        }
+        return element;
+      };
+      /**
+       * https://github.com/reactjs/rfcs/pull/107
+       * @param {*} type
+       * @param {object} props
+       * @param {string} key
+       */
+
+
+      function jsxDEV(type, config, maybeKey, source, self) {
+        {
+          var propName; // Reserved names are extracted
+
+          var props = {};
+          var key = null;
+          var ref = null; // Currently, key can be spread in as a prop. This causes a potential
+          // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
+          // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
+          // but as an intermediary step, we will use jsxDEV for everything except
+          // <div {...props} key="Hi" />, because we aren't currently able to tell if
+          // key is explicitly declared to be undefined or not.
+
+          if (maybeKey !== undefined) {
+            key = '' + maybeKey;
+          }
+
+          if (hasValidKey(config)) {
+            key = '' + config.key;
+          }
+
+          if (hasValidRef(config)) {
+            ref = config.ref;
+            warnIfStringRefCannotBeAutoConverted(config, self);
+          } // Remaining properties are added to a new props object
+
+
+          for (propName in config) {
+            if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+              props[propName] = config[propName];
+            }
+          } // Resolve default props
+
+
+          if (type && type.defaultProps) {
+            var defaultProps = type.defaultProps;
+
+            for (propName in defaultProps) {
+              if (props[propName] === undefined) {
+                props[propName] = defaultProps[propName];
+              }
+            }
+          }
+
+          if (key || ref) {
+            var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+
+            if (key) {
+              defineKeyPropWarningGetter(props, displayName);
+            }
+
+            if (ref) {
+              defineRefPropWarningGetter(props, displayName);
+            }
+          }
+
+          return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+        }
+      }
+
+      var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+      var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+
+      function setCurrentlyValidatingElement$1(element) {
+        {
+          if (element) {
+            var owner = element._owner;
+            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+            ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
+          } else {
+            ReactDebugCurrentFrame$1.setExtraStackFrame(null);
+          }
+        }
+      }
+
+      var propTypesMisspellWarningShown;
+      {
+        propTypesMisspellWarningShown = false;
+      }
+      /**
+       * Verifies the object is a ReactElement.
+       * See https://reactjs.org/docs/react-api.html#isvalidelement
+       * @param {?object} object
+       * @return {boolean} True if `object` is a ReactElement.
+       * @final
+       */
+
+      function isValidElement(object) {
+        {
+          return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+        }
+      }
+
+      function getDeclarationErrorAddendum() {
+        {
+          if (ReactCurrentOwner$1.current) {
+            var name = getComponentName(ReactCurrentOwner$1.current.type);
+
+            if (name) {
+              return '\n\nCheck the render method of `' + name + '`.';
+            }
+          }
+
+          return '';
+        }
+      }
+
+      function getSourceInfoErrorAddendum(source) {
+        {
+          if (source !== undefined) {
+            var fileName = source.fileName.replace(/^.*[\\\/]/, '');
+            var lineNumber = source.lineNumber;
+            return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
+          }
+
+          return '';
+        }
+      }
+      /**
+       * Warn if there's no key explicitly set on dynamic arrays of children or
+       * object keys are not valid. This allows us to keep track of children between
+       * updates.
+       */
+
+
+      var ownerHasKeyUseWarning = {};
+
+      function getCurrentComponentErrorInfo(parentType) {
+        {
+          var info = getDeclarationErrorAddendum();
+
+          if (!info) {
+            var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+
+            if (parentName) {
+              info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+            }
+          }
+
+          return info;
+        }
+      }
+      /**
+       * Warn if the element doesn't have an explicit key assigned to it.
+       * This element is in an array. The array could grow and shrink or be
+       * reordered. All children that haven't already been validated are required to
+       * have a "key" property assigned to it. Error statuses are cached so a warning
+       * will only be shown once.
+       *
+       * @internal
+       * @param {ReactElement} element Element that requires a key.
+       * @param {*} parentType element's parent's type.
+       */
+
+
+      function validateExplicitKey(element, parentType) {
+        {
+          if (!element._store || element._store.validated || element.key != null) {
+            return;
+          }
+
+          element._store.validated = true;
+          var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+
+          if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+            return;
+          }
+
+          ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+          // property, it may be the creator of the child that's responsible for
+          // assigning it a key.
+
+          var childOwner = '';
+
+          if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) {
+            // Give the component that originally created this child.
+            childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+          }
+
+          setCurrentlyValidatingElement$1(element);
+          error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+          setCurrentlyValidatingElement$1(null);
+        }
+      }
+      /**
+       * Ensure that every element either is passed in a static location, in an
+       * array with an explicit keys property defined, or in an object literal
+       * with valid key property.
+       *
+       * @internal
+       * @param {ReactNode} node Statically passed child of any type.
+       * @param {*} parentType node's parent's type.
+       */
+
+
+      function validateChildKeys(node, parentType) {
+        {
+          if (typeof node !== 'object') {
+            return;
+          }
+
+          if (Array.isArray(node)) {
+            for (var i = 0; i < node.length; i++) {
+              var child = node[i];
+
+              if (isValidElement(child)) {
+                validateExplicitKey(child, parentType);
+              }
+            }
+          } else if (isValidElement(node)) {
+            // This element was passed in a valid location.
+            if (node._store) {
+              node._store.validated = true;
+            }
+          } else if (node) {
+            var iteratorFn = getIteratorFn(node);
+
+            if (typeof iteratorFn === 'function') {
+              // Entry iterators used to provide implicit keys,
+              // but now we print a separate warning for them later.
+              if (iteratorFn !== node.entries) {
+                var iterator = iteratorFn.call(node);
+                var step;
+
+                while (!(step = iterator.next()).done) {
+                  if (isValidElement(step.value)) {
+                    validateExplicitKey(step.value, parentType);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      /**
+       * Given an element, validate that its props follow the propTypes definition,
+       * provided by the type.
+       *
+       * @param {ReactElement} element
+       */
+
+
+      function validatePropTypes(element) {
+        {
+          var type = element.type;
+
+          if (type === null || type === undefined || typeof type === 'string') {
+            return;
+          }
+
+          var propTypes;
+
+          if (typeof type === 'function') {
+            propTypes = type.propTypes;
+          } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+          // Inner props are checked in the reconciler.
+          type.$$typeof === REACT_MEMO_TYPE)) {
+            propTypes = type.propTypes;
+          } else {
+            return;
+          }
+
+          if (propTypes) {
+            // Intentionally inside to avoid triggering lazy initializers:
+            var name = getComponentName(type);
+            checkPropTypes(propTypes, element.props, 'prop', name, element);
+          } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+            propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
+
+            var _name = getComponentName(type);
+
+            error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', _name || 'Unknown');
+          }
+
+          if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
+            error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
+          }
+        }
+      }
+      /**
+       * Given a fragment, validate that it can only be provided with fragment props
+       * @param {ReactElement} fragment
+       */
+
+
+      function validateFragmentProps(fragment) {
+        {
+          var keys = Object.keys(fragment.props);
+
+          for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+
+            if (key !== 'children' && key !== 'key') {
+              setCurrentlyValidatingElement$1(fragment);
+              error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
+              setCurrentlyValidatingElement$1(null);
+              break;
+            }
+          }
+
+          if (fragment.ref !== null) {
+            setCurrentlyValidatingElement$1(fragment);
+            error('Invalid attribute `ref` supplied to `React.Fragment`.');
+            setCurrentlyValidatingElement$1(null);
+          }
+        }
+      }
+
+      function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+        {
+          var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+          // succeed and there will likely be errors in render.
+
+          if (!validType) {
+            var info = '';
+
+            if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+              info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+            }
+
+            var sourceInfo = getSourceInfoErrorAddendum(source);
+
+            if (sourceInfo) {
+              info += sourceInfo;
+            } else {
+              info += getDeclarationErrorAddendum();
+            }
+
+            var typeString;
+
+            if (type === null) {
+              typeString = 'null';
+            } else if (Array.isArray(type)) {
+              typeString = 'array';
+            } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+              typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+              info = ' Did you accidentally export a JSX literal instead of a component?';
+            } else {
+              typeString = typeof type;
+            }
+
+            error('React.jsx: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+          }
+
+          var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
+          // TODO: Drop this when these are no longer allowed as the type argument.
+
+          if (element == null) {
+            return element;
+          } // Skip key warning if the type isn't valid since our key validation logic
+          // doesn't expect a non-string/function type and can throw confusing errors.
+          // We don't want exception behavior to differ between dev and prod.
+          // (Rendering will throw with a helpful message and as soon as the type is
+          // fixed, the key warnings will appear.)
+
+
+          if (validType) {
+            var children = props.children;
+
+            if (children !== undefined) {
+              if (isStaticChildren) {
+                if (Array.isArray(children)) {
+                  for (var i = 0; i < children.length; i++) {
+                    validateChildKeys(children[i], type);
+                  }
+
+                  if (Object.freeze) {
+                    Object.freeze(children);
+                  }
+                } else {
+                  error('React.jsx: Static children should always be an array. ' + 'You are likely explicitly calling React.jsxs or React.jsxDEV. ' + 'Use the Babel transform instead.');
+                }
+              } else {
+                validateChildKeys(children, type);
+              }
+            }
+          }
+
+          if (type === exports.Fragment) {
+            validateFragmentProps(element);
+          } else {
+            validatePropTypes(element);
+          }
+
+          return element;
+        }
+      } // These two functions exist to still get child warnings in dev
+      // even with the prod transform. This means that jsxDEV is purely
+      // opt-in behavior for better messages but that we won't stop
+      // giving you warnings if you use production apis.
+
+
+      function jsxWithValidationStatic(type, props, key) {
+        {
+          return jsxWithValidation(type, props, key, true);
+        }
+      }
+
+      function jsxWithValidationDynamic(type, props, key) {
+        {
+          return jsxWithValidation(type, props, key, false);
+        }
+      }
+
+      var jsx = jsxWithValidationDynamic; // we may want to special case jsxs internally to take advantage of static children.
+      // for now we can ship identical prod functions
+
+      var jsxs = jsxWithValidationStatic;
+      exports.jsx = jsx;
+      exports.jsxs = jsxs;
+    })();
+  }
+});
+
+var jsxRuntime = createCommonjsModule(function (module) {
+
+  if (process.env.NODE_ENV === 'production') {
+    module.exports = reactJsxRuntime_production_min;
+  } else {
+    module.exports = reactJsxRuntime_development;
+  }
+});
+
+const showMessage = (type, content, onClose) => {
+    if (type === "warning") {
+        antd.message.warning(content, 1.5, () => onClose && onClose()).then(() => {
+        });
+    }
+    else if (type === "success") {
+        antd.message.success(content, 1.5, () => onClose && onClose()).then(() => {
+        });
+    }
+    else if (type === "error") {
+        antd.message.error(content, 1.5, () => onClose && onClose()).then(() => {
+        });
+    }
+};
+const UploadForm = (_a) => {
+    var props = __rest(_a, []);
+    const [filesList, setFilesList] = f.useState(() => {
+        const tempValue = props.value || [];
+        return util.urlMapToFileList(tempValue).map((ele) => {
+            return Object.create(Object.assign({}, ele));
+        });
+    });
+    // 获取派生属性。当props变化后，使用新的props和当前的state生产新的state
+    const derivedStateFromProps = (nextProps, oldFilesList) => {
+        const { value, fileTypeCode } = nextProps;
+        if (!value || value.length <= 0) {
+            return [];
+        }
+        const tempFileList = util.simplifyUrlMapToFileList(value, fileTypeCode) || [];
+        if (!tempFileList || tempFileList.length <= 0) {
+            return;
+        }
+        const validFilesList = oldFilesList.filter((element) => element.status === 'uploading');
+        setFilesList([...tempFileList, ...validFilesList]);
+    };
+    derivedStateFromProps(props, filesList);
+    const handleChange = (fileArr) => {
+        const { handleChange, valueChange, fileLength } = props;
+        const validFileArr = fileArr
+            .filter((ele) => (ele.url && ele.url.length >= 1))
+            .map((ele) => ({ url: ele.url || '' }));
+        let uploadResult = util.fileListTourlMap(validFileArr) || [];
+        if (uploadResult && uploadResult.length > 0) {
+            uploadResult = fileLength === 1 ? uploadResult[0] : uploadResult;
+        }
+        else {
+            uploadResult = undefined;
+        }
+        if (handleChange) {
+            handleChange(uploadResult);
+        }
+        if (valueChange) {
+            valueChange(uploadResult);
+        }
+    };
+    const beyondFileLength = () => {
+        const { fileLength } = props;
+        const tempFilesList = filesList || [];
+        if (undefined === fileLength) {
+            return true;
+        }
+        return tempFilesList.length >= fileLength;
+    };
+    const onChange = (data) => {
+        const { isSupportCover, fileLength, successDo, fail } = props;
+        let { file, fileList } = data;
+        if (beyondFileLength()) {
+            fileList = fileList.filter((ele) => ele.uid !== file.uid);
+        }
+        if (isSupportCover) {
+            fileList = fileList.slice(-(fileLength || 0));
+        }
+        if (file && file.status && "done" === file.status) {
+            const { response } = file;
+            const { success } = response;
+            if (response && success) {
+                successDo && successDo(response["result"]);
+            }
+            else {
+                fail && fail(response);
+            }
+        }
+        if (file && file.status && 'error' === file.status) {
+            fileList.pop();
+            showMessage("error", "文件上传失败");
+        }
+        if (!file.status) {
+            fileList = fileList.filter((ele) => ele.url);
+        }
+        setFilesList(fileList);
+        handleChange(fileList);
+    };
+    const getChangingData = (file, imgUrl, status) => {
+        const currentFile = filesList.filter((ele) => ele.uid === file.uid);
+        if (currentFile[0]) {
+            currentFile[0].status = status;
+            currentFile[0].url = imgUrl;
+        }
+        let changingData = Object.create({});
+        changingData["fileList"] = filesList;
+        changingData["file"] = {
+            status: status,
+            response: {
+                success: true,
+                result: {
+                    url: imgUrl,
+                },
+            }
+        };
+        return changingData;
+    };
+    const uploadSuccess = (file, imgUrl) => {
+        const uccessData = getChangingData(file, imgUrl, 'done');
+        onChange(uccessData);
+    };
+    const uploadError = (file, _) => {
+        const errorData = getChangingData(file, undefined, 'error');
+        onChange(errorData);
+    };
+    const getFileTypeByName = (name) => {
+        const index = name.lastIndexOf('.');
+        return name.slice(index);
+    };
+    const noMatchUpperOrLower = (matchArr, fileType) => {
+        const lower = fileType.toLowerCase();
+        const upper = fileType.toUpperCase();
+        return matchArr.indexOf(lower) > -1 || matchArr.indexOf(upper) > -1;
+    };
+    const beforeUpload = async (file) => {
+        const { fileSize = 2, accept } = props;
+        if (beyondFileLength())
+            return false;
+        const acceptTypes = (accept && accept.split(',')) || [];
+        const acceptAll = !acceptTypes.filter(ele => ele).length;
+        const fileType = getFileTypeByName(file.name);
+        const canAccept = acceptAll || noMatchUpperOrLower(acceptTypes, fileType);
+        if (!canAccept) {
+            await showMessage("warning", "上传的文件格式不正确");
+        }
+        const isPass = file.size / 1024 / 1024 < fileSize;
+        if (!isPass && canAccept) {
+            await showMessage('warning', `文件上传不能超过${fileSize}MB`);
+        }
+        return isPass && canAccept;
+    };
+    const setFirstPic = (info) => {
+        const list = filesList.filter((ele) => ele !== info) || [];
+        handleChange(list);
+    };
+    const deletePic = (info) => {
+        const list = filesList.filter((ele) => ele !== info) || [];
+        handleChange(list);
+    };
+    const renderButton = () => {
+        const { children, fileLength } = props;
+        const loading = filesList.filter((ele) => "uploading" === ele.status).length;
+        let renderDom = (jsxRuntime.jsx("div", { children: jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-text" }, { children: "\u4E0A\u4F20" }), void 0) }, void 0));
+        if (children) {
+            renderDom = f__default['default'].cloneElement(children, { loading: !!loading });
+        }
+        return filesList.length >= (fileLength || 0) ? null : renderDom;
+    };
+    const policyUpload = (file, queryParams) => () => {
+        const objcProps = JSON.parse(JSON.stringify(props || {}));
+        const { checkNameExp, expName, getPolicyUrl, dealResponseData, getPolicy, getSignedUrl } = objcProps;
+        let fileName = file.name;
+        if (checkNameExp && Object.prototype.toString.call(checkNameExp).slice(8, -1) === 'RegExp') {
+            if (!checkNameExp.test(file.name) && expName) {
+                fileName = `${expName}${file.name}`;
+            }
+        }
+        getPolicy(Object.assign({ fileName }, queryParams), getPolicyUrl).then((response) => {
+            if (!response) {
+                uploadError(file);
+                return;
+            }
+            // 获取后台签名上传oss
+            const fd = new FormData();
+            const { OSSAccessKeyId, host, policy, signature, objectName } = dealResponseData(response);
+            fd.append('OSSAccessKeyId', OSSAccessKeyId);
+            fd.append('policy', policy);
+            fd.append('signature', signature);
+            fd.append('key', `${objectName}`);
+            fd.append('success_action_status', "10000");
+            fd.append('file', JSON.stringify(file), objectName);
+            const xhr = new XMLHttpRequest();
+            xhr.open('post', host, true);
+            xhr.upload.addEventListener('progress', (evt) => {
+                const progressPercent = Math.round((evt.loaded * 100) / evt.total);
+                const currentFile = filesList.filter((ele) => ele.uid === file.uid);
+                if (currentFile[0]) {
+                    currentFile[0].percent = progressPercent;
+                }
+                setFilesList(filesList);
+            }, false);
+            xhr.addEventListener('load', (e) => {
+                const target = e.target;
+                const { status } = target;
+                if (status === undefined || JSON.stringify(status) !== "10000") {
+                    return;
+                }
+                const imgUrl = `${host}/${objectName}`;
+                const { fileTypeCode } = props;
+                if (fileTypeCode !== 4) {
+                    // 私有桶查看文件
+                    getSignedUrl({ url: imgUrl }).then((res) => {
+                        uploadSuccess(file, dealResponseData(res));
+                    });
+                }
+                else {
+                    uploadSuccess(file, imgUrl);
+                }
+            }, false);
+            xhr.addEventListener('error', _ => {
+                uploadError(file);
+            });
+            xhr.send(fd);
+        });
+    };
+    const customRequest = async (info) => {
+        if (beyondFileLength())
+            return false;
+        const objcProps = JSON.parse(JSON.stringify(props || {}));
+        const objcData = JSON.parse(JSON.stringify(info || {}));
+        const { fileTypeCode, queryPolicyParams = {} } = objcProps;
+        const { file } = objcData;
+        await policyUpload(file, Object.assign({ fileTypeCode }, queryPolicyParams));
+    };
+    const baseProps = () => {
+        let tempBaseProps = Object.create({});
+        tempBaseProps['multiple'] = props.multiple;
+        tempBaseProps['showUploadList'] = props.showUploadList;
+        tempBaseProps['onRemove'] = () => !props.disabled;
+        tempBaseProps['accept'] = props.accept;
+        tempBaseProps['data'] = props.data;
+        tempBaseProps['beforeUpload'] = props.beforeUpload || beforeUpload;
+        tempBaseProps['headers'] = Object.assign({}, (props.getExtendHeaders ? props.getExtendHeaders() : {}));
+        tempBaseProps['listType'] = props.listType;
+        tempBaseProps['fileList'] = filesList;
+        tempBaseProps['onChange'] = onChange;
+        tempBaseProps['disabled'] = props.disabled;
+        return tempBaseProps;
+    };
+    const extendProps = () => {
+        let tempExtendProps = Object.create({});
+        // TODO 这里对组件的入参进行了Object转换，是否有必要为属性添加字段替换调此转换
+        let objcProps = JSON.parse(JSON.stringify(props || {}));
+        const { actionPath } = objcProps;
+        if (actionPath) {
+            tempExtendProps["action"] = actionPath;
+        }
+        else {
+            tempExtendProps["customRequest"] = customRequest;
+        }
+        return tempExtendProps;
+    };
+    const [mainPicText, setMainPicText] = props.actionTexts || [];
+    return (jsxRuntime.jsxs(f.Fragment, { children: [jsxRuntime.jsxs("span", Object.assign({ style: {
+                    color: "red",
+                    display: props.outDisplay || 'inline-block'
+                } }, { children: ["\u4E0A\u4F20\u6587\u5B57", jsxRuntime.jsx(antd.Upload, Object.assign({}, baseProps(), extendProps(), { children: renderButton() }), void 0)] }), void 0),
+            !!!props.showUploadList && props.customShow &&
+                jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-list ant-upload-list-picture-card custom" }, { children: (filesList || [])
+                        .filter((ele) => "done" === ele.status)
+                        .map((ele, index) => {
+                        return (jsxRuntime.jsxs("div", Object.assign({ className: "ant-upload-list-item ant-upload-list-item-done" }, { children: [jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-list-item-info" }, { children: jsxRuntime.jsx("a", Object.assign({ className: "ant-upload-list-item-thumbnail", href: ele.url, rel: "noopener noreferrer", target: "_blank" }, { children: jsxRuntime.jsx("img", { src: ele.url, alt: ele.name }, void 0) }), void 0) }), void 0),
+                                jsxRuntime.jsx("span", Object.assign({ className: "ant-upload-list-item-actions" }, { children: jsxRuntime.jsx("a", { href: ele.url, target: "_blank", rel: "noopener noreferrer", title: "\u9884\u89C8\u6587\u4EF6" }, void 0) }), void 0),
+                                jsxRuntime.jsxs("span", Object.assign({ className: "ant-upload-list-item-extend-actions", style: { fontSize: '12px', color: '#fff', zIndex: 10 } }, { children: [0 === index ? (jsxRuntime.jsx("span", { children: mainPicText || '主图' }, void 0)) : (jsxRuntime.jsx("span", Object.assign({ onClick: () => setFirstPic(ele), className: "pointer" }, { children: setMainPicText || '设为主图' }), void 0)),
+                                        jsxRuntime.jsx("span", Object.assign({ style: { marginLeft: '8px' }, onClick: () => deletePic(ele), className: "pointer" }, { children: "\u5220\u9664" }), void 0)] }), void 0)] }), -index));
+                    }) }), void 0)] }, void 0));
+};
+
+module.exports = UploadForm;

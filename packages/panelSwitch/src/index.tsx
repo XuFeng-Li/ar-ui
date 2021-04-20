@@ -1,7 +1,13 @@
+// import React from 'react';
 import React from 'react';
 import {Switch} from 'antd';
 
-export declare interface ARPanelSwitchProps {
+export type ARSwitchSize = 'small' | 'default';
+
+export type ARSwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
+export type ARSwitchClickEventHandler = ARSwitchChangeEventHandler;
+
+export interface ARPanelSwitchProps {
   /**
    *  Switch 组件类名
    */
@@ -9,7 +15,7 @@ export declare interface ARPanelSwitchProps {
   /**
    *  开关大小，可选值：default small
    */
-  size?: 'small' | 'default',
+  size?: ARSwitchSize,
   /**
    *  指定当前是否选中
    */
@@ -21,19 +27,19 @@ export declare interface ARPanelSwitchProps {
   /**
    *  变化时回调函数
    */
-  onChange?: (checked: boolean, event: MouseEvent) => void,
+  onChange?: ARSwitchChangeEventHandler,
   /**
    *  点击时回调函数
    */
-  onClick?: (checked: boolean, event: MouseEvent) => void,
+  onClick?: ARSwitchClickEventHandler,
   /**
    *  是否禁用
    */
-  disabled: boolean,
+  disabled?: boolean,
   /**
    *  加载中的开关
    */
-  loading: boolean,
+  loading?: boolean,
 }
 
 /**
@@ -50,19 +56,3 @@ export const PanelSwitch: React.FC<ARPanelSwitchProps> =
       />
     )
   }
-/**
- * 此处组件不要使用默认暴露，否则 Storybook 会无法正确获取对组件属性的注释自动生成文档
- * */
-// export default PanelSwitch;
-/**
- {
-    size='default',
-    defaultChecked= undefined,
-    checked= true,
-    disabled= false,
-    loading= false,
-    onClick= undefined,
-    onChange= undefined,
-     ...props
-  }
- * */

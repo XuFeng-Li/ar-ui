@@ -1,9 +1,9 @@
-// import React from 'react';
-import './App.css';
-import {fixedZero,UtilRoundType,formatWan} from "@ar/util";
+import { PanelSwitch } from "@ar/panelSwitch";
+import {useState} from "react";
+import {Button} from "./stories/Button";
 
 function App() {
-
+  const [displaySwitch,setDisplaySwitch] = useState(false);
   return (
     <div
       className="App"
@@ -19,13 +19,25 @@ function App() {
           fontSize:"30px"
         }}
         onClick={()=>{
-          const str = fixedZero(3.4,10,UtilRoundType.Up);
-          console.log(str);
+          console.log("button",<button />)
+          console.log("panelSwitch",<PanelSwitch />);
+          if (!displaySwitch) {
+            setDisplaySwitch(true);
+          }
         }}
       >
         button action
       </button>
-      {formatWan(999,UtilRoundType.Round)}
+      {
+        displaySwitch &&
+          <PanelSwitch
+            disabled={false}
+            loading
+          />
+      }
+      <Button
+        label={"按钮"}
+      />
     </div>
   );
 }

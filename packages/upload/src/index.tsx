@@ -88,10 +88,11 @@ export interface UploadFormProps {
 }
 
 const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
-  const [filesList, setFilesList] = useState<UploadFile[]>(() => {
+  const [filesList, setFilesList] = useState<UploadFile<any>[]>(() => {
     const tempValue: string[] = props.value || [];
-    let tempFileList: UploadFile[] = urlMapToFileList(tempValue) || [];
-    return tempFileList;
+    return urlMapToFileList(tempValue).map((ele)=>{
+      return Object.create({...ele})
+    });
   });
   // 获取派生属性。当props变化后，使用新的props和当前的state生产新的state
   const derivedStateFromProps = (nextProps: UploadFormProps, oldFilesList: UploadFile[]) => {
@@ -110,7 +111,10 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
 
   const handleChange = (fileArr: UploadFile[]) => {
     const {handleChange, valueChange, fileLength} = props;
-    let uploadResult: string[] | string | undefined = fileListTourlMap(fileArr) || [];
+    const validFileArr = fileArr
+      .filter((ele)=>(ele.url && ele.url.length >= 1))
+      .map((ele)=>({url:ele.url || ''}));
+    let uploadResult: string[] | string | undefined = fileListTourlMap(validFileArr) || [];
     if (uploadResult && uploadResult.length > 0) {
       uploadResult = fileLength === 1 ? uploadResult[0] : uploadResult;
     } else {

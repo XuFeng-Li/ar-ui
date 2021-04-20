@@ -7,6 +7,7 @@ import {terser} from "rollup-plugin-terser";
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import dts from 'rollup-plugin-dts';
 
 const tsImportPluginFactory = require("ts-import-plugin");
 const tsImportPlugin = tsImportPluginFactory({
@@ -52,9 +53,10 @@ if (pkg.types) {
     ...output,
     {
       file: pkg.types,
-      // format:'umd',
       sourcemap: false,
-      plugins: []
+      plugins: [
+        dts(),
+      ]
     }
   ];
 }
@@ -63,6 +65,113 @@ let babelConfig = {};
 babelConfig = {
   babelHelpers: 'bundled'
 }
+module.exports = (prop) => {
+  console.log("************************************   prop");
+  console.log(prop);
+  const envProp = prop.env || "prod";
+  console.log(prop.env);
+  console.log(envProp,envProp === "prod");
+
+  let resultConfig = [];
+  if (pkg.main) {
+    resultConfig = [
+      ...resultConfig,
+      {
+        input: inputPath,
+        output: {
+          file: pkg.main,
+          format: 'cjs', // 输出文件格式为CommonJS
+          sourcemap: false,
+          exports: 'auto'
+        },
+        external: externals,
+        plugins: [
+          typescript(),
+          resolve(
+            {
+              extensions,
+            }
+          ),
+          commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
+          babel(babelConfig),
+          envProp === "prod" ? terser() : {},
+          postcss({
+            modules: true,
+            exec: true,
+            plugins: [autoprefixer, cssnano],
+            extract: 'dist/css/bundle.css',
+          }),
+        ]
+      }
+    ]
+  }
+  if (pkg.module) {
+    resultConfig = [
+      ...resultConfig,
+      {
+        input: inputPath,
+        output: {
+          file: pkg.module,
+          format: 'es',
+          sourcemap: false,
+        },
+        external: externals,
+        plugins: [
+          typescript(),
+          resolve(
+            {
+              extensions,
+            }
+          ),
+          commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
+          babel(babelConfig),
+          envProp === "prod" ? terser() : {},
+          postcss({
+            modules: true,
+            exec: true,
+            plugins: [autoprefixer, cssnano],
+            extract: 'dist/css/bundle.css',
+          }),
+        ]
+      }
+    ]
+  }
+  if (pkg.types) {
+    resultConfig = [
+      ...resultConfig,
+      {
+        input: inputPath,
+        output: {
+          file: pkg.types,
+          sourcemap: false,
+          plugins: [
+          ]
+        },
+        external: externals,
+        plugins: [
+          typescript(),
+          dts(),
+          resolve(
+            {
+              extensions,
+            }
+          ),
+          commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
+          babel(babelConfig),
+          envProp === "prod" ? terser() : {},
+          postcss({
+            modules: true,
+            exec: true,
+            plugins: [autoprefixer, cssnano],
+            extract: 'dist/css/bundle.css',
+          }),
+        ]
+      }
+    ]
+  }
+  return resultConfig
+}
+/*
 
 module.exports = (prop) => {
   console.log("************************************   prop");
@@ -100,3 +209,4 @@ module.exports = (prop) => {
     ]
   };
 };
+*/

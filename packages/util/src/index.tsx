@@ -1,5 +1,4 @@
 import {parse, stringify} from "qs";
-import * as url from "url";
 
 /**
  * UtilRoundType 取整类型
@@ -256,39 +255,38 @@ export function simplifyFileName(url: string, code: number) {
 // 后台返回的是 [url], 转化成 {url: '', name: '', status: 'done', uid: ''} 的形式
 export function simplifyUrlMapToFileList(arr: string[] | string, code: number) {
   if (!arr || !arr.length) {
-    return arr;
+    return [];
   }
   if (typeof arr === 'string') {
     arr = [arr];
   }
-  return arr.map((urlStr, i) => {
-    if (!isStr(urlStr)) {
-      return urlStr;
-    }
-    return {
-      "uid": -i + 10,
-      "status": 'done',
-      "name": simplifyFileName(urlStr, code),
-      'url': urlStr
-    };
+  const strArr = arr.filter((ele)=>isStr(ele));
+  return strArr.map((urlStr, i) => {
+    let obj = Object.create({});
+    obj.uid = (-i + 10).toString();
+    obj.status = 'done';
+    obj.name = simplifyFileName(urlStr, code);
+    obj.url = urlStr;
+    return obj;
   });
 }
 
 // 后台返回的是 [url], 转化成 {url: '', name: '', status: 'done', uid: ''} 的形式
+
 export function urlMapToFileList(arr: string[] | string) {
-  if (!arr || !arr.length) return arr;
+  if (!arr || arr.length <= 0) return [];
   if (typeof arr === 'string') {
     arr = [arr];
   }
-  return arr.map((urlStr, i) => {
-    if (!isStr(urlStr)) return urlStr;
+  const strArr = arr.filter((ele)=>isStr(ele));
+  return strArr.map((urlStr, i) => {
     const index = urlStr.lastIndexOf('/');
-    return {
-      "uid": -i + 10,
-      "status": "done",
-      "name": urlStr.substring(index + 1),
-      "url": urlStr
-    };
+    let obj = Object.create({});
+    obj.uid = (-i + 10).toString();
+    obj.status = 'done';
+    obj.name = urlStr.substring(index + 1);
+    obj.url = urlStr;
+    return obj;
   });
 }
 
@@ -305,10 +303,10 @@ export function urlMapToFile(urlStr: string) {
  * */
 export function fileListTourlMap(arr: { url: string }[]) {
   if (!arr || !arr.length) {
-    return arr;
+    return [];
   }
-  const data = arr.map(ele => ele.url || null);
-  return data.filter(ele => ele);
+  const validArr = arr.filter(ele=>(ele.url && ele.url.length >= 1));
+  return validArr.map(ele => ele.url || '');
 }
 
 export type ARDefaultTreeData = {

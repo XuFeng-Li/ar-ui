@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export interface ARCustomImgPorps {
   /**
@@ -8,11 +8,11 @@ export interface ARCustomImgPorps {
   /**
    *  如果是oss图片，指定oss后缀可以进行 响应的处理
    */
-  ossProcess:string,
+  ossProcess?:string,
   /**
    *  默认图片
    *  */
-  defaultImg:string,
+  defaultImg?:string,
   /**
    * 指定图片的显示宽度
    * */
@@ -26,11 +26,11 @@ const tempDefaultImg = "https://img.asman.com.cn/assets/1567388823451_58545.png"
 
 export const ARCustomImg:React.FC<ARCustomImgPorps> = ({defaultImg = tempDefaultImg,...props}) => {
 
-  const [flag,setFlag] = useState(false);
+  // const [flag,setFlag] = useState(false);
 
   const onError = ()=>{
-    if (flag) return;
-    setFlag(true);
+    // if (flag) return;
+    // setFlag(true);
   };
 
   const { src, ossProcess, width, height , ...others } = props;
