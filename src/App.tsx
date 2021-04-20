@@ -1,9 +1,6 @@
-import { PanelSwitch } from "@ar/panelSwitch";
-import {useState} from "react";
-import {Button} from "./stories/Button";
-
+import {PanelSwitch} from "@ar/panelSwitch";
+import {ARCustomImg} from "@ar/customimg";
 function App() {
-  const [displaySwitch,setDisplaySwitch] = useState(false);
   return (
     <div
       className="App"
@@ -20,23 +17,22 @@ function App() {
         }}
         onClick={()=>{
           console.log("button",<button />)
-          console.log("panelSwitch",<PanelSwitch />);
-          if (!displaySwitch) {
-            setDisplaySwitch(true);
-          }
         }}
       >
         button action
       </button>
-      {
-        displaySwitch &&
-          <PanelSwitch
-            disabled={false}
-            loading
-          />
-      }
-      <Button
-        label={"按钮"}
+      <div
+        style={{
+          width:"100%",
+          height:"50px"
+        }}
+      >
+        <PanelSwitch
+          checked
+        />
+      </div>
+      <ARCustomImg
+        src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fyouimg1.c-ctrip.com%2Ftarget%2Ftg%2F035%2F063%2F726%2F3ea4031f045945e1843ae5156749d64c.jpg&refer=http%3A%2F%2Fyouimg1.c-ctrip.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1621499403&t=5b58358c15c2ee496010815663524452"
       />
     </div>
   );
