@@ -48,11 +48,13 @@ export interface ARPanelSwitchProps {
 export const PanelSwitch: React.FC<ARPanelSwitchProps> =
   ({...props}) => {
     return (
-      <Switch
-        {...props}
-        autoFocus={false}
-        checkedChildren={""}
-        unCheckedChildren={""}
-      />
+      <div>
+        <Switch
+          {...props}
+          autoFocus={false}
+          checkedChildren={""}
+          unCheckedChildren={""}
+        />
+      </div>
     )
   }
