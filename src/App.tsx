@@ -93,8 +93,9 @@ function App() {
                 }
               },
               title:'风景图'
-            }
-          }
+            },
+          },
+          title:'是否有热地暖'
         }}
       />
     </div>
