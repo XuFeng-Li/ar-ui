@@ -86,7 +86,14 @@ module.exports = (prop) => {
         },
         external: externals,
         plugins: [
-          typescript(),
+          typescript({
+            clean: true,
+            typescript: require("typescript"),
+            tsconfig: "tsconfig.json",
+            transformers: () => ({
+              before: [tsImportPlugin]
+            })
+          }),
           resolve(
             {
               extensions,
@@ -117,7 +124,14 @@ module.exports = (prop) => {
         },
         external: externals,
         plugins: [
-          typescript(),
+          typescript({
+            clean: true,
+            typescript: require("typescript"),
+            tsconfig: "tsconfig.json",
+            transformers: () => ({
+              before: [tsImportPlugin]
+            })
+          }),
           resolve(
             {
               extensions,
@@ -171,42 +185,3 @@ module.exports = (prop) => {
   }
   return resultConfig
 }
-/*
-
-module.exports = (prop) => {
-  console.log("************************************   prop");
-  console.log(prop);
-  const envProp = prop.env || "prod";
-  console.log(prop.env);
-  console.log(envProp,envProp === "prod");
-  return {
-    input: inputPath,
-    output: output,
-    external: externals,
-    plugins: [
-      typescript({
-        clean: true,
-        typescript: require("typescript"),
-        tsconfig: "tsconfig.json",
-        transformers: () => ({
-          before: [tsImportPlugin]
-        })
-      }),
-      resolve(
-        {
-          extensions,
-        }
-      ),
-      commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
-      babel(babelConfig),
-      envProp === "prod" ? terser() : {},
-      postcss({
-        modules: true,
-        exec: true,
-        plugins: [autoprefixer, cssnano],
-        extract: 'dist/css/bundle.css',
-      }),
-    ]
-  };
-};
-*/
