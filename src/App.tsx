@@ -1,13 +1,15 @@
 import {SchemaForm,registerFormField,connect} from "@formily/react-schema-renderer";
 import {PanelSwitch} from "@ar/panelSwitch";
 import {ARCustomImg} from "@ar/customimg";
+import {ARPanelSelect} from "@ar/panelselect";
 
 registerFormField(
-  'form_input',
+  'string',
   connect()(({value,onChange})=>{
     return <input value={value} onChange={onChange}/>
   })
 )
+
 registerFormField(
   'ARCustomImg',
   connect()(({...props})=>{
@@ -21,7 +23,10 @@ registerFormField(
     return <PanelSwitch {...props} />
   })
 )
-
+registerFormField(
+  "ARPanelSelect",
+  connect()(({...props})=>(<ARPanelSelect {...props} />))
+)
 function App() {
   return (
     <div
@@ -61,41 +66,29 @@ function App() {
           }
         }}
       />
-      <div
-        style={{
-          width:'100%',
-          height:'50px'
-        }}
-      >
-        <PanelSwitch
-          size='default'
-        />
-      </div>
-
       <SchemaForm
         schema={{
           type:'object',
           properties: {
-            ARPanelSwitch: {
-              type: 'object',
-              'x-component':'PanelSwitch',
+            ARPanelSelect: {
+              type:'object',
+              'x-component':'ARPanelSelect',
               'x-component-props': {
-                "loading":false,
-                "checked":false,
-                "type":"default",
-                "style":{
-                  "width":"120px",
-                  "height":"40px"
-                },
-                "disabled":true,
-                "onChange":(value:boolean)=>{
-                  console.log(`switch to ${value}`);
+                "addonBefore":'自定义前缀',
+                "addonAfter":'自定义后缀',
+                "dataSource":[
+                  {value:"value01",label:"label01"},
+                  {value:"value02",label:"label02"},
+                  {value:"value03",label:"label03"},
+                  {value:"value04",label:"label04"},
+                  {value:"value05",label:"label05"},
+                ],
+                "onChange":(value:string)=>{
+                  alert(`select - ${value}`);
                 }
-              },
-              title:'风景图'
-            },
-          },
-          title:'是否有热地暖'
+              }
+            }
+          }
         }}
       />
     </div>

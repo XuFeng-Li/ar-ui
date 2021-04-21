@@ -52,6 +52,7 @@ export const ARPanelSelect: React.FC<ARPanelSelectProps> = ({...props}) => {
   return (
     <div
       style={{
+        width:'100%',
         display: 'flex',
         flexDirection: 'row',
         alignItems:'center',

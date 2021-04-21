@@ -44,8 +44,6 @@
   },
   "gitHead": "650dcf7595a9594e8a3eea3b2d0a6a96d89a8410",
   "dependencies": {
-    "@ar/util": "../util"
-  },
-  "devDependencies": {
+    "@ar/util": "file:../util"
   }
 }

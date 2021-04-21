@@ -1404,21 +1404,34 @@ const ARPanelSelect = (_a) => {
         });
     }
     return (jsxRuntime.jsxs("div", Object.assign({ style: {
+            width: '100%',
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: "flex-start"
-        } }, { children: [props.addonBefore &&
-                jsxRuntime.jsx("div", Object.assign({ style: {
-                        padding: "0 5px",
-                        flex: "0 0 auto"
-                    } }, { children: props.addonBefore }), void 0),
-            jsxRuntime.jsx("div", Object.assign({ style: { width: '100%' } }, { children: jsxRuntime.jsx(antd.Select, Object.assign({ disabled: props.disabled, style: { width: '100%' }, onSelect: props.onSelect, onChange: props.onChange }, { children: tempChildren }), void 0) }), void 0),
-            props.addonAfter &&
-                jsxRuntime.jsx("div", Object.assign({ style: {
-                        padding: "0 5px",
-                        flex: "0 0 auto"
-                    } }, { children: props.addonAfter }), void 0)] }), void 0));
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: "center"
+        } }, { children: [jsxRuntime.jsxs("div", Object.assign({ style: {
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: "flex-start"
+                } }, { children: [props.addonBefore &&
+                        jsxRuntime.jsx("div", Object.assign({ style: {
+                                padding: "0 5px",
+                                flex: "0 0 auto"
+                            } }, { children: props.addonBefore }), void 0),
+                    jsxRuntime.jsx("div", Object.assign({ style: { width: '100%' } }, { children: jsxRuntime.jsx(antd.Select, Object.assign({ disabled: props.disabled, style: { width: '100%' }, onSelect: props.onSelect, onChange: props.onChange }, { children: tempChildren }), void 0) }), void 0),
+                    props.addonAfter &&
+                        jsxRuntime.jsx("div", Object.assign({ style: {
+                                padding: "0 5px",
+                                flex: "0 0 auto"
+                            } }, { children: props.addonAfter }), void 0)] }), void 0),
+            jsxRuntime.jsxs("ul", { children: [jsxRuntime.jsxs("li", { children: ["addonBefore: ", props.addonBefore] }, void 0),
+                    jsxRuntime.jsxs("li", { children: ["addonAfter: ", props.addonAfter] }, void 0),
+                    jsxRuntime.jsx("ul", { children: (props.dataSource || []).map((ele, index) => {
+                            return jsxRuntime.jsxs("li", { children: ["value:", ele.value, " -- label:", ele.label] }, index.toString());
+                        }) }, void 0),
+                    jsxRuntime.jsxs("li", { children: ["disabled: ", props.disabled] }, void 0)] }, void 0)] }), void 0));
 };
 
 exports.ARPanelSelect = ARPanelSelect;

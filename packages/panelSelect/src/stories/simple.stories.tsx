@@ -2,7 +2,7 @@ import {Meta,Story} from "@storybook/react";
 
 import {ARPanelSelect,ARPanelSelectProps} from "../index";
 export default {
-  title:'AR/PanelSelect',
+  title:'AR/panelSelect',
   component:ARPanelSelect,
 } as Meta;
 

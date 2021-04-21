@@ -35,7 +35,7 @@
     "url": "https://github.com/XuFeng-Li/ar-ui/issues"
   },
   "dependencies": {
-    "@ar/util": "../util"
+    "@ar/util": "file:../util"
   },
   "peerDependencies": {
     "@types/react": "^17.0.3",
