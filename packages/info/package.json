@@ -1,5 +1,5 @@
 {
-  "name": "info",
+  "name": "@ar/info",
   "version": "0.0.1",
   "description": "this is package for info",
   "keywords": [
@@ -8,7 +8,7 @@
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "",
   "license": "ISC",
-  "input":"src/index.tsx",
+  "input": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "types/index.d.js",
@@ -24,5 +24,15 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "rollup": "rollup -c ../../rollup.config.js"
+  },
+  "dependencies": {
+    "@ar/util": "file:../util"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.2.4"
   }
 }
