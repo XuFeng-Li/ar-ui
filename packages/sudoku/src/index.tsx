@@ -27,10 +27,10 @@ export interface ARSudokuProps {
 export const ARSudoku: React.FC<ARSudokuProps> = ({...props}) => {
 
   const [location,setLocation] = useState<ARSudokuPoint>(()=>{
-    if (props.datumPoint && props.datumPoint.column !== undefined && props.datumPoint.row !== undefined) {
-      return props.datumPoint;
-    }
-    return datumPoint
+    const pointOjb = Object.create({});
+    pointOjb["row"] = props.datumPoint?.row !== undefined ? props.datumPoint.row : 1;
+    pointOjb["column"] = props.datumPoint?.column !== undefined ? props.datumPoint.column : 1;
+    return pointOjb
   });
 
   const handleChange = (pointObj:ARSudokuPoint) => {
@@ -38,6 +38,9 @@ export const ARSudoku: React.FC<ARSudokuProps> = ({...props}) => {
       return
     }
     setLocation(pointObj);
+    if (props.onChange) {
+      props.onChange(pointObj);
+    }
   }
 
   const renderNode = ()=>{
@@ -83,9 +86,5 @@ export const ARSudoku: React.FC<ARSudokuProps> = ({...props}) => {
       </div>
     )
   }
-  return (
-    <div>
-      {renderNode()}
-    </div>
-  )
+  return renderNode()
 }
