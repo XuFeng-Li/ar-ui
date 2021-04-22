@@ -1,0 +1,28 @@
+{
+  "name": "info",
+  "version": "0.0.1",
+  "description": "this is package for info",
+  "keywords": [
+    "info"
+  ],
+  "author": "lucky1204 <1125105110@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "input":"src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "types/index.d.js",
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "rollup": "rollup -c ../../rollup.config.js"
+  }
+}

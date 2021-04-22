@@ -222,12 +222,12 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
     }
     return isPass && canAccept;
   }
-  const setFirstPic = (info: UploadFile) => {
-    const list = filesList.filter((ele) => ele !== info) || [];
+  const setFirstPic = (index: UploadFile) => {
+    const list = filesList.filter((ele) => ele !== index) || [];
     handleChange(list)
   }
-  const deletePic = (info: UploadFile) => {
-    const list = filesList.filter((ele) => ele !== info) || [];
+  const deletePic = (index: UploadFile) => {
+    const list = filesList.filter((ele) => ele !== index) || [];
     handleChange(list);
   }
 
@@ -309,10 +309,10 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
       xhr.send(fd);
     });
   }
-  const customRequest = async (info: any) => {
+  const customRequest = async (index: any) => {
     if (beyondFileLength()) return false;
     const objcProps = JSON.parse(JSON.stringify(props || {}));
-    const objcData = JSON.parse(JSON.stringify(info || {}));
+    const objcData = JSON.parse(JSON.stringify(index || {}));
     const {fileTypeCode, queryPolicyParams = {}} = objcProps;
     const {file} = objcData;
     await policyUpload(file, {fileTypeCode, ...queryPolicyParams});
@@ -376,7 +376,7 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
                     key={-index}
                     className="ant-upload-list-item ant-upload-list-item-done"
                   >
-                    <div className="ant-upload-list-item-info">
+                    <div className="ant-upload-list-item-index">
                       <a
                         className="ant-upload-list-item-thumbnail"
                         href={ele.url}
