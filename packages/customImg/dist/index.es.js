@@ -1304,7 +1304,7 @@ var reactJsxRuntime_development = createCommonjsModule(function (module, exports
               typeString = typeof type;
             }
 
-            error('React.jsx: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+            error('React.jsx: type is invalid -- expected a string (for ' + 'built-in component) or a class/function (for composite ' + 'component) but got: %s.%s', typeString, info);
           }
 
           var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.

@@ -1,0 +1,26 @@
+.sudoku {
+  display: inline-block;
+  background-image: url('https://img.asman.com.cn/assets/1565683490873_2991.png');
+  background-size: 92%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 132px !important;
+  height: 132px !important;
+  &_row {
+    display: flex;
+    box-sizing: border-box;
+    &:first-child {
+      border-top: 1px solid #cecece;
+    }
+    border-bottom: 1px solid #cecece;
+  }
+  &_col {
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    &:first-child {
+      border-left: 1px solid #cecece;
+    }
+    border-right: 1px solid #cecece;
+  }
+}

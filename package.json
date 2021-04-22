@@ -5,8 +5,8 @@
   "dependencies": {
     "@ar/customimg": "file:./packages/customimg",
     "@ar/panelSwitch": "file:./packages/panelSwitch",
-    "@ar/util": "file:./packages/util",
     "@ar/panelselect": "file:./packages/panelSelect",
+    "@ar/util": "file:./packages/util",
     "@formily/antd": "^2.0.0-beta.32",
     "@formily/core": "^2.0.0-beta.32",
     "@formily/react": "^2.0.0-beta.32",
@@ -19,7 +19,9 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "antd": "^4.15.2",
+    "classnames": "^2.3.1",
     "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-eva": "^1.1.14",
@@ -73,6 +75,7 @@
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-url": "^3.0.1",
     "ts-import-plugin": "^1.6.7",
     "tslib": "^2.1.0"
   },

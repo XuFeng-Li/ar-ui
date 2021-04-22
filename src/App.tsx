@@ -3,6 +3,8 @@ import {PanelSwitch} from "@ar/panelSwitch";
 import {ARCustomImg} from "@ar/customimg";
 import {ARPanelSelect} from "@ar/panelselect";
 
+import ARSudoko from "./component/sudoku";
+
 registerFormField(
   'string',
   connect()(({value,onChange})=>{
@@ -91,6 +93,7 @@ function App() {
           }
         }}
       />
+      <ARSudoko />
     </div>
   );
 }

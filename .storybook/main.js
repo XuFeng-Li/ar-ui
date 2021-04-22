@@ -1,4 +1,5 @@
-var webpack = require("webpack");
+const path = require('path');
+// const custom = require('../webpack.config.js');
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -11,12 +12,14 @@ module.exports = {
     // "@storybook/preset-create-react-app"
   ],
   "webpackFinal": (config) => {
-    let newConfig = config;
-    newConfig.plugins.push(
-      new webpack.ProvidePlugin({
-        React:"react",
-      })
-    );
-    return newConfig;
+    // 添加 sass 支持
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
+    });
+
+    console.log("storybook - main - ",path.resolve(__dirname, '../'));
+    return config;
   }
 }

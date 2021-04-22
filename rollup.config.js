@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from "rollup-plugin-typescript2";
 import {terser} from "rollup-plugin-terser";
 import postcss from 'rollup-plugin-postcss';
+import url from 'rollup-plugin-url';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import dts from 'rollup-plugin-dts';
@@ -108,6 +109,7 @@ module.exports = (prop) => {
             plugins: [autoprefixer, cssnano],
             extract: 'dist/css/bundle.css',
           }),
+          url(),
         ]
       }
     ]
@@ -146,6 +148,7 @@ module.exports = (prop) => {
             plugins: [autoprefixer, cssnano],
             extract: 'dist/css/bundle.css',
           }),
+          url(),
         ]
       }
     ]
@@ -179,6 +182,7 @@ module.exports = (prop) => {
             plugins: [autoprefixer, cssnano],
             extract: 'dist/css/bundle.css',
           }),
+          url(),
         ]
       }
     ]
