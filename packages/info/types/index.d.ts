@@ -1,20 +1,12 @@
 import React, { CSSProperties } from 'react';
 
-/**
- * @typedef {object} SquareMeterInfoProps 定义平方米信息的组件参数
- * @property {string} info 平方米信息
- * */
 interface SquareMeterInfoProps {
     /**
      * 平方米数据
-     * @property {string} info
+     * @param {string} info
      * */
     info?: string;
 }
-/**
- * @typedef {React.FC<SquareMeterInfoProps>>} 定义平方米信息的组件
- * @param {SquareMeterInfoProps} props 平方米信息参数
- * */
 declare const SquareMeterInfo: React.FC<SquareMeterInfoProps>;
 interface ARHouseTypeKeyMap {
     bedroomNum?: string;

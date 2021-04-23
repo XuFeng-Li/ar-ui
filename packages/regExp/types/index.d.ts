@@ -1,3 +1,10 @@
+import React, { CSSProperties } from 'react';
+
+interface TempLabelProps {
+    text?: string;
+    style?: CSSProperties;
+}
+declare const TempLabel: React.FC<TempLabelProps>;
 declare const checkNum: (value: string | number) => boolean;
 declare const maxlenRule: (value: string, maxLen: number) => Promise<unknown>;
 declare const telphoneValidation: RegExp;
@@ -17,4 +24,4 @@ declare const numberIncludeRule: (value: string | number, rule: any[], callback:
 declare const isImageByUrl: (url: string) => boolean | undefined;
 declare const isVideoByUrl: (url: string) => boolean | undefined;
 
-export { checkNoChinaChar, checkNum, checkNumberOrABC, decimalRule, getNumberRuleMessage, isImageByUrl, isVideoByUrl, maxlenRule, numberExcludeZeroRule, numberIncludeRule, rangeNumberRule, requiredRule, telphoneValidation };
+export { TempLabel, TempLabelProps, checkNoChinaChar, checkNum, checkNumberOrABC, decimalRule, getNumberRuleMessage, isImageByUrl, isVideoByUrl, maxlenRule, numberExcludeZeroRule, numberIncludeRule, rangeNumberRule, requiredRule, telphoneValidation };

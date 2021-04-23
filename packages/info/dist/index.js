@@ -1395,19 +1395,11 @@ var jsxRuntime = createCommonjsModule(function (module) {
   }
 });
 
-/**
- * 参数是否为 0
- * @param {number} val 传入的参数
- * */
 const isZero = (val) => {
     if (val === undefined)
         return false;
     return `${val}` === '0';
 };
-/**
- * @typedef {React.FC<SquareMeterInfoProps>>} 定义平方米信息的组件
- * @param {SquareMeterInfoProps} props 平方米信息参数
- * */
 const SquareMeterInfo = (_a) => {
     var props = __rest(_a, []);
     const { info } = props;

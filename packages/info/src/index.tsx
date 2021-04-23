@@ -1,31 +1,19 @@
 import React, {CSSProperties, Fragment, useState} from 'react';
 import {simplifyFileName, isFn, trimSpace} from '@ar/util'
 
-/**
- * 参数是否为 0
- * @param {number} val 传入的参数
- * */
 const isZero = (val?: number) => {
   if (val === undefined) return false;
   return `${val}` === '0'
 }
 
-/**
- * @typedef {object} SquareMeterInfoProps 定义平方米信息的组件参数
- * @property {string} info 平方米信息
- * */
 export interface SquareMeterInfoProps {
   /**
    * 平方米数据
-   * @property {string} info
+   * @param {string} info
    * */
   info?: string
 }
 
-/**
- * @typedef {React.FC<SquareMeterInfoProps>>} 定义平方米信息的组件
- * @param {SquareMeterInfoProps} props 平方米信息参数
- * */
 export const SquareMeterInfo: React.FC<SquareMeterInfoProps> = ({...props}) => {
   const {info} = props;
   return (<span>{info || '---'}&nbsp;{info && '㎡'}</span>)

@@ -11,18 +11,22 @@
   "input": "src/index.tsx",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "types": "types/index.d.js",
+  "types": "types/index.d.ts",
   "files": [
     "dist",
     "types",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
+    "module": "dist/es/index.es.js",
     "rollup": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
