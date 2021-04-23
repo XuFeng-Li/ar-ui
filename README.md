@@ -6,7 +6,7 @@
 > 将文件夹 lib 重命名为 src
 > 将文件夹 package>name 重命名为 index.tsx
 * 修改 package.json 配置 打包参数
-> 添加 input 选项，value 为 src/index.tsx
+> 添加 index 选项，value 为 src/index.tsx
 > 添加 main 选项，value 为 dist/index.js
 > 添加 module 选项，value 为 dist/index.es.js
 > 添加 types 选项，value 为 types/index.d.ts
