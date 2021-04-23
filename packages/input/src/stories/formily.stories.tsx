@@ -23,22 +23,7 @@ const Template:Story<ARInputProps> = (args) => {
           Formily_ARInput: {
             type: 'object',
             'x-component':'Formily_ARInput',
-            'x-component-props': {
-              'placeholder':'Basic usage',
-              'size':'middle',
-              'maxLength':10,
-              'allowClear': true,
-              'prefix':(<div>Prefix - </div>),
-              'suffix':(<div> - suffix</div>),
-              'addonBefore':'before',
-              'addonAfter': 'after',
-              'onChange':(value)=>{
-                console.log("********************   onChange ",value.target.value);
-              },
-              'onPressEnter':(value)=>{
-                console.log("********************    onPressEnter ",value.target.value);
-              }
-            }
+            'x-component-props': { ...args }
           }
         }
       }}
@@ -48,5 +33,18 @@ const Template:Story<ARInputProps> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-
+  placeholder:'Basic usage',
+  size:'middle',
+  maxLength:10,
+  allowClear: true,
+  prefix:(<div>Prefix - </div>),
+  suffix:(<div> - suffix</div>),
+  addonBefore:'before',
+  addonAfter: 'after',
+  onChange:(value)=>{
+    console.log("********************   onChange ",value);
+  },
+  onPressEnter:(value)=>{
+    console.log("********************    onPressEnter ",value);
+  }
 }

@@ -1,13 +1,6 @@
+import {ARInput,ARInputProps} from './component/ARInput';
 
-import React from 'react';
-import {Input} from 'antd';
-
-export interface ARInputProps {
-
-}
-
-export const ARInput:React.FC<ARInputProps> = ({...props}) => {
-  return (
-    <Input {...props} />
-  )
-}
+export {
+  ARInput
+};
+export type { ARInputProps };
