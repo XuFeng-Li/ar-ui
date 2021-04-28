@@ -27,3 +27,4 @@
 > moment # 工具库
 > react-eva # 工具库
 > antd # 工具库
+>   接入 formily 2.x ，可以删除 @formily/react-schema-renderer 和 react-eva ，添加 @formily/react
