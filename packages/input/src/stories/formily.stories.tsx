@@ -23,8 +23,12 @@ const Template:Story<ARInputProps> = (args) => {
           Formily_ARInput: {
             type: 'object',
             'x-component':'Formily_ARInput',
-            'x-component-props': { ...args }
-          }
+            'x-component-props': { ...args },
+            "x-props":{
+              title:"输入框"
+            }
+          },
+
         }
       }}
     />
