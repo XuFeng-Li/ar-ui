@@ -1,4 +1,3 @@
-
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -16,5 +15,29 @@ module.exports = {
         }
       }
     }
-  ]
+  ],
+  webpackFinal: async (config) => {
+    console.log("main webpack final");
+    console.log(config);
+    const cssModel = config.module.rules.find(i => i.test.toString() === "/\\.css$/")
+    let lessRule = {
+      test: /\.less$/,
+      sideEffects: true,
+      use: [
+        ...cssModel.use,
+        {
+          loader: 'less-loader',
+          options: {
+            lessOptions: {
+              javascriptEnabled: true
+            }
+          }
+        }
+      ]
+    }
+    console.log("lessRule",lessRule);
+    config.module.rules.push(lessRule)
+    console.log("config",config);
+    return config
+  }
 }

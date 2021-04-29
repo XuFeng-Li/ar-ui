@@ -28,3 +28,17 @@
 > react-eva # 工具库
 > antd # 工具库
 >   接入 formily 2.x ，可以删除 @formily/react-schema-renderer 和 react-eva ，添加 @formily/react
+
+
+### 接入 formily 2.x  时，运行 yarn storybook报错：无法解析 less，
+> 安装依赖 less、less-loader，在 .storybook/main.js 中添加 对 less 解析的配置
+> 注意：1、必须安装 less-loader 低于 7.3.0的版本，否则报错 TypeError: this.getOptions is not a function
+>      2、添加配置加上 
+```javascript
+options: {
+            lessOptions: {
+              javascriptEnabled: true
+            }
+          }
+```
+>       否则报错  Inline JavaScript is not enabled. Is it set in your options
