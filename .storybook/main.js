@@ -17,8 +17,6 @@ module.exports = {
     }
   ],
   webpackFinal: async (config) => {
-    console.log("main webpack final");
-    console.log(config);
     const cssModel = config.module.rules.find(i => i.test.toString() === "/\\.css$/")
     let lessRule = {
       test: /\.less$/,
@@ -35,9 +33,7 @@ module.exports = {
         }
       ]
     }
-    console.log("lessRule",lessRule);
     config.module.rules.push(lessRule)
-    console.log("config",config);
     return config
   }
 }

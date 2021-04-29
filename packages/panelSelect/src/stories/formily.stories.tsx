@@ -1,5 +1,7 @@
 import {Meta,Story} from "@storybook/react";
-// import {SchemaForm,registerFormField,connect} from "@formily/react-schema-renderer";
+import {createForm} from "@formily/core";
+import {Field} from "@formily/react";
+import {Form,FormItem} from "@formily/antd";
 
 import {ARPanelSelect,ARPanelSelectProps} from "../index";
 
@@ -8,13 +10,26 @@ export default {
   component:ARPanelSelect,
 } as Meta;
 
-// registerFormField(
-//   "Formily_ARPanelSelect",
-//   connect()(({...props})=><ARPanelSelect {...props} />)
-// )
+const normalForm = createForm({
+  validateFirst:true
+});
 
 const Template:Story<ARPanelSelectProps> = (args) => {
-  return <ARPanelSelect {...args} />
+  return (
+    <Form form={normalForm} size="large">
+      <Field
+        name="Select"
+        title="下拉选择框"
+        required
+        decorator={[FormItem]}
+        component={[
+          ARPanelSelect,
+          {...args}
+        ]}
+      />
+    </Form>
+  )
+  // return <ARPanelSelect {...args} />
   // return (
   //   <SchemaForm
   //     schema={{

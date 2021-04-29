@@ -1,13 +1,12 @@
 import {Story,Meta} from '@storybook/react';
-// import {SchemaForm,registerFormField,connect} from '@formily/react-schema-renderer';
+import {createForm} from "@formily/core";
+import {Field} from "@formily/react";
+import {Form,FormItem} from "@formily/antd";
 import {ARInputProps,ARInput} from '../index';
 
-// registerFormField(
-//   "Formily_ARInput",
-//   connect()(({...props})=>{
-//     return <ARInput {...props} />
-//   })
-// );
+const normalForm = createForm({
+  validateFirst:true
+});
 
 export default {
   title:'Formily/ARInput',
@@ -15,25 +14,22 @@ export default {
 } as Meta;
 
 const Template:Story<ARInputProps> = (args) => {
-  return <ARInput {...args} />
-  // return (
-  //   <SchemaForm
-  //     schema={{
-  //       type:'object',
-  //       properties:{
-  //         Formily_ARInput: {
-  //           type: 'object',
-  //           'x-component':'Formily_ARInput',
-  //           'x-component-props': { ...args },
-  //           "x-props":{
-  //             title:"输入框"
-  //           }
-  //         },
-  //
-  //       }
-  //     }}
-  //   />
-  // )
+  return (
+    <div>
+      <Form form={normalForm} size="large">
+        <Field
+          name="ARInput"
+          title="输入框"
+          required
+          decorator={[FormItem]}
+          component={[
+            ARInput,
+            {...args}
+          ]}
+        />
+      </Form>
+    </div>
+  )
 }
 
 export const Primary = Template.bind({});
