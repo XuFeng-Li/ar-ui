@@ -4,7 +4,7 @@ import { createSchemaField } from '@formily/react';
 import { Form, FormItem, Input, Password, Submit } from '@formily/antd';
 import { Tabs, Card } from 'antd';
 import * as ICONS from '@ant-design/icons';
-import {VerifyCode} from './components/VerifyCode';
+import {VerifyCode} from '../../../component/VerifyCode';
 import 'antd/dist/antd.css';
 
 const {TabPane} = Tabs;
@@ -83,6 +83,7 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props})=>{
                   }}
                   x-component-props={{
                     prefix: "{{icon('UserOutlined')}}",
+
                   }}
                 />
                 <SchemaField.String
@@ -147,9 +148,9 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props})=>{
                       fulfill: {
                         state: {
                           // @ts-ignore
-                          'component[1].readyPost': '{{$deps[0] && $deps[1]}}',
-                          'component[1].phoneNumber': '{{$deps[0]}}',
-                        }
+                          '.input_verifyCode.readyPost': '{{$deps[0] && $deps[1]}}',
+                          '.input_verifyCode.phoneNumber': '{{$deps[0]}}',
+                        },
                       }
                     }
                   ]}

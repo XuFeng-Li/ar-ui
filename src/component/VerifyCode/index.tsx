@@ -1,7 +1,8 @@
-import {ChangeEventHandler, CSSProperties, FC, useState} from 'react';
+import {ChangeEventHandler, CSSProperties, FC, ReactNode, useState} from 'react';
 import {Input, Button} from 'antd';
 
 export interface VerifyCodeProps {
+  prefix?:ReactNode,
   styles?: CSSProperties,
   value?: string,
   onChange?: ChangeEventHandler,

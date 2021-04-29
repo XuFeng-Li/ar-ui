@@ -1,5 +1,9 @@
-// import {SchemaForm,registerFormField,connect} from "@formily/react-schema-renderer";
+
 import {Story,Meta} from "@storybook/react";
+// import {createForm} from "@formily/core";
+// import {Field} from "@formily/react";
+// import {Form,FormItem} from "@formily/antd";
+
 import {ARSudoku,ARSudokuProps} from "../index";
 export default {
   title:"Formily/Sudoku",
@@ -12,8 +16,23 @@ export default {
 //     return <ARSudoku {...props} />;
 //   })
 // )
-
+// const normalForm = createForm({
+//   validateFirst:true,
+// })
 const Template:Story<ARSudokuProps> = (args) => {
+  // return (
+  //   <Form form={normalForm}>
+  //     <Field
+  //       name="ARSudoku"
+  //       title="sudoku"
+  //       decorator={[FormItem]}
+  //       component={[
+  //         ARSudoku,
+  //         {...args}
+  //       ]}
+  //     />
+  //   </Form>
+  // )
   return <ARSudoku {...args} />
   // return (
   //   <SchemaForm
