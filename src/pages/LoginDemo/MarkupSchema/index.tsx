@@ -5,7 +5,8 @@ import { Form, FormItem, Input, Password, Submit } from '@formily/antd';
 import { Tabs, Card } from 'antd';
 import * as ICONS from '@ant-design/icons';
 import {VerifyCode} from '../../../component/VerifyCode';
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
+import "@formily/antd/dist/antd.css";
 
 const {TabPane} = Tabs;
 
@@ -88,7 +89,7 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props})=>{
                 />
                 <SchemaField.String
                   name="input_pwd"
-                  title="密码"
+                  title="密&nbsp;&nbsp;&nbsp;&nbsp;码"
                   required
                   x-decorator="FormItem"
                   x-component="Input"

@@ -3,7 +3,7 @@ import {Tabs} from "antd";
 import {LoginDemo as MSLoginDemo} from "./pages/LoginDemo/MarkupSchema";
 import {LoginDemo as JSLoginDemo} from "./pages/LoginDemo/JsonSchema";
 import {LoginDemo as PJLoginDemo} from "./pages/LoginDemo/PureJsx";
-import "antd/dist/antd.less";
+import 'antd/lib/tabs/style';
 const {TabPane} = Tabs;
 function App() {
   return (

@@ -3,8 +3,10 @@ import {FormProvider,createSchemaField,Schema} from '@formily/react';
 import {createForm} from '@formily/core';
 import {Card} from 'antd';
 import {Form,Input,FormItem,ArrayTable,Password} from '@formily/antd';
-import "antd/dist/antd.css";
 import {VerifyCode} from '../VerifyCode';
+
+import 'antd/lib/tabs/style';
+import 'antd/lib/button/style';
 
 const phoneSchema = {
   type:'object',

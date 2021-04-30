@@ -1,5 +1,6 @@
 import {ChangeEventHandler, CSSProperties, FC, ReactNode, useState} from 'react';
 import {Input, Button} from 'antd';
+import 'antd/lib/input/style';
 
 export interface VerifyCodeProps {
   prefix?:ReactNode,
@@ -20,7 +21,6 @@ export const VerifyCode: FC<VerifyCodeProps> = ({...props}) => {
       counting(time - 1)
     }, 1000)
   }
-
   return (
     <div
       style={{

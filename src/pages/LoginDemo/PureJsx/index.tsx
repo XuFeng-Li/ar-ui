@@ -6,7 +6,8 @@ import { Form, FormItem, Input, Submit } from '@formily/antd'
 import { Tabs, Card } from 'antd'
 import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons'
 import {VerifyCode} from "../../../component/VerifyCode";
-import 'antd/dist/antd.less';
+import "antd/dist/antd.css";
+import "@formily/antd/dist/antd.css";
 
 const {TabPane} = Tabs;
 
@@ -46,7 +47,7 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props}) => {
           <TabPane key="1" tab="密码登陆">
             <Form
               form={normalForm}
-              layout="vertical"
+              layout="horizontal"
               size="large"
               onAutoSubmit={console.log}
             >
@@ -78,7 +79,11 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props}) => {
             </Form>
           </TabPane>
           <TabPane key="2" tab="手机登陆">
-            <Form form={phoneForm}>
+            <Form
+              form={phoneForm}
+              layout="horizontal"
+              size="large"
+            >
               <Field
                 name="input_phone"
                 title="手机号"

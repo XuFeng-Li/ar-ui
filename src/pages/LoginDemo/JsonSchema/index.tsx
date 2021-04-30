@@ -5,9 +5,10 @@ import { Form, FormItem, Input, Password, Submit } from '@formily/antd'
 import { Tabs, Card } from 'antd'
 import * as ICONS from '@ant-design/icons'
 import {VerifyCode} from '../../../component/VerifyCode';
-
-import 'antd/dist/antd.css';
 import {ISchema} from "@formily/json-schema";
+import "antd/dist/antd.css";
+import "@formily/antd/dist/antd.css";
+
 const {TabPane} = Tabs;
 const normalForm = createForm({
   validateFirst:true,
@@ -46,12 +47,12 @@ const normalSchema: ISchema = {
     },
     input_psw:{
       type:'string',
-      title: '密码',
+      title: `密 码`,
       required: true,
       'x-decorator':'FormItem',
       'x-component':'Input',
       'x-component-props':{
-        prefix: "{{icon('LockOutlined')}}"
+        prefix: "{{icon('LockOutlined')}}",
       }
     }
   }
@@ -145,7 +146,8 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props}) => {
           >
             <Form
               form={phoneForm}
-
+              layout="vertical"
+              size="large"
             >
               <SchemaField schema={phoneSchema} />
               <Submit block size="large" onSubmit={console.log}>登陆</Submit>
