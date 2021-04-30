@@ -11,7 +11,7 @@ export interface VerifyCodeProps {
 }
 
 export const VerifyCode: FC<VerifyCodeProps> = ({...props}) => {
-  const {styles = {},value,onChange,readyPost,phoneNumber} = props;
+  const {value,onChange,readyPost,phoneNumber} = props;
   const [lastTime, setLastTime] = useState(0)
   const counting = (time = 20) => {
     if (time < 0) return
@@ -33,7 +33,7 @@ export const VerifyCode: FC<VerifyCodeProps> = ({...props}) => {
         {...props}
         style={{
           marginRight: "5px",
-          ...styles
+          ...props.styles || {}
         }}
         value={value}
         onChange={onChange}
