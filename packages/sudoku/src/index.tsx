@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+
+// @ts-ignore
 import styles from "./index.module.scss";
 
 const sudokoBoxWH = 44

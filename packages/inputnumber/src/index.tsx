@@ -1,1 +1,1 @@
-export const aaa = "123"
+export * from './components/ARInputNumber';

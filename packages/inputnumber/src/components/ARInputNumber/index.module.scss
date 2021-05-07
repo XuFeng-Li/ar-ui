@@ -1,0 +1,18 @@
+
+.index {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  .addonBefore {
+    padding: 0 5px;
+    flex: 0 0 auto;
+  }
+  .inputSelf {
+    width: 100%;
+  }
+  .addonAfter {
+    padding: 0 5px;
+    flex: 0 0 auto;
+  }
+}
