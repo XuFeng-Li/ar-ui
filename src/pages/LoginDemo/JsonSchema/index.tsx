@@ -134,6 +134,7 @@ export const LoginDemo:React.FC<LoginDemoProps> = ({...props}) => {
               form={normalForm}
               layout="vertical"
               size="large"
+              wrapperCol={16}
               onAutoSubmit={console.log}
             >
               <SchemaField schema={normalSchema} />
