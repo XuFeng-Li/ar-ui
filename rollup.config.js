@@ -175,7 +175,7 @@ module.exports = (prop) => {
           ),
           commonjs(), // 此插件比较关键，不引入该插件会报模块导入相关的错误
           babel(babelConfig),
-          envProp === "prod" ? terser() : {},
+          // envProp === "prod" ? terser() : {},
           postcss({
             modules: true,
             exec: true,

@@ -6,7 +6,7 @@ import {Form,FormItem} from "@formily/antd";
 
 import {ARInputNumber,ARInputNumberProps} from "../components/ARInputNumber";
 export default {
-  title:"Formily/InputNumber",
+  title:"Formily/InputNumber/PureJsx",
   component:ARInputNumber
 } as Meta;
 
@@ -19,6 +19,7 @@ const Template:Story<ARInputNumberProps> = (args) => {
       <Field
         name="InputNumber"
         title="InputNumber"
+        required
         decorator={[FormItem]}
         component={[
           ARInputNumber,
