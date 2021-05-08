@@ -2,7 +2,7 @@
 import {Story,Meta} from "@storybook/react";
 import {createForm} from "@formily/core";
 import {Field} from "@formily/react";
-import {Form,FormItem} from "@formily/antd";
+import {Form} from "@formily/antd";
 
 import {ARFormBlock,ARFormBlockProps} from '../index';
 
@@ -19,9 +19,7 @@ const Template:Story<ARFormBlockProps> = (args) => {
     <Form form={normalForm}>
       <Field
         name="ARFormBlock"
-        title="ARFormBlock"
         required
-        decorator={[FormItem]}
         component={[
           ARFormBlock,
           {...args}
@@ -33,4 +31,5 @@ const Template:Story<ARFormBlockProps> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
+  title: '基本信息'
 }

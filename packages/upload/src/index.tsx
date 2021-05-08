@@ -365,7 +365,7 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
       {
         !!!props.showUploadList && props.customShow &&
         <div
-          className="ant-upload-list ant-upload-list-picture-card custom"
+          className="ant-upload-list ant-upload-list-picture-index custom"
         >
           {
             (filesList || [])

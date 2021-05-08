@@ -20,7 +20,7 @@ const SchemaField = createSchemaField({
   components: {
     FormItem,
     ARFormBlock,
-  }
+  },
 })
 const schemaJson = (args:ARFormBlockProps)=>{
   return {
@@ -41,6 +41,7 @@ const schemaJson = (args:ARFormBlockProps)=>{
   }
 }
 const Template:Story<ARFormBlockProps> = (args) => {
+  console.log("ARFormBlock - ",args);
   return (
     <Form
       form={form}
@@ -51,37 +52,6 @@ const Template:Story<ARFormBlockProps> = (args) => {
     </Form>
   )
 }
-
-// const childrenForm = createForm({
-//   validateFirst:true,
-// });
-// const ChildrenSchemaField = createSchemaField({
-//   components: {
-//     FormItem,
-//     Input,
-//   }
-// })
-// const childrenSchemaJson = ()=>{
-//   return {
-//     type: "object",
-//     properties: {
-//       input01: {
-//         type: 'string',
-//         title: "字段01"
-//       }
-//     }
-//   }
-// }
-// const primaryChildren = () => {
-//   return (
-//     <Form
-//       form={childrenForm}
-//       labelCol={10}
-//     >
-//       <ChildrenSchemaField schema={childrenSchemaJson()} />
-//     </Form>
-//   )
-// }
 
 export const Primary = Template.bind({});
 Primary.args = {

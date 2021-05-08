@@ -11,7 +11,7 @@ export interface ARFormBlockProps {
 
 export const ARFormBlock:React.FC<ARFormBlockProps> = ({...props})=> {
   const {style = {},title,children} = props;
-  console.log(children);
+  console.log("ar form block - ",children);
   return (
     <div
       className={styles.blockIndex}

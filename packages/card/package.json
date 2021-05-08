@@ -1,7 +1,10 @@
 {
-  "name": "formblock",
+  "name": "@ar/card",
   "version": "0.0.1",
-  "description": "> TODO: description",
+  "description": "这是自定义 card 组件",
+  "keywords": [
+    "card"
+  ],
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "",
   "license": "ISC",
@@ -14,6 +17,9 @@
     "types",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"

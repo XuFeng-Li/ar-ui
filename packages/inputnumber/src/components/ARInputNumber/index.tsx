@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 import styles from './index.module.scss';
 
 export type ARSizeType = 'small' | 'middle' | 'large' | undefined;
+
 export interface ARInputNumberProps {
   /**
    * 样式参数
