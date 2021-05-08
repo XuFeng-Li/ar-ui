@@ -1,0 +1,16 @@
+.blockIndex {
+  width: 100%;
+  padding: 12px;
+  .blockHeader {
+    line-height: 36px;
+    height: 36px;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333;
+    background:rgba(245,245,245,1);
+  }
+  .blockBody {
+    padding: 12px;
+    height: auto;
+  }
+}

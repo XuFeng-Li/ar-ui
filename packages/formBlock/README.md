@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const formblock = require('formBlock');
+const index = require('formBlock');
 
 // TODO: DEMONSTRATE API
 ```

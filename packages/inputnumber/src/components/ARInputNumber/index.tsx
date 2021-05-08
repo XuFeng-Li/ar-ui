@@ -111,12 +111,15 @@ export const ARInputNumber:React.FC<ARInputNumberProps> = ({...props}) => {
         !!addonBefore &&
         <div
           className={styles.addonBefore}
-          style={{
-            fontSize: 'small' === size ? '14px' : (('large' === size) ? '16px' : '14px'),
-            fontWeight:400,
-          }}
         >
+          <span
+            style={{
+              fontSize: 'small' === size ? '14px' : (('large' === size) ? '16px' : '14px'),
+              fontWeight:400,
+            }}
+          >
           {addonBefore}
+          </span>
         </div>
       }
       <InputNumber<number>
@@ -137,12 +140,15 @@ export const ARInputNumber:React.FC<ARInputNumberProps> = ({...props}) => {
         !!addonAfter &&
         <div
           className={styles.addonBefore}
-          style={{
-            fontSize: 'small' === size ? '14px' : (('large' === size) ? '16px' : '14px'),
-            fontWeight:400,
-          }}
         >
-          {addonAfter}
+          <span
+            style={{
+              fontSize: 'small' === size ? '14px' : (('large' === size) ? '16px' : '14px'),
+              fontWeight:400,
+            }}
+          >
+            {addonAfter}
+          </span>
         </div>
       }
     </div>

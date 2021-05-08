@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import '@formily/antd/dist/antd.css';
 // import {ARInputNumber,SizeType} from './component/ARInputNumber';
 import {useState} from "react";
-// import 'antd/lib/tabs/style';
+// import 'antd/src/tabs/style';
 // const {TabPane} = Tabs;
 function App() {
 
