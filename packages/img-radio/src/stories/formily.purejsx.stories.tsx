@@ -1,15 +1,42 @@
-import {Story,Meta} from '@storybook/react';
-import React from 'react';
+import React from "react";
+import {Story,Meta} from "@storybook/react";
+import {createForm} from "@formily/core";
+import {Field} from "@formily/react"
+import {Form,FormItem} from "@formily/antd"
+import {ARImgRadio,ARImgRadioProps} from "../index";
 
-import {ARImgRadio,ARImgRadioProps} from '../index';
+import "antd/dist/antd.css";
+import "@formily/antd/dist/antd.css";
 
 export default {
-  title: 'AR/ARImgRadio',
+  title: "Formily/ARImgRadio/PureJsx",
   component: ARImgRadio,
 } as Meta;
 
+const form = createForm({
+  validateFirst: true,
+});
+
 const Template:Story<ARImgRadioProps> = (args) => {
-  return <ARImgRadio {...args} />
+  return (
+    <Form
+      form={form}
+      labelWidth={100}
+      layout="horizontal"
+      size="large"
+    >
+      <Field
+        name="imgRadio_select01"
+        title="瓷砖"
+        required
+        decorator={[FormItem]}
+        component={[
+          ARImgRadio,
+          {...args}
+        ]}
+      />
+    </Form>
+  );
 }
 
 export const Primary = Template.bind({});

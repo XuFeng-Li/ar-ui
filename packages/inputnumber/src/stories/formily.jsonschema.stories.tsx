@@ -1,4 +1,5 @@
 import {Story,Meta} from "@storybook/react";
+import React from "react";
 import {createForm} from "@formily/core";
 import {createSchemaField} from "@formily/react";
 import {Form,FormItem} from "@formily/antd";
@@ -44,7 +45,10 @@ const Template:Story<ARInputNumberProps> = (args) => {
       layout="horizontal"
       size="large"
     >
-      <SchemaField schema={schemaJson(args)} />
+      <SchemaField
+        schema={schemaJson(args)}
+        name="ARInputNumber"
+      />
     </Form>
   )
 }

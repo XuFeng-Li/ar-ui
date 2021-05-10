@@ -7,21 +7,34 @@ import 'antd/dist/antd.css';
 import styles from './index.module.scss';
 
 export interface ARImgRadioProps {
+  /**
+   * 组件样式
+   * */
   style?:CSSProperties,
+  /**
+   * 组件数据列表
+   * */
   dataSource:ARImgRadioItemProps[],
+  /**
+   * 选择对象发生改变的回调函数
+   * */
   onChanged?:(radioItem:ARImgRadioItemProps,index?:number)=>void,
+  /**
+   * 默认值
+   * */
+  initialValue?:string,
 }
 
 export interface ARImgRadioItemProps {
   img:string,
-  key:string | number,
+  key:string | number | undefined,
   name:string,
   value:string,
   needOssProcess?:boolean,
 }
 
 export const ARImgRadio:React.FC<ARImgRadioProps> = ({...props}) => {
-  const [value,setValue] = useState<string | undefined>();
+  const [value,setValue] = useState<string | undefined>(props.initialValue);
   const {style = {},dataSource,onChanged} = props;
 
   const handleRadioClicked = (radioItem:ARImgRadioItemProps,index:number)=> ()=>{
