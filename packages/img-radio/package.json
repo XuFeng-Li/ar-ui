@@ -1,0 +1,44 @@
+{
+  "name": "@ar/img-radio",
+  "version": "0.0.1",
+  "description": "这是 自定义 图片单选工具组件",
+  "author": "lucky1204 <1125105110@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "input": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "rollup": "rollup -c ../../rollup.config.js"
+  },
+  "peerDependencies": {
+    "@formily/antd": "^2.0.0-beta.42",
+    "@formily/core": "^2.0.0-beta.42",
+    "@formily/react": "^2.0.0-beta.42",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "antd": "^4.15.2",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@ar/customimg": "file:../customImg",
+    "classnames": "^2.3.1"
+  }
+}
