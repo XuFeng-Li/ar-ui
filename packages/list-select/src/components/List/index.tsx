@@ -1,21 +1,46 @@
 import React, {CSSProperties} from "react";
-import {Pagination} from "antd";
+import {Pagination,Form,Input} from "antd";
 
-import {ARItem,ARItemInfo} from "../Item";
+import {ARItem,ARCloudRaceInfo} from "../Item";
 
 // @ts-ignore
 import styles from "./index.module.scss"
 
 export interface ARListInfo {
-  list:ARItemInfo[],
+  list:ARCloudRaceInfo[],
+  pageNo:number,
+  total:number,
 }
 
 export interface ARListProps {
   style?:CSSProperties,
   data:ARListInfo,
+  form?:any,
+  onItemClick?:(item:ARCloudRaceInfo)=>void,
+  onFormSubmit?:Function,
+  onPageChange?:(pageNo:number,pageSize?:number)=>void
 }
 
 export const ARList:React.FC<ARListProps> = ({...props}) => {
+  const {data:{list,pageNo,total},onItemClick} = props;
+  const [form] = Form.useForm();
+  const formChange = ()=>{
+    const {onFormSubmit} = props;
+    form.validateFields().then((value)=>{
+      onFormSubmit && onFormSubmit(value);
+    })
+  }
+  const submitHandler = ()=>{
+    formChange();
+  }
+  const searchHandler = ()=>{
+    formChange();
+  }
+  const pageChangeHandler = (pageNo:number,pageSize?:number)=>{
+    const {onPageChange} = props;
+    onPageChange && onPageChange(pageNo,pageSize);
+  }
+
   return (
     <section
       className={styles.cloudRaceList}
@@ -26,22 +51,27 @@ export const ARList:React.FC<ARListProps> = ({...props}) => {
       <div
         className={styles.filters}
       >
-        {/*<Form>*/}
-        {/*  <Form.Item>*/}
-
-        {/*  </Form.Item>*/}
-        {/*</Form>*/}
+        <Form form={form} onFinish={submitHandler}>
+          <Form.Item name={'keyWords'} rules={[]}>
+            <Input.Search
+              className={styles["list__search"]}
+              placeholder="请输入族库名称"
+              allowClear={true}
+              onSearch={searchHandler}
+            />
+          </Form.Item>
+        </Form>
       </div>
       <div
         className={styles.listWrap}
       >
         <ul className={styles.list}>
           {
-            props.data && props.data.list && props.data.list.length >= 1 &&
+            list && props.data.list.length >= 1 &&
               props.data.list.map((item,_)=>{
                 return (
                   <li key={item.id}>
-                    <ARItem item={item}/>
+                    <ARItem item={item} onClick={onItemClick}/>
                   </li>
                 )
               })
@@ -54,11 +84,9 @@ export const ARList:React.FC<ARListProps> = ({...props}) => {
         <Pagination
           simple
           defaultCurrent={1}
-          current={1}
-          total={10}
-          onChange={()=>{
-
-          }}
+          current={pageNo || 1}
+          total={total || 1}
+          onChange={pageChangeHandler}
         />
       </div>
     </section>

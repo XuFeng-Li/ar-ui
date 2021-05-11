@@ -1,11 +1,15 @@
 import React from "react";
 
-const ARConfigContext = React.createContext({});
+export interface ARConfigContextInfo {
+  fetcher?:any,
+}
+const ARConfigContext = React.createContext<ARConfigContextInfo>({});
 
 export interface ARConfigProviderProps {
   children?:any,
   fetcher?:any,
 }
+
 
 const ARConfigProvider:React.FC<ARConfigProviderProps> = ({...props})=>{
   const {children,fetcher} = props;

@@ -41,6 +41,8 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@ar/customimg": "file:../customImg"
+    "@ar/config-provider": "file:../config-provider",
+    "@ar/customimg": "file:../customImg",
+    "classnames": "^2.3.1"
   }
 }

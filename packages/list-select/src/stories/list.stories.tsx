@@ -22,6 +22,8 @@ const Template:Story<ARListProps> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   data:{
+    pageNo:1,
+    total:1,
     list:[
       {
         img:'https://asman-client.oss-cn-hangzhou.aliyuncs.com/dev/family/BSC-CB-0002/BSC-CB-0002.png',

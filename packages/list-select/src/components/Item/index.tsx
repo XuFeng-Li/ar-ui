@@ -4,7 +4,7 @@ import {ARCustomImg} from "@ar/customimg";
 // @ts-ignore
 import styles from "./index.module.scss";
 
-export interface ARItemInfo {
+export interface ARCloudRaceInfo {
   img:string,
   name:string,
   id:string,
@@ -12,18 +12,21 @@ export interface ARItemInfo {
 
 export interface ARItemProps {
   style?:CSSProperties,
-  item:ARItemInfo,
-  onClick?:(item:ARItemInfo)=>void,
+  item:ARCloudRaceInfo,
+  onClick?:(item:ARCloudRaceInfo)=>void,
 }
 export const ARItem:React.FC<ARItemProps> = ({...props}) => {
-
+  const clickItemHandler = ()=>{
+    const {item,onClick} = props;
+    onClick && onClick(item);
+  }
   return (
     <div
       className={styles.cloudRaceItem}
       style={{
         ...props.style || {},
       }}
-
+      onClick={clickItemHandler}
     >
       <div
         className={styles.itemImg}
