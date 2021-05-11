@@ -1,7 +1,7 @@
 import React, {CSSProperties} from "react";
 import {Pagination} from "antd";
 
-import {ARItem,ARItemInfo,Form} from "../Item";
+import {ARItem,ARItemInfo} from "../Item";
 
 // @ts-ignore
 import styles from "./index.module.scss"
