@@ -1,0 +1,24 @@
+
+.cloudRaceItem {
+  cursor: pointer;
+  position: relative;
+  width: 114px;
+  background-color: #FFF;
+  overflow: hidden;
+  .itemImg {
+    width: 114px;
+    height: 114px;
+    background-color: #f9f9f9;
+    img {
+      width: 100%;
+    }
+  }
+  .itemNameCon {
+    margin-top: 20px;
+    text-align: center;
+    .itemName {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+}

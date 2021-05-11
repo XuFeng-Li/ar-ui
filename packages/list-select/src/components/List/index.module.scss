@@ -1,0 +1,45 @@
+.cloudRaceList {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .listSearch {
+    margin-top: 30px;
+    height: 40px;
+  }
+  .filters {
+    padding: 0 20px;
+    & > div {
+      font-size: 12px;
+    }
+  }
+  .listWrap {
+    height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 20px 54px;
+    margin: -4px -6px;
+    li {
+      margin: 10px 6px 10px 6px;
+    }
+  }
+  .pager {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 4px 4px #eee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+  }
+}
