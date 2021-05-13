@@ -2,8 +2,8 @@
 # yarn lockfile v1
 
 
-"@ar/util@../util":
-  version "0.0.1"
+"@ar/util@file:../util":
+  version "0.0.3"
   dependencies:
     "@types/mathjs" "^6.0.11"
     "@types/qs" "^6.9.6"

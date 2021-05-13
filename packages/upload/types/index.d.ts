@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Property } from 'csstype';
 import { ShowUploadListInterface, UploadFile, RcFile, UploadListType } from 'antd/lib/upload/interface';
 
@@ -40,7 +40,7 @@ interface UploadFormProps {
     getExtendHeaders: Function;
     /** 文件大小，单位 M */
     fileSize?: number;
-    children?: ReactElement;
+    children?: any;
     getPolicy?: Function | null;
     getSignedUrl?: Function | null;
     fileType?: string;

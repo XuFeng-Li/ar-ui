@@ -7,7 +7,6 @@ import {ARPanelSelect} from "@ar/panelselect";
 import {ARInputNumber} from "@ar/inputnumber";
 import {ARFormBlock} from "formblock";
 import {ARImgRadio} from "@ar/img-radio";
-import {PanelSwitch} from "@ar/panelSwitch";
 import {ARSudoku} from "@ar/sudoku";
 import "antd/dist/antd.css";
 import "@formily/antd/dist/antd.css";
@@ -28,7 +27,6 @@ const SchemaField = createSchemaField({
     ARFormBlock,
     Radio,
     ARImgRadio,
-    PanelSwitch,
     ARSudoku,
   }
 })

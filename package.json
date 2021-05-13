@@ -32,7 +32,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "rollup": "sh rollup.sh test",
+    "packagesInstall": "sh rollup.sh packages_install",
+    "rollup": "sh rollup.sh rollup test",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },

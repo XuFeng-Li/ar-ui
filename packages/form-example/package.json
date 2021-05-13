@@ -46,7 +46,6 @@
     "@ar/inputnumber": "file:../inputnumber",
     "@ar/list-select": "file:../list-select",
     "@ar/panelselect": "file:../panelSelect",
-    "@ar/panelswitch": "file:../panelSwitch",
     "@ar/regexp": "file:../regExp",
     "@ar/sudoku": "file:../sudoku",
     "@ar/upload": "file:../upload",

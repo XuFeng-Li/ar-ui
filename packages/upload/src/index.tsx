@@ -1,4 +1,4 @@
-import React, {Fragment, ReactElement, useState} from "react";
+import React, {Fragment, useState} from "react";
 import {
   fileListTourlMap,
   simplifyUrlMapToFileList,
@@ -70,7 +70,7 @@ export interface UploadFormProps {
   getExtendHeaders: Function,
   /** 文件大小，单位 M */
   fileSize?: number,
-  children?: ReactElement,
+  children?: any,
   getPolicy?: Function | null,
   getSignedUrl?: Function | null,
   fileType?: string,
@@ -216,7 +216,7 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
       await showMessage("warning", "上传的文件格式不正确");
     }
 
-    const isPass = file.size / 1024 / 1024 < fileSize;
+    const isPass = (file.size || 0) / 1024 / 1024 < fileSize;
     if (!isPass && canAccept) {
       await showMessage('warning', `文件上传不能超过${fileSize}MB`);
     }
@@ -240,7 +240,9 @@ const UploadForm: React.FC<UploadFormProps> = ({...props}) => {
       </div>
     );
     if (children) {
-      renderDom = React.cloneElement(children, {loading: !!loading});
+      const props = Object.create({});
+      props["loading"] = !!loading;
+      renderDom = React.cloneElement(children, props);
     }
     return filesList.length >= (fileLength || 0) ? null : renderDom;
   }

@@ -1312,7 +1312,7 @@ var reactJsxRuntime_development = createCommonjsModule(function (module, exports
               typeString = typeof type;
             }
 
-            error('React.jsx: type is invalid -- expected a string (for ' + 'built-in component) or a class/function (for composite ' + 'component) but got: %s.%s', typeString, info);
+            error('React.jsx: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
           }
 
           var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
@@ -1533,18 +1533,18 @@ const UploadForm = (_a) => {
         if (!canAccept) {
             await showMessage("warning", "上传的文件格式不正确");
         }
-        const isPass = file.size / 1024 / 1024 < fileSize;
+        const isPass = (file.size || 0) / 1024 / 1024 < fileSize;
         if (!isPass && canAccept) {
             await showMessage('warning', `文件上传不能超过${fileSize}MB`);
         }
         return isPass && canAccept;
     };
-    const setFirstPic = (info) => {
-        const list = filesList.filter((ele) => ele !== info) || [];
+    const setFirstPic = (index) => {
+        const list = filesList.filter((ele) => ele !== index) || [];
         handleChange(list);
     };
-    const deletePic = (info) => {
-        const list = filesList.filter((ele) => ele !== info) || [];
+    const deletePic = (index) => {
+        const list = filesList.filter((ele) => ele !== index) || [];
         handleChange(list);
     };
     const renderButton = () => {
@@ -1552,7 +1552,9 @@ const UploadForm = (_a) => {
         const loading = filesList.filter((ele) => "uploading" === ele.status).length;
         let renderDom = (jsxRuntime.jsx("div", { children: jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-text" }, { children: "\u4E0A\u4F20" }), void 0) }, void 0));
         if (children) {
-            renderDom = f__default['default'].cloneElement(children, { loading: !!loading });
+            const props = Object.create({});
+            props["loading"] = !!loading;
+            renderDom = f__default['default'].cloneElement(children, props);
         }
         return filesList.length >= (fileLength || 0) ? null : renderDom;
     };
@@ -1613,11 +1615,11 @@ const UploadForm = (_a) => {
             xhr.send(fd);
         });
     };
-    const customRequest = async (info) => {
+    const customRequest = async (index) => {
         if (beyondFileLength())
             return false;
         const objcProps = JSON.parse(JSON.stringify(props || {}));
-        const objcData = JSON.parse(JSON.stringify(info || {}));
+        const objcData = JSON.parse(JSON.stringify(index || {}));
         const { fileTypeCode, queryPolicyParams = {} } = objcProps;
         const { file } = objcData;
         await policyUpload(file, Object.assign({ fileTypeCode }, queryPolicyParams));
@@ -1656,10 +1658,10 @@ const UploadForm = (_a) => {
                     display: props.outDisplay || 'inline-block'
                 } }, { children: ["\u4E0A\u4F20\u6587\u5B57", jsxRuntime.jsx(antd.Upload, Object.assign({}, baseProps(), extendProps(), { children: renderButton() }), void 0)] }), void 0),
             !!!props.showUploadList && props.customShow &&
-                jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-list ant-upload-list-picture-card custom" }, { children: (filesList || [])
+                jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-list ant-upload-list-picture-index custom" }, { children: (filesList || [])
                         .filter((ele) => "done" === ele.status)
                         .map((ele, index) => {
-                        return (jsxRuntime.jsxs("div", Object.assign({ className: "ant-upload-list-item ant-upload-list-item-done" }, { children: [jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-list-item-info" }, { children: jsxRuntime.jsx("a", Object.assign({ className: "ant-upload-list-item-thumbnail", href: ele.url, rel: "noopener noreferrer", target: "_blank" }, { children: jsxRuntime.jsx("img", { src: ele.url, alt: ele.name }, void 0) }), void 0) }), void 0),
+                        return (jsxRuntime.jsxs("div", Object.assign({ className: "ant-upload-list-item ant-upload-list-item-done" }, { children: [jsxRuntime.jsx("div", Object.assign({ className: "ant-upload-list-item-index" }, { children: jsxRuntime.jsx("a", Object.assign({ className: "ant-upload-list-item-thumbnail", href: ele.url, rel: "noopener noreferrer", target: "_blank" }, { children: jsxRuntime.jsx("img", { src: ele.url, alt: ele.name }, void 0) }), void 0) }), void 0),
                                 jsxRuntime.jsx("span", Object.assign({ className: "ant-upload-list-item-actions" }, { children: jsxRuntime.jsx("a", { href: ele.url, target: "_blank", rel: "noopener noreferrer", title: "\u9884\u89C8\u6587\u4EF6" }, void 0) }), void 0),
                                 jsxRuntime.jsxs("span", Object.assign({ className: "ant-upload-list-item-extend-actions", style: { fontSize: '12px', color: '#fff', zIndex: 10 } }, { children: [0 === index ? (jsxRuntime.jsx("span", { children: mainPicText || '主图' }, void 0)) : (jsxRuntime.jsx("span", Object.assign({ onClick: () => setFirstPic(ele), className: "pointer" }, { children: setMainPicText || '设为主图' }), void 0)),
                                         jsxRuntime.jsx("span", Object.assign({ style: { marginLeft: '8px' }, onClick: () => deletePic(ele), className: "pointer" }, { children: "\u5220\u9664" }), void 0)] }), void 0)] }), -index));

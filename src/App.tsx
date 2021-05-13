@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import {useState} from "react";
 import {Radio} from "antd";
 import 'antd/dist/antd.css';
 import '@formily/antd/dist/antd.css';
