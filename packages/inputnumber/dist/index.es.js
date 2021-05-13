@@ -33,7 +33,6 @@ var styles = {"index":"index-module_index__2mBCy","addonBefore":"index-module_ad
 const ARInputNumber = (_a) => {
     var props = __rest(_a, []);
     const { style = {}, addonBefore, addonAfter, onStep } = props, other = __rest(props, ["style", "addonBefore", "addonAfter", "onStep"]);
-    console.log(other);
     const { size = 'middle' } = other;
     return (React.createElement("div", { className: styles.index, style: Object.assign(Object.assign({}, style), { height: 'small' === size ? '24px' : (('large' === size) ? '40px' : '32px') }) },
         !!addonBefore &&
