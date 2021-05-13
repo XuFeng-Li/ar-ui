@@ -14,6 +14,10 @@
     "types",
     "README.md"
   ],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/",
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"

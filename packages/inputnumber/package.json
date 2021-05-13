@@ -19,6 +19,7 @@
     "README.md"
   ],
   "publishConfig": {
+    "registry": "http://registry.npmjs.org/",
     "access": "public"
   },
   "repository": {

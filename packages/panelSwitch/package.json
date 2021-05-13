@@ -20,11 +20,12 @@
     "test": "__tests__"
   },
   "publishConfig": {
+    "registry": "http://registry.npmjs.org/",
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XuFeng-Li/ar-ui.git"
+    "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
