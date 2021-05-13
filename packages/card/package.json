@@ -1,6 +1,6 @@
 {
   "name": "@ar/card",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "这是自定义 card 组件",
   "keywords": [
     "card"

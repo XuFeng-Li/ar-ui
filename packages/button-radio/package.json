@@ -1,6 +1,6 @@
 {
   "name": "@ar/button-radio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "这个组件是对 antd 中 radio 的二次改造，类似于 switch 组件",
   "keywords": [
     "button",
