@@ -1,7 +1,7 @@
 {
   "name": "@ar/panelswitch",
   "version": "0.0.1",
-  "description": "> TODO: description",
+  "description": "这是一个自定义的 switch 按钮",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
   "license": "ISC",

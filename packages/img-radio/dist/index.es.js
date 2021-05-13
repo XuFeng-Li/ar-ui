@@ -33,7 +33,7 @@ var styles = {"radioList":"index-module_radioList__2ZIkJ","radioItem":"index-mod
 
 const ARImgRadio = (_a) => {
     var props = __rest(_a, []);
-    const [value, setValue] = useState();
+    const [value, setValue] = useState(props.initialValue);
     const { style = {}, dataSource, onChanged } = props;
     const handleRadioClicked = (radioItem, index) => () => {
         if (radioItem.value === value)

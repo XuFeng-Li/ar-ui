@@ -2,6 +2,7 @@ import {Meta,Story} from "@storybook/react";
 import {createForm} from "@formily/core";
 import {Field} from "@formily/react";
 import {Form,FormItem} from "@formily/antd";
+import React from "react";
 
 import {ARPanelSelect,ARPanelSelectProps} from "../index";
 

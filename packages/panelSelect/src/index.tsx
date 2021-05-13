@@ -76,7 +76,9 @@ export const ARPanelSelect: React.FC<ARPanelSelectProps> = ({...props}) => {
           style={{width:'100%'}}
           onSelect={props.onSelect}
           onChange={props.onChange}
-        >{tempChildren}</Select>
+        >
+          {tempChildren}
+        </Select>
       </div>
       {
         props.addonAfter &&

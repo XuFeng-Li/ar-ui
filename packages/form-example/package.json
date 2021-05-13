@@ -1,0 +1,55 @@
+{
+  "name": "@ar/form-example",
+  "version": "0.0.1",
+  "description": "用于测试 组件库 中所有组件在formily中使用的demo",
+  "author": "lucky1204 <1125105110@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "src/index.tsx",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "peerDependencies": {
+    "@formily/antd": "^2.0.0-beta.42",
+    "@formily/core": "^2.0.0-beta.42",
+    "@formily/react": "^2.0.0-beta.42",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "antd": "^4.15.2",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1"
+  },
+  "dependencies": {
+    "@ar/button-radio": "file:../button-radio",
+    "@ar/card": "file:../card",
+    "@ar/config-provider": "file:../config-provider",
+    "@ar/customimg": "file:../customImg",
+    "@ar/img-radio": "file:../img-radio",
+    "@ar/info": "file:../info",
+    "@ar/input": "file:../input",
+    "@ar/inputnumber": "file:../inputnumber",
+    "@ar/list-select": "file:../list-select",
+    "@ar/panelselect": "file:../panelSelect",
+    "@ar/panelswitch": "file:../panelSwitch",
+    "@ar/regexp": "file:../regExp",
+    "@ar/sudoku": "file:../sudoku",
+    "@ar/upload": "file:../upload",
+    "@ar/util": "file:../util",
+    "formblock": "file:../formBlock"
+  }
+}

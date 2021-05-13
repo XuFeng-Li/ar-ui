@@ -97,7 +97,6 @@ export interface ARInputNumberProps {
 export const ARInputNumber:React.FC<ARInputNumberProps> = ({...props}) => {
 
   const {style = {},addonBefore,addonAfter,onStep,...other} = props;
-  console.log(other);
   const {size = 'middle'} = other;
 
   return (
