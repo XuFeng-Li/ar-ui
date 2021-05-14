@@ -1,10 +1,10 @@
 import React from "react";
 import {Radio} from "antd";
+import {RadioChangeEvent} from "antd/lib/radio/interface";
 
 import "antd/dist/antd.css";
 // @ts-ignore
 import styles from "./index.module.scss";
-import {RadioChangeEvent} from "antd/lib/radio/interface";
 
 export type ARRadioButton = 'outline' | 'solid';
 export type ARRadioSize = 'large' | 'middle' | 'small';
