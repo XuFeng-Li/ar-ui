@@ -1,7 +1,21 @@
 {
+  "name": "root",
+  "version": "independent",
+  "npmClient": "yarn",
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.3",
-  "npmClient": "yarn"
+  "command": {
+    "publish": {
+      "message": "chore(release): publish %s",
+      "ignoreChanges": [
+        "eslint/**"
+      ]
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    }
+  }
 }
