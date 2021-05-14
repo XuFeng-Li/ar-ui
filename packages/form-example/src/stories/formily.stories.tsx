@@ -24,9 +24,7 @@ const Template: Story = () => {
     setList(mockData);
   }, []);
   const selectChangeHandler = (code: string) => {
-    console.log('selectChangeHandler - code - ', code);
     const schema = fetchSchema(code);
-    console.log('selectChangeHandler - schema - ', schema);
     if (!schema) return;
     setSchema(schema);
   }

@@ -1,7 +1,7 @@
 import {Story,Meta} from "@storybook/react";
 import {createForm} from "@formily/core";
 import {createSchemaField} from "@formily/react";
-import {Form,FormItem} from "@formily/antd";
+import {Form,FormItem,Input} from "@formily/antd";
 
 import {ARFormBlock,ARFormBlockProps} from '../index';
 
@@ -20,6 +20,7 @@ const SchemaField = createSchemaField({
   components: {
     FormItem,
     ARFormBlock,
+    Input,
   },
 })
 const schemaJson = (args:ARFormBlockProps)=>{
@@ -33,7 +34,22 @@ const schemaJson = (args:ARFormBlockProps)=>{
         properties: {
           aaa: {
             type: 'string',
-            title: '字段aaa'
+            title: '字段aaa',
+            required:true,
+            'x-decorator':"FormItem",
+            "x-component":"Input",
+            "x-component-props":{
+
+            }
+          },
+          bbb: {
+            type:"string",
+            title:"字段bbb",
+            'x-decorator':"FormItem",
+            "x-component":"Input",
+            "x-component-props":{
+
+            }
           }
         }
       }
@@ -45,6 +61,8 @@ const Template:Story<ARFormBlockProps> = (args) => {
   return (
     <Form
       form={form}
+      labelCol={4}
+      wrapperCol={16}
       layout="horizontal"
       size="large"
     >
