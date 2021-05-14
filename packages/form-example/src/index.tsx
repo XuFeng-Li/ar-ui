@@ -10,10 +10,10 @@ import {ARImgRadio} from "@ar/img-radio";
 import {ARSudoku} from "@ar/sudoku";
 import "antd/dist/antd.css";
 import "@formily/antd/dist/antd.css";
-import "@ar/inputnumber/dist/dist/css/bundle.css";
-import "formblock/dist/dist/css/bundle.css";
-import "@ar/img-radio/dist/dist/css/bundle.css";
-import "@ar/sudoku/dist/dist/css/bundle.css";
+import "@ar/inputnumber/dist/index.css";
+import "formblock/dist/index.css";
+import "@ar/img-radio/dist/index.css";
+import "@ar/sudoku/dist/index.css";
 
 const form = createForm({
   validateFirst:true,

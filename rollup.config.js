@@ -107,7 +107,7 @@ module.exports = (prop) => {
             modules: true,
             exec: true,
             plugins: [autoprefixer, cssnano],
-            extract: 'dist/css/bundle.css',
+            extract: 'index.css',
           }),
           url(),
         ]
@@ -146,7 +146,7 @@ module.exports = (prop) => {
             modules: true,
             exec: true,
             plugins: [autoprefixer, cssnano],
-            extract: 'dist/css/bundle.css',
+            extract: 'index.css',
           }),
           url(),
         ]
@@ -180,7 +180,7 @@ module.exports = (prop) => {
             modules: true,
             exec: true,
             plugins: [autoprefixer, cssnano],
-            extract: 'dist/css/bundle.css',
+            extract: 'index.css',
           }),
           url(),
         ]
