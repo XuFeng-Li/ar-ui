@@ -27,52 +27,13 @@ const externals = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {}),
 ];
-let output = [];
-if (pkg.main) {
-  output = [
-    ...output,
-    {
-      file: pkg.main,
-      format: 'cjs', // 输出文件格式为CommonJS
-      sourcemap: false,
-      exports: 'auto'
-    }
-  ];
-}
-if (pkg.module) {
-  output = [
-    ...output,
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: false,
-    }
-  ];
-}
-if (pkg.types) {
-  output = [
-    ...output,
-    {
-      file: pkg.types,
-      sourcemap: false,
-      plugins: [
-        dts(),
-      ]
-    }
-  ];
-}
 
 let babelConfig = {};
 babelConfig = {
   babelHelpers: 'bundled'
 }
 module.exports = (prop) => {
-  console.log("************************************   prop");
-  console.log(prop);
   const envProp = prop.env || "prod";
-  console.log(prop.env);
-  console.log(envProp,envProp === "prod");
-
   let resultConfig = [];
   if (pkg.main) {
     resultConfig = [
