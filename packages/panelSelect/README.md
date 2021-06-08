@@ -1,11 +1,11 @@
-# `@ar/PanelSelect`
+# `@tytools/PanelSelect`
 
 > TODO: description
 
 ## Usage
 
 ```
-const index = require('@ar/PanelSelect');
+const index = require('@tytools/PanelSelect');
 
 // TODO: DEMONSTRATE API
 ```

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var f = require('react');
-var customimg = require('@ar/customimg');
+var customimg = require('@tytools/customimg');
 var cs = require('classnames');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }

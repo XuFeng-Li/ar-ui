@@ -1,5 +1,5 @@
 import f, { useState } from 'react';
-import { ARCustomImg } from '@ar/customimg';
+import { ARCustomImg } from '@tytools/customimg';
 import cs from 'classnames';
 
 /*! *****************************************************************************

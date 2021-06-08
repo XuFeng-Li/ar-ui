@@ -1,5 +1,5 @@
 import React, {CSSProperties} from "react";
-import {ARCustomImg} from "@ar/customimg";
+import {ARCustomImg} from "@tytools/customimg";
 
 // @ts-ignore
 import styles from "./index.module.scss";

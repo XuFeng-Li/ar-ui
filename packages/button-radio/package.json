@@ -1,5 +1,5 @@
 {
-  "name": "@tytool/button-radio",
+  "name": "@tytools/button-radio",
   "version": "0.0.5",
   "description": "这个组件是对 antd 中 radio 的二次改造，类似于 switch 组件",
   "keywords": [
@@ -47,5 +47,5 @@
     "@formily/core": "^2.0.0-beta.42",
     "@formily/react": "^2.0.0-beta.42"
   },
-  "gitHead": "6c0bcd3c572590b068bb0e7c74f553c15f7a4a33"
+  "gitHead": "7b8f50fc4730f30792875f2dee90ad6a54dbd98b"
 }

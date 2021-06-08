@@ -2,72 +2,6 @@
 # yarn lockfile v1
 
 
-"@ar/button-radio@file:../button-radio":
-  version "0.0.3"
-  dependencies:
-    classnames "^2.3.1"
-
-"@ar/card@file:../card":
-  version "0.0.3"
-
-"@ar/config-provider@file:../config-provider":
-  version "0.0.3"
-
-"@ar/customimg@file:../customImg":
-  version "0.0.3"
-
-"@ar/img-radio@file:../img-radio":
-  version "0.0.3"
-  dependencies:
-    "@ar/customimg" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-img-radio-0.0.3-8965e6c7-bad7-4954-8590-a196a501c00e-1620900203772/node_modules/@ar/customImg"
-    classnames "^2.3.1"
-
-"@ar/info@file:../info":
-  version "0.0.3"
-  dependencies:
-    "@ar/util" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-info-0.0.3-b7ecd395-7e56-48d9-95c0-22f9d0ef2e51-1620900203775/node_modules/@ar/util"
-
-"@ar/input@file:../input":
-  version "0.0.3"
-
-"@ar/inputnumber@file:../inputnumber":
-  version "0.0.3"
-
-"@ar/list-select@file:../list-select":
-  version "0.0.3"
-  dependencies:
-    "@ar/config-provider" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-list-select-0.0.3-caf68546-1039-43b6-a172-f9c1885684aa-1620900203791/node_modules/@ar/config-provider"
-    "@ar/customimg" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-list-select-0.0.3-caf68546-1039-43b6-a172-f9c1885684aa-1620900203791/node_modules/@ar/customImg"
-    classnames "^2.3.1"
-
-"@ar/panelselect@file:../panelSelect":
-  version "0.0.3"
-  dependencies:
-    "@ar/util" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-panelselect-0.0.3-30153ff9-b876-49f9-8e6d-ebea52f91254-1620900203795/node_modules/@ar/util"
-
-"@ar/regexp@file:../regExp":
-  version "0.0.3"
-  dependencies:
-    "@ar/util" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-regexp-0.0.3-f0f1c030-6cdd-4ca2-ae4d-d1c2a1615340-1620900203797/node_modules/@ar/util"
-
-"@ar/sudoku@file:../sudoku":
-  version "0.0.3"
-  dependencies:
-    "@ar/util" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-sudoku-0.0.3-0261cd54-829f-4bd5-952a-9450070a0bbd-1620900203799/node_modules/@ar/util"
-
-"@ar/upload@file:../upload":
-  version "0.0.3"
-  dependencies:
-    "@ar/util" "file:../../../../../../Library/Caches/Yarn/v6/npm-@ar-upload-0.0.3-7b93321d-fb83-47d8-a89e-837cf1660a09-1620900203801/node_modules/@ar/util"
-
-"@ar/util@file:../util":
-  version "0.0.3"
-  dependencies:
-    "@types/mathjs" "^6.0.11"
-    "@types/qs" "^6.9.6"
-    mathjs "^9.3.0"
-    qs "^6.10.1"
-
 "@types/mathjs@^6.0.11":
   version "6.0.12"
   resolved "https://registry.yarnpkg.com/@types/mathjs/-/mathjs-6.0.12.tgz#1c2a60352852676e10936ce150b9500d36555973"
@@ -79,6 +13,107 @@
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.6.tgz#df9c3c8b31a247ec315e6996566be3171df4b3b1"
   integrity sha512-0/HnwIfW4ki2D8L8c9GVcG5I72s9jP5GSLVF0VIXDW00kmIpA6O33G7a8n59Tmh7Nz0WUC3rSb7PTY/sdW2JzA==
+
+"@tytools/button-radio@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/button-radio/-/button-radio-0.0.5.tgz#d536731a137dbad5811aa5e5e18373ad5ebd194c"
+  integrity sha512-rN3Fruh1xiI/h4yFvkz+c8a2pV0n5mlW+aNsFdkRHxlFdd06y81pQVw/GV6k+5iWGJaopd/Cav8HAPDpHEpD8w==
+  dependencies:
+    classnames "^2.3.1"
+
+"@tytools/card@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/card/-/card-0.0.5.tgz#bc8fb49d6ee7687f38c67d76e638c4b2d41a3ba9"
+  integrity sha512-TewxZAf1leWkunISdVf/hVjq3a2hZvyi15m9S1fkAueUkP2Iec3WW7EER/Bul2Ow+h6zfAFG5S1gjaNaMZtJDg==
+
+"@tytools/config-provider@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/config-provider/-/config-provider-0.0.5.tgz#78689a022e629b92e810d51f7306b58a4c6732f4"
+  integrity sha512-DJ9hHsoc7s0boZJ5wLhAoBWnnmL0AINxJHz+OJ36tKXQ+JxRsvBl0LBXv1es3DWkXFKFo+lyGQuy4PmcEWYNvA==
+
+"@tytools/customimg@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/customimg/-/customimg-0.0.5.tgz#aec00c52b308a868aa3423de49a7a4367d4b10de"
+  integrity sha512-fg5t/VkpK9G6Bec35aYixAPeLyR63xqkJ05/YDcvuDffJsLGQfnvU5Qcmodbgh0wa9mplnqjPiGfEoPAO40Q0w==
+
+"@tytools/formblock@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/formblock/-/formblock-0.0.5.tgz#e985eaf170f0c582e6a391da0af9c055c530f970"
+  integrity sha512-zrHTbx/HTuqwc1HxAt67QGp9p7bbbnLezm/1NXBtMnHiiIphn09oYfAu9sXH/LODD3QIXZIFssepP99w6wosHw==
+
+"@tytools/img-radio@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/img-radio/-/img-radio-0.0.5.tgz#c543eea652463342a8180001dcd859346a49fb45"
+  integrity sha512-XqmSE7EAPWS7EL5TZyaJPwVlYDoLVfgNvqv5lw3cAgoHzuQ03g26ven9vfYtjSqMU0u1StWBiiHIOByM1DBndQ==
+  dependencies:
+    "@tytools/customimg" "^0.0.5"
+    classnames "^2.3.1"
+
+"@tytools/info@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/info/-/info-0.0.5.tgz#5a139893ecd25e7404e9ae94a5299d124ae51da8"
+  integrity sha512-Mq0XMiM1Nc41GP+QjAFm8jNzK9NZqcqkHKsqlweXwd3fsw0VfY3P2oLmapMUDCto+mage0hPiaENUAi262LVSw==
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/input@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/input/-/input-0.0.5.tgz#4ea1cfec7d7ab7f501606b6165fef76af1f0dce9"
+  integrity sha512-GOJ0WTIo3FRt3w9G/swhId9JgqJrD18tutnO3sAAqVRvPReLI/4+Wh3Q4OR+fAm7qNOlzahDYEOaJ5zZ0sLWwg==
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/inputnumber@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/inputnumber/-/inputnumber-0.0.5.tgz#b8bdd690ba2a29966e8ef7b421c4e6ef2fc05d9f"
+  integrity sha512-3T6NTpHwg5AXW5kHMt5ShYYCOim+vB6bUlIK93RcQS007OP1j10PxPYZvnXEF8n3aWgdQEDqzKUAHDcJ+M/bmQ==
+
+"@tytools/list-select@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/list-select/-/list-select-0.0.5.tgz#d0802204634024acc5845592f6558cda53032ee2"
+  integrity sha512-Vep0X3EyZreq1fngiEO/vIOa3jFy6uJ69l78vuL2toCtSwn7t3a9YZOBZn+EMD1m0qyeXou8IUPFJdtfuqCyNA==
+  dependencies:
+    "@tytools/config-provider" "^0.0.5"
+    "@tytools/customimg" "^0.0.5"
+    classnames "^2.3.1"
+
+"@tytools/panelselect@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/panelselect/-/panelselect-0.0.5.tgz#0519e1962aeeb7fb2bbdb61614a2aa5ae0473ebc"
+  integrity sha512-cN+p7pDUb2TpLzWSePDnHL1nelQNJpb4GxXGS3DJ0HzC0PtZFyzrn18tqP6aMh3E0IjFsChGjtI7/jGQGCvLIw==
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/regexp@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/regexp/-/regexp-0.0.5.tgz#186f2941d75d95a1b3e7f0daf353100a7c93474d"
+  integrity sha512-E0q+r8VFxEnX7vR3j63bWnnKc0MAYi6oxy9lAwu65rpYi7nL4BD2h3DACnqHPJWvKw8TWB1YTr1K/GisSMQlQQ==
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/sudoku@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/sudoku/-/sudoku-0.0.5.tgz#e8f5e2b738343de04100cab98f6779d7b057f5de"
+  integrity sha512-NmzQcNQzS75VMaxMJbxCXHTfXx/srnx8s2RAgf0fYBj8fWl+5PVzgBuFB9FbHosDF8icHI3IaScL4qD7SeKB2Q==
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/upload@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@tytools/upload/-/upload-0.0.5.tgz#38181dc6d508bc76a2351123d4ba8143351cc26d"
+  integrity sha512-zXRaTyuxrOIh5EZSlFdtO66CCdrfiP5g5YNHQEj/OpTGDalImnBkDjRhiswTbc/5KMaL2l229jCNV7zOwELDrQ==
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/util@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@tytools/util/-/util-0.0.4.tgz#6c38b5b99a60e742075c8c1e0ccdd6ed6983e61c"
+  integrity sha512-iEsTjSHSW3yYUUQSLbfPhIdsG8qLfLjUlL56ptNYzEpyOs34g/ivKmW97tbEWj9y+bxlFgu9DHXco4b/zeHMWQ==
+  dependencies:
+    "@types/mathjs" "^6.0.11"
+    "@types/qs" "^6.9.6"
+    mathjs "^9.3.0"
+    qs "^6.10.1"
 
 axios@^0.21.1:
   version "0.21.1"
@@ -119,9 +154,6 @@ follow-redirects@^1.10.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
   integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
-
-"formblock@file:../formBlock":
-  version "0.0.3"
 
 fraction.js@^4.0.13:
   version "4.0.13"

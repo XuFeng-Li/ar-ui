@@ -3,17 +3,17 @@ import {createForm} from "@formily/core";
 import {createSchemaField} from "@formily/react";
 import {Form,FormItem,Radio} from "@formily/antd";
 import {ISchema} from "@formily/json-schema";
-import {ARPanelSelect} from "@ar/panelselect";
-import {ARInputNumber} from "@ar/inputnumber";
-import {ARFormBlock} from "formblock";
-import {ARImgRadio} from "@ar/img-radio";
-import {ARSudoku} from "@ar/sudoku";
+import {ARPanelSelect} from "@tytools/panelselect";
+import {ARInputNumber} from "@tytools/inputnumber";
+import {ARFormBlock} from "@tytools/formblock";
+import {ARImgRadio} from "@tytools/img-radio";
+import {ARSudoku} from "@tytools/sudoku";
 import "antd/dist/antd.css";
 import "@formily/antd/dist/antd.css";
-import "@ar/inputnumber/dist/index.css";
+import "@tytools/inputnumber/dist/index.css";
 import "formblock/dist/index.css";
-import "@ar/img-radio/dist/index.css";
-import "@ar/sudoku/dist/index.css";
+import "@tytools/img-radio/dist/index.css";
+import "@tytools/sudoku/dist/index.css";
 
 const form = createForm({
   validateFirst:true,

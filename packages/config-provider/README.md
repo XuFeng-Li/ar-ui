@@ -1,11 +1,11 @@
-# `@ar/config-provider`
+# `@tytools/config-provider`
 
 > TODO: description
 
 ## Usage
 
 ```
-const index = require('@ar/config-provider');
+const index = require('@tytools/config-provider');
 
 // TODO: DEMONSTRATE API
 ```

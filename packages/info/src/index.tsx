@@ -1,5 +1,5 @@
 import React, {CSSProperties, Fragment, useState} from 'react';
-import {simplifyFileName, isFn, trimSpace} from '@ar/util'
+import {simplifyFileName, isFn, trimSpace} from '@tytools/util'
 
 const isZero = (val?: number) => {
   if (val === undefined) return false;

@@ -1,8 +1,8 @@
-// import { trim, isFn, getFileTypeByName, isStr, isArr } from '@ar/util';
+// import { trim, isFn, getFileTypeByName, isStr, isArr } from '@tytool/util';
 import {
   isFn as arIsFn,
   isArr as arIsArr
-} from "@ar/util";
+} from "@tytools/util";
 
 export const checkNum = (value:string | number) => {
   return /^[0-9]+.?[0-9]*$/.test(value.toString());

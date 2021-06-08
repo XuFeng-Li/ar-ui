@@ -1,5 +1,5 @@
 import React, {CSSProperties, useState, Fragment, UIEvent} from "react";
-import {ConfigConsumer} from '@ar/config-provider';
+import {ConfigConsumer} from '@tytools/config-provider';
 import {AxiosInstance} from "axios";
 import {Drawer} from "antd";
 import {PlusOutlined, EditOutlined, DeleteOutlined} from "@ant-design/icons";

@@ -3,7 +3,7 @@ import {
   fileListTourlMap,
   simplifyUrlMapToFileList,
   urlMapToFileList
-} from "@ar/util";
+} from "@tytools/util";
 
 import 'antd/dist/antd.css';
 import {Property} from "csstype";

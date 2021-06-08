@@ -1,7 +1,7 @@
 'use strict';
 
 var f = require('react');
-var util = require('@ar/util');
+var util = require('@tytools/util');
 var antd = require('antd');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }

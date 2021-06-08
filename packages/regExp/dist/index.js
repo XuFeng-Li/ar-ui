@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var util = require('@ar/util');
+var util = require('@tytools/util');
 
-// import { trim, isFn, getFileTypeByName, isStr, isArr } from '@ar/util';
+// import { trim, isFn, getFileTypeByName, isStr, isArr } from '@tytool/util';
 const checkNum = (value) => {
     return /^[0-9]+.?[0-9]*$/.test(value.toString());
 };

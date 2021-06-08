@@ -1,11 +1,11 @@
-# `@ar/panelSwitch`
+# `@tytools/panelSwitch`
 
 > TODO: description
 
 ## Usage
 
 ```
-const index = require('@ar/panelSwitch');
+const index = require('@tytools/panelSwitch');
 
 // TODO: DEMONSTRATE API
 ```

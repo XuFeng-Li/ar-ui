@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Story, Meta} from "@storybook/react";
-import ARConfigProvider from "@ar/config-provider";
-import {ARPanelSelect} from "@ar/panelselect";
+import ARConfigProvider from "@tytools/config-provider";
+import {ARPanelSelect} from "@tytools/panelselect";
 import {ARFormExmaple} from "../index";
 import mockFetcher from "../fetcher/fetch";
 import {ISchema} from "@formily/json-schema";

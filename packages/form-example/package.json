@@ -1,13 +1,18 @@
 {
-  "name": "@tytool/form-example",
+  "name": "@tytools/form-example",
   "version": "0.0.5",
   "description": "用于测试 组件库 中所有组件在formily中使用的demo",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "src/index.tsx",
+  "input": "src/index.tsx",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "types/index.d.ts",
   "files": [
-    "src"
+    "dist",
+    "types",
+    "README.md"
   ],
   "publishConfig": {
     "registry": "http://registry.npmjs.org/",
@@ -37,21 +42,21 @@
     "axios": "^0.21.1"
   },
   "dependencies": {
-    "@tytool/button-radio": "^0.0.5",
-    "@tytool/card": "^0.0.5",
-    "@tytool/config-provider": "^0.0.5",
-    "@tytool/customimg": "^0.0.5",
-    "@tytool/formblock": "^0.0.5",
-    "@tytool/img-radio": "^0.0.5",
-    "@tytool/info": "^0.0.5",
-    "@tytool/input": "^0.0.5",
-    "@tytool/inputnumber": "^0.0.5",
-    "@tytool/list-select": "^0.0.5",
-    "@tytool/panelselect": "^0.0.5",
-    "@tytool/regexp": "^0.0.5",
-    "@tytool/sudoku": "^0.0.5",
-    "@tytool/upload": "^0.0.5",
-    "@tytool/util": "^0.0.4"
+    "@tytools/button-radio": "^0.0.5",
+    "@tytools/card": "^0.0.5",
+    "@tytools/config-provider": "^0.0.5",
+    "@tytools/customimg": "^0.0.5",
+    "@tytools/formblock": "^0.0.5",
+    "@tytools/img-radio": "^0.0.5",
+    "@tytools/info": "^0.0.5",
+    "@tytools/input": "^0.0.5",
+    "@tytools/inputnumber": "^0.0.5",
+    "@tytools/list-select": "^0.0.5",
+    "@tytools/panelselect": "^0.0.5",
+    "@tytools/regexp": "^0.0.5",
+    "@tytools/sudoku": "^0.0.5",
+    "@tytools/upload": "^0.0.5",
+    "@tytools/util": "^0.0.4"
   },
-  "gitHead": "6c0bcd3c572590b068bb0e7c74f553c15f7a4a33"
+  "gitHead": "7b8f50fc4730f30792875f2dee90ad6a54dbd98b"
 }

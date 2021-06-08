@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@ar/util@file:../util":
+"@tytool/util@file:../util":
   version "0.0.1"
   dependencies:
     "@types/mathjs" "^6.0.11"

@@ -1,8 +1,8 @@
 import React from 'react';
-import '@ar/config-provider';
+import '@tytools/config-provider';
 import 'antd';
 import 'classnames';
-import '@ar/customimg';
+import '@tytools/customimg';
 
 function createCommonjsModule(fn) {
   var module = { exports: {} };

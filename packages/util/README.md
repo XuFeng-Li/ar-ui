@@ -1,11 +1,11 @@
-# `@ar/index`
+# `@tytools/index`
 
 > TODO: description
 
 ## Usage
 
 ```
-const index = require('@ar/index');
+const index = require('@tytools/index');
 
 // TODO: DEMONSTRATE API
 ```

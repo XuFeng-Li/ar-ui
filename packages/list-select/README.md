@@ -1,11 +1,11 @@
-# `@ar/list-select`
+# `@tytools/list-select`
 
 > TODO: description
 
 ## Usage
 
 ```
-const index = require('@ar/list-select');
+const index = require('@tytools/list-select');
 
 // TODO: DEMONSTRATE API
 ```
