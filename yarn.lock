@@ -36,25 +36,6 @@
     lodash "^4.17.21"
     resize-observer-polyfill "^1.5.0"
 
-"@ar/customimg@file:./packages/customimg":
-  version "0.0.3"
-
-"@ar/panelSwitch@file:./packages/panelSwitch":
-  version "0.0.3"
-
-"@ar/panelselect@file:./packages/panelSelect":
-  version "0.0.3"
-  dependencies:
-    "@ar/util" "file:../../../../Library/Caches/Yarn/v6/npm-@ar-panelselect-0.0.3-ee2e9598-8b93-44d7-b727-785ddafbc5ad-1620972034191/node_modules/@ar/util"
-
-"@ar/util@file:./packages/util", "@ar/util@file:packages/util":
-  version "0.0.3"
-  dependencies:
-    "@types/mathjs" "^6.0.11"
-    "@types/qs" "^6.9.6"
-    mathjs "^9.3.0"
-    qs "^6.10.1"
-
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -4203,6 +4184,35 @@
   dependencies:
     "@typescript-eslint/types" "4.23.0"
     eslint-visitor-keys "^2.0.0"
+
+"@tytools/customimg@file:./packages/customimg":
+  version "0.0.5"
+
+"@tytools/panelSwitch@file:./packages/panelSwitch":
+  version "0.0.5"
+
+"@tytools/panelselect@file:./packages/panelSelect":
+  version "0.0.5"
+  dependencies:
+    "@tytools/util" "^0.0.4"
+
+"@tytools/util@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@tytools/util/-/util-0.0.4.tgz#6c38b5b99a60e742075c8c1e0ccdd6ed6983e61c"
+  integrity sha512-iEsTjSHSW3yYUUQSLbfPhIdsG8qLfLjUlL56ptNYzEpyOs34g/ivKmW97tbEWj9y+bxlFgu9DHXco4b/zeHMWQ==
+  dependencies:
+    "@types/mathjs" "^6.0.11"
+    "@types/qs" "^6.9.6"
+    mathjs "^9.3.0"
+    qs "^6.10.1"
+
+"@tytools/util@file:./packages/util":
+  version "0.0.4"
+  dependencies:
+    "@types/mathjs" "^6.0.11"
+    "@types/qs" "^6.9.6"
+    mathjs "^9.3.0"
+    qs "^6.10.1"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"

@@ -1,3 +1,4 @@
+/*
 import React, {useEffect, useState} from "react";
 import {Story, Meta} from "@storybook/react";
 import ARConfigProvider from "@tytools/config-provider";
@@ -194,7 +195,7 @@ const schemaMapList: { code: string, schema: ISchema }[] = [
                 initialValue:'BM-XT-SM-0003',
               }
             },
-            /*block_02_floorheating:{
+            /!*block_02_floorheating:{
               type:"boolean",
               title:"是否有地暖",
               "x-decorator":"FormItem",
@@ -202,7 +203,7 @@ const schemaMapList: { code: string, schema: ISchema }[] = [
               "x-component-props":{
 
               }
-            },*/
+            },*!/
             block_02_startPoint:{
               type:'string',
               title:"起铺点",
@@ -236,4 +237,4 @@ const fetchSchema = (code: string) => {
     break;
   }
   return schema;
-}
+}*/
