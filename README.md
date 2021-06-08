@@ -42,3 +42,9 @@ options: {
           }
 ```
 >       否则报错  Inline JavaScript is not enabled. Is it set in your options
+
+# 运行 storybook
+* 如果未安装 storybook 终端命令，则需要先安装 storybook 终端命令 npm i -g @storybook/cli
+* 执行 yarn packageInstall 以安装所有包的依赖
+> 已将将包的引入方式换成 动态依赖了，但是执行 lerna bootstrap 依然不会为所有的包安装依赖，目前只能先使用脚本为各组件安装依赖
+* 执行 yarn storybook 启动以 storybook
