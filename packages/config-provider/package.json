@@ -1,6 +1,6 @@
 {
   "name": "@ar/config-provider",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "全局 context 配置",
   "keywords": [
     "provider"

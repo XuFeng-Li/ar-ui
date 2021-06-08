@@ -1,6 +1,6 @@
 {
   "name": "@ar/list-select",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "唤起 list 面板的列表选择组件",
   "keywords": [
     "list"
