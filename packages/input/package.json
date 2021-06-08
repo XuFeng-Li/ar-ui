@@ -1,6 +1,6 @@
 {
-  "name": "@ar/input",
-  "version": "0.0.4",
+  "name": "@tytool/input",
+  "version": "0.0.5",
   "description": "> TODO: description",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "",
@@ -37,5 +37,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.2.4"
-  }
+  },
+  "gitHead": "6c0bcd3c572590b068bb0e7c74f553c15f7a4a33"
 }

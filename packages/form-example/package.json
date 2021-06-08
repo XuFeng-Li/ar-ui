@@ -1,6 +1,6 @@
 {
-  "name": "@ar/form-example",
-  "version": "0.0.4",
+  "name": "@tytool/form-example",
+  "version": "0.0.5",
   "description": "用于测试 组件库 中所有组件在formily中使用的demo",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "",
@@ -18,7 +18,8 @@
     "url": "git@code.aliyun.com:frontend-tools/ar-ui.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "rollup": "rollup -c ../../rollup.config.js"
   },
   "peerDependencies": {
     "@formily/antd": "^2.0.0-beta.42",
@@ -36,20 +37,21 @@
     "axios": "^0.21.1"
   },
   "dependencies": {
-    "@ar/button-radio": "file:../button-radio",
-    "@ar/card": "file:../card",
-    "@ar/config-provider": "file:../config-provider",
-    "@ar/customimg": "file:../customImg",
-    "@ar/img-radio": "file:../img-radio",
-    "@ar/info": "file:../info",
-    "@ar/input": "file:../input",
-    "@ar/inputnumber": "file:../inputnumber",
-    "@ar/list-select": "file:../list-select",
-    "@ar/panelselect": "file:../panelSelect",
-    "@ar/regexp": "file:../regExp",
-    "@ar/sudoku": "file:../sudoku",
-    "@ar/upload": "file:../upload",
-    "@ar/util": "file:../util",
-    "formblock": "file:../formBlock"
-  }
+    "@tytool/button-radio": "^0.0.5",
+    "@tytool/card": "^0.0.5",
+    "@tytool/config-provider": "^0.0.5",
+    "@tytool/customimg": "^0.0.5",
+    "@tytool/formblock": "^0.0.5",
+    "@tytool/img-radio": "^0.0.5",
+    "@tytool/info": "^0.0.5",
+    "@tytool/input": "^0.0.5",
+    "@tytool/inputnumber": "^0.0.5",
+    "@tytool/list-select": "^0.0.5",
+    "@tytool/panelselect": "^0.0.5",
+    "@tytool/regexp": "^0.0.5",
+    "@tytool/sudoku": "^0.0.5",
+    "@tytool/upload": "^0.0.5",
+    "@tytool/util": "^0.0.4"
+  },
+  "gitHead": "6c0bcd3c572590b068bb0e7c74f553c15f7a4a33"
 }

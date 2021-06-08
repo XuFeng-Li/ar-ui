@@ -1,6 +1,6 @@
 {
-  "name": "@ar/panelswitch",
-  "version": "0.0.4",
+  "name": "@tytool/panelswitch",
+  "version": "0.0.5",
   "description": "这是一个自定义的 switch 按钮",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
@@ -42,5 +42,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.2.4"
-  }
+  },
+  "gitHead": "6c0bcd3c572590b068bb0e7c74f553c15f7a4a33"
 }

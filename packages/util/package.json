@@ -1,6 +1,6 @@
 {
-  "name": "@ar/util",
-  "version": "0.0.3",
+  "name": "@tytool/util",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "keywords": [
     "util"

@@ -1,6 +1,6 @@
 {
-  "name": "@ar/sudoku",
-  "version": "0.0.4",
+  "name": "@tytool/sudoku",
+  "version": "0.0.5",
   "description": "this is panel package for sudoku",
   "keywords": [
     "sudoku"
@@ -31,7 +31,7 @@
     "rollup": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@ar/util": "file:../util"
+    "@tytool/util": "^0.0.4"
   },
   "peerDependencies": {
     "@formily/antd": "^2.0.0-beta.42",
@@ -44,5 +44,6 @@
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "gitHead": "6c0bcd3c572590b068bb0e7c74f553c15f7a4a33"
 }

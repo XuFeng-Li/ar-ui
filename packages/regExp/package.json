@@ -1,8 +1,8 @@
 {
-  "name": "@ar/regexp",
-  "version": "0.0.4",
+  "name": "@tytool/regexp",
+  "version": "0.0.5",
   "description": "> TODO: description",
-  "author": "lucky1204 <1125105110@qq.com>",
+  "author": "tytool <lixf@asman.com.cn>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
   "license": "ISC",
   "input": "src/index.tsx",
@@ -36,7 +36,7 @@
     "url": "https://github.com/XuFeng-Li/ar-ui/issues"
   },
   "dependencies": {
-    "@ar/util": "file:../util"
+    "@tytool/util": "^0.0.4"
   },
   "peerDependencies": {
     "@types/react": "^17.0.3",
