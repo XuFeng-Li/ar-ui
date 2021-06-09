@@ -1,6 +1,6 @@
 {
   "name": "@tytools/card",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "这是自定义 card 组件",
   "keywords": [
     "card"

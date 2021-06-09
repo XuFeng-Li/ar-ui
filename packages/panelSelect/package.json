@@ -1,6 +1,6 @@
 {
   "name": "@tytools/panelselect",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "this is select with panel",
   "keywords": [
     "select"
@@ -44,7 +44,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@tytools/util": "^0.0.4"
+    "@tytools/util": "^0.0.5"
   },
   "gitHead": "7b8f50fc4730f30792875f2dee90ad6a54dbd98b"
 }

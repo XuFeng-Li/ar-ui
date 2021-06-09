@@ -1,6 +1,6 @@
 {
   "name": "@tytools/info",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "this is package for info",
   "keywords": [
     "info"
@@ -31,7 +31,7 @@
     "rollup": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@tytools/util": "^0.0.4"
+    "@tytools/util": "^0.0.5"
   },
   "peerDependencies": {
     "@types/react": "^17.0.3",

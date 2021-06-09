@@ -1,6 +1,6 @@
 {
   "name": "@tytools/upload",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "package for upload",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
@@ -45,6 +45,6 @@
   },
   "gitHead": "7b8f50fc4730f30792875f2dee90ad6a54dbd98b",
   "dependencies": {
-    "@tytools/util": "^0.0.4"
+    "@tytools/util": "^0.0.5"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@tytools/input",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "> TODO: description",
   "author": "lucky1204 <1125105110@qq.com>",
   "homepage": "",
@@ -27,7 +27,7 @@
     "rollup": "rollup -c ../../rollup.config.js"
   },
   "dependencies": {
-    "@tytools/util": "^0.0.4"
+    "@tytools/util": "^0.0.5"
   },
   "peerDependencies": {
     "@formily/antd": "^2.0.0-beta.42",

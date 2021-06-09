@@ -1,6 +1,6 @@
 {
   "name": "@tytools/regexp",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "> TODO: description",
   "author": "tytool <lixf@asman.com.cn>",
   "homepage": "https://github.com/XuFeng-Li/ar-ui#readme",
@@ -36,7 +36,7 @@
     "url": "https://github.com/XuFeng-Li/ar-ui/issues"
   },
   "dependencies": {
-    "@tytools/util": "^0.0.4"
+    "@tytools/util": "^0.0.5"
   },
   "peerDependencies": {
     "@types/react": "^17.0.3",

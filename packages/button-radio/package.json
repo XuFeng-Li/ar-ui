@@ -1,6 +1,6 @@
 {
   "name": "@tytools/button-radio",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "这个组件是对 antd 中 radio 的二次改造，类似于 switch 组件",
   "keywords": [
     "button",
