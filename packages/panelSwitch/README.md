@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const index = require('@tytools/panelSwitch');
+const index = require('@tytools/panelswitch');
 
 // TODO: DEMONSTRATE API
 ```

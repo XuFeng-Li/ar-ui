@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@tytools/customimg@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@tytools/customimg/-/customimg-0.0.5.tgz#aec00c52b308a868aa3423de49a7a4367d4b10de"
-  integrity sha512-fg5t/VkpK9G6Bec35aYixAPeLyR63xqkJ05/YDcvuDffJsLGQfnvU5Qcmodbgh0wa9mplnqjPiGfEoPAO40Q0w==
-
 classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
