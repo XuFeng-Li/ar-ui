@@ -1,5 +1,8 @@
-##
-
+#资源
+## npm 账号
+> 用户名：tytools
+> 密码： TangYuan123
+> 邮箱： lxf@asman.com.cn
 ### 使用 lerna 创建新的package
 * 执行 lerna add [package_name]
 * 修改文件 - 
